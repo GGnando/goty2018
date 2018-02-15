@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: d5010384acd87d8409b94422ed2eb4e0
 timeCreated: 1518621987
+=======
+guid: eb0422b2b54c23a438df75be5b520893
+timeCreated: 1518666725
+>>>>>>> Ryan-branch
 licenseType: Free
 MonoImporter:
   externalObjects: {}

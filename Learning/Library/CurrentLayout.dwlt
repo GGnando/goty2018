@@ -14,6 +14,7 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 43
 <<<<<<< HEAD
     width: 1440
@@ -22,10 +23,15 @@ MonoBehaviour:
     width: 1280
     height: 677
 >>>>>>> Ryan
+=======
+    y: 42
+    width: 1920
+    height: 998
+>>>>>>> Ryan-branch
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -47,6 +53,7 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1440
     height: 877
   m_MinSize: {x: 950, y: 542}
@@ -55,6 +62,11 @@ MonoBehaviour:
     height: 677
   m_MinSize: {x: 950, y: 300}
 >>>>>>> Ryan
+=======
+    width: 1920
+    height: 998
+  m_MinSize: {x: 950, y: 300}
+>>>>>>> Ryan-branch
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -73,10 +85,14 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1440
 =======
     width: 1280
 >>>>>>> Ryan
+=======
+    width: 1920
+>>>>>>> Ryan-branch
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -97,12 +113,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     y: 857
     width: 1440
 =======
     y: 657
     width: 1280
 >>>>>>> Ryan
+=======
+    y: 978
+    width: 1920
+>>>>>>> Ryan-branch
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -126,6 +147,7 @@ MonoBehaviour:
     x: 0
     y: 30
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1440
     height: 827
   m_MinSize: {x: 683, y: 492}
@@ -140,6 +162,14 @@ MonoBehaviour:
   vertical: 0
   controlID: 8257
 >>>>>>> Ryan
+=======
+    width: 1920
+    height: 948
+  m_MinSize: {x: 683, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
+  vertical: 0
+  controlID: 9
+>>>>>>> Ryan-branch
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -159,6 +189,7 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 1163
     height: 827
   m_MinSize: {x: 406, y: 492}
@@ -173,6 +204,14 @@ MonoBehaviour:
   vertical: 1
   controlID: 8258
 >>>>>>> Ryan
+=======
+    width: 1551
+    height: 948
+  m_MinSize: {x: 406, y: 492}
+  m_MaxSize: {x: 10002, y: 14042}
+  vertical: 1
+  controlID: 10
+>>>>>>> Ryan-branch
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,6 +228,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
     width: 1163
     height: 440
@@ -207,6 +247,14 @@ MonoBehaviour:
   m_Selected: 0
   m_LastSelected: 0
 >>>>>>> Ryan
+=======
+    width: 1551
+    height: 504
+  m_MinSize: {x: 406, y: 221}
+  m_MaxSize: {x: 8006, y: 4021}
+  vertical: 0
+  controlID: 11
+>>>>>>> Ryan-branch
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,6 +272,7 @@ MonoBehaviour:
     x: 0
 <<<<<<< HEAD
     y: 0
+<<<<<<< HEAD
     width: 342
     height: 440
   m_MinSize: {x: 202, y: 221}
@@ -235,6 +284,12 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 4000, y: 4000}
 >>>>>>> Ryan
+=======
+    width: 456
+    height: 504
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+>>>>>>> Ryan-branch
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -279,6 +334,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 342
     y: 0
     width: 821
@@ -292,6 +348,15 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 221}
   m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 15}
+=======
+    x: 456
+    y: 0
+    width: 1095
+    height: 504
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 14}
+>>>>>>> Ryan-branch
   m_Panes:
   - {fileID: 15}
   m_Selected: 0
@@ -312,9 +377,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     y: 440
     width: 1163
     height: 387
+=======
+    y: 504
+    width: 1551
+    height: 444
+>>>>>>> Ryan-branch
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
 =======
@@ -344,10 +415,14 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 1163
+=======
+    x: 1551
+>>>>>>> Ryan-branch
     y: 0
-    width: 277
-    height: 827
+    width: 369
+    height: 948
   m_MinSize: {x: 277, y: 71}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 18}
@@ -407,6 +482,7 @@ MonoBehaviour:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_HBaseRangeMin: -720
     m_HBaseRangeMax: 720
     m_VBaseRangeMin: -394.5
@@ -417,6 +493,12 @@ MonoBehaviour:
     m_VBaseRangeMin: -101
     m_VBaseRangeMax: 101
 >>>>>>> Ryan
+=======
+    m_HBaseRangeMin: -360
+    m_HBaseRangeMax: 360
+    m_VBaseRangeMin: -201
+    m_VBaseRangeMax: 201
+>>>>>>> Ryan-branch
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -434,6 +516,7 @@ MonoBehaviour:
       x: 0
       y: 17
 <<<<<<< HEAD
+<<<<<<< HEAD
       width: 1440
       height: 789
     m_Scale: {x: 1, y: 1}
@@ -444,12 +527,19 @@ MonoBehaviour:
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 380, y: 101}
 >>>>>>> Ryan
+=======
+      width: 720
+      height: 402
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 360, y: 201}
+>>>>>>> Ryan-branch
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD
       x: -720
       y: -394.5
@@ -461,12 +551,22 @@ MonoBehaviour:
       width: 760
       height: 202
 >>>>>>> Ryan
+=======
+      x: -360
+      y: -201
+      width: 720
+      height: 402
+>>>>>>> Ryan-branch
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LastWindowPixelSize: {x: 1440, y: 806}
+=======
+  m_LastWindowPixelSize: {x: 720, y: 419}
+>>>>>>> Ryan-branch
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -493,15 +593,15 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 92
-    width: 340
-    height: 419
+    y: 91
+    width: 454
+    height: 483
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 86cfffffaed1ffffcad3ffff24dbffff9cddffff9ce0ffff7eeeffff2ef4ffff62f7ffff7cfbffff00000000
+    m_ExpandedIDs: e2faffffe4faffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -553,6 +653,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 344
     y: 92
     width: 817
@@ -563,6 +664,12 @@ MonoBehaviour:
     width: 760
     height: 366
 >>>>>>> Ryan
+=======
+    x: 458
+    y: 91
+    width: 1091
+    height: 483
+>>>>>>> Ryan-branch
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
   lastFramingTime: 0
@@ -570,9 +677,15 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: -3.7375062, y: 1.937578, z: 3.1292973}
     speed: 2
     m_Value: {x: -3.7375062, y: 1.937578, z: 3.1292973}
+=======
+    m_Target: {x: -2.5159245, y: 1.909956, z: 1.4121485}
+    speed: 2
+    m_Value: {x: -2.5159245, y: 1.909956, z: 1.4121485}
+>>>>>>> Ryan-branch
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -596,13 +709,20 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.16149545, y: -0.49064195, z: 0.09308883, w: -0.85118985}
     speed: 2
 <<<<<<< HEAD
     m_Value: {x: 0.23951201, y: 0.53875375, z: -0.16312097, w: 0.79105616}
-  m_Size:
-    m_Target: 6.2509294
+=======
+    m_Target: {x: 0.28222921, y: 0.17234996, z: -0.05161912, w: 0.9423257}
     speed: 2
+    m_Value: {x: 0.28222921, y: 0.17234996, z: -0.05161912, w: 0.9423257}
+>>>>>>> Ryan-branch
+  m_Size:
+    m_Target: 6.7349715
+    speed: 2
+<<<<<<< HEAD
     m_Value: 6.2509294
 =======
     m_Value: {x: -0.16149545, y: -0.49064195, z: 0.09308883, w: -0.85118985}
@@ -611,6 +731,9 @@ MonoBehaviour:
     speed: 2
     m_Value: 3.3257163
 >>>>>>> Ryan
+=======
+    m_Value: 6.7349715
+>>>>>>> Ryan-branch
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -700,6 +823,7 @@ MonoBehaviour:
     serializedVersion: 2
 <<<<<<< HEAD
     x: 0
+<<<<<<< HEAD
     y: 532
     width: 1161
     height: 366
@@ -709,6 +833,11 @@ MonoBehaviour:
     width: 233
     height: 274
 >>>>>>> Ryan
+=======
+    y: 595
+    width: 1549
+    height: 423
+>>>>>>> Ryan-branch
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -723,6 +852,7 @@ MonoBehaviour:
     m_SearchArea: 0
     m_Folders:
 <<<<<<< HEAD
+<<<<<<< HEAD
     - Assets/Standard Assets/Characters/ThirdPersonCharacter/Models/Materials
   m_ViewMode: 1
   m_StartGridSize: 64
@@ -735,10 +865,18 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Scripts
 >>>>>>> Ryan
+=======
+    - Assets
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets
+>>>>>>> Ryan-branch
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\Esteban Gonzalez\Documents\GitHub\goty2018\Learning
+  m_LastProjectPath: C:\Users\Ryan\Documents\GitHub\goty2018\Learning
   m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< HEAD
 <<<<<<< HEAD
     scrollPos: {x: 0, y: 19}
     m_SelectedIDs: 82330000
@@ -750,6 +888,12 @@ MonoBehaviour:
     m_LastClickedID: 10454
     m_ExpandedIDs: 00000000bc27000060280000742800008429000000ca9a3bffffff7f
 >>>>>>> Ryan
+=======
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 86290000
+    m_LastClickedID: 10630
+    m_ExpandedIDs: 0000000086290000a2290000262a00003a2a00003c2b00004a2b000000ca9a3bffffff7f
+>>>>>>> Ryan-branch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -778,10 +922,14 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 00000000e0270000fc270000802800009428000096290000a429000000ca9a3bffffff7f
 =======
     m_ExpandedIDs: 00000000bc27000060280000742800008429000000ca9a3bffffff7f
 >>>>>>> Ryan
+=======
+    m_ExpandedIDs: 0000000086290000a2290000262a00003a2a00003c2b00004a2b0000
+>>>>>>> Ryan-branch
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -809,7 +957,11 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_HadKeyboardFocusLastEvent: 1
+=======
+    m_HadKeyboardFocusLastEvent: 0
+>>>>>>> Ryan-branch
     m_ExpandedInstanceIDs: c623000064310000
 =======
     m_HadKeyboardFocusLastEvent: 0
@@ -868,6 +1020,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     x: 1165
     y: 92
     width: 275
@@ -878,6 +1031,12 @@ MonoBehaviour:
     width: 279
     height: 606
 >>>>>>> Ryan
+=======
+    x: 1553
+    y: 91
+    width: 367
+    height: 927
+>>>>>>> Ryan-branch
   m_PersistentViewDataDictionary: {fileID: 0}
   m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
