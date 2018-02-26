@@ -5,7 +5,7 @@ using UnityStandardAssets.Characters;
 
 public class PauseGame : MonoBehaviour {
     public Transform Canvas;
-    public Transform Player;
+    public Transform player;
 
 	// Update is called once per frame
 	void Update () {
@@ -20,12 +20,13 @@ public class PauseGame : MonoBehaviour {
         {
             Canvas.gameObject.SetActive(true);
             Time.timeScale = 0;
-            //Player.GetComponent<ThirdPersonController>().enabled = false;
+            //player.GetComponent<UnityEditor.Experimental.Build.Player>().enabled = false;
         }
         else
         {
             Canvas.gameObject.SetActive(false);
             Time.timeScale = 1;
+            //player.GetComponent<UnityEditor.Experimental.Build.Player>().enabled = true;
         }
     }
 }

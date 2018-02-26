@@ -81,7 +81,9 @@
      <Compile Include="Assets\Scripts\ItemScripts\Interactables.cs" />
      <Compile Include="Assets\Scripts\ItemScripts\Item.cs" />
      <Compile Include="Assets\Scripts\ItemScripts\ItemPickup.cs" />
+     <Compile Include="Assets\Scripts\NewPlayModeTest.cs" />
      <Compile Include="Assets\Scripts\PauseGame.cs" />
+     <Compile Include="Assets\Scripts\SaveGame.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
