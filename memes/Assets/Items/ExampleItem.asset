@@ -14,7 +14,7 @@ MonoBehaviour:
   name: ExampleItemIronSword
   icon: {fileID: 21300000, guid: c87ac3e9607289c40884dd84b25d087f, type: 3}
   itemDescription: Description
-  itemType: 0
+  itemType: 4
   sellable: 0
   stackable: 0
   itemCost: 0

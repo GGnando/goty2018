@@ -25,6 +25,12 @@ public class Inventory : MonoBehaviour {
     //Creates list to hold items
     public List<Item> items = new List<Item>();
 
+    //Getters for List of items for testing
+    public List<Item> getItems()
+    {
+        return items;
+    }
+
     //Adds item to list
     public void Add(Item item)
     {
