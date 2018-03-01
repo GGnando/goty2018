@@ -16,6 +16,8 @@ public class InventoryUI : MonoBehaviour {
     //Stores inventory in variable
     Inventory inventory;
 
+    [SerializeField] GameObject itemSlotPrefab;
+
     void Start () {
         //Set inventory and update UI
         inventory = Inventory.instance;
@@ -44,6 +46,8 @@ public class InventoryUI : MonoBehaviour {
             //Means inventory isnt full
             if(i < inventory.items.Count)
             {
+                GameObject itemSlot = Instantiate(itemSlotPrefab);
+
                 //Add item to specific inventory slot
                 itemSlots[i].addItem(inventory.items[i]);
             }
