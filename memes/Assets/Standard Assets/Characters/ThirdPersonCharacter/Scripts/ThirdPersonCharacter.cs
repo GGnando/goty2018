@@ -1,8 +1,4 @@
 using UnityEngine;
-<<<<<<< HEAD
-=======
-using UnityEngine.EventSystems;
->>>>>>> Tyler-branch
 
 namespace UnityStandardAssets.Characters.ThirdPerson
 {
@@ -49,24 +45,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		public void Move(Vector3 move, bool crouch, bool jump)
 		{
-<<<<<<< HEAD
 
 			// convert the world relative moveInput vector into a local-relative
 			// turn amount and forward amount required to head in the desired
 			// direction.
 			if (move.magnitude > 1f) move.Normalize();
-=======
-            //This is to make sure that player is not in inventory or state where movement should not be done
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                return;
-            }
-
-            // convert the world relative moveInput vector into a local-relative
-            // turn amount and forward amount required to head in the desired
-            // direction.
-            if (move.magnitude > 1f) move.Normalize();
->>>>>>> Tyler-branch
 			move = transform.InverseTransformDirection(move);
 			CheckGroundStatus();
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
