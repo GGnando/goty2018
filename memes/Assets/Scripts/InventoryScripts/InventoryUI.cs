@@ -16,6 +16,11 @@ public class InventoryUI : MonoBehaviour {
     //Stores inventory in variable
     Inventory inventory;
 
+<<<<<<< HEAD
+=======
+    [SerializeField] GameObject itemSlotPrefab;
+
+>>>>>>> Tyler-branch
     void Start () {
         //Set inventory and update UI
         inventory = Inventory.instance;
@@ -44,6 +49,11 @@ public class InventoryUI : MonoBehaviour {
             //Means inventory isnt full
             if(i < inventory.items.Count)
             {
+<<<<<<< HEAD
+=======
+                GameObject itemSlot = Instantiate(itemSlotPrefab);
+
+>>>>>>> Tyler-branch
                 //Add item to specific inventory slot
                 itemSlots[i].addItem(inventory.items[i]);
             }

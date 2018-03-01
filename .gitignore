@@ -3,7 +3,7 @@
 ###
 [Aa]ssets/AssetStoreTools*
 [Bb]uild/
-[Ll]ibrary/
+/[Ll]ibrary/
 [Ll]ocal[Cc]ache/
 [Oo]bj/
 [Tt]emp/
@@ -38,5 +38,19 @@ sysinfo.txt
 .Trashes
 Icon?
 ehthumbs.db
+<<<<<<< HEAD
 Thumbs.db
 memes/Library/shadercompiler-UnityShaderCompiler.exe0.log
+=======
+Thumbs.db
+>>>>>>> Tyler-branch
+memes/Library/TilemapEditorUserSettings.asset
+memes/Library/SpriteAtlasDatabase.asset
+memes/Library/ScriptMapper
+*.dwlt
+memes/Library/assetDatabase3
+*.log
+memes/Library/metadata/00/0000000000000000b000000000000000
+*.txt
+*.dwlt
+memes/Library/assetDatabase3
