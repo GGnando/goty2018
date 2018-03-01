@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Project.unity
+- path: Assets/Ryan_Scene.unity
   isLoaded: 1
   isActive: 1
