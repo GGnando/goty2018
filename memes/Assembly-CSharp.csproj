@@ -75,13 +75,15 @@
      <Compile Include="Assets\Scripts\CharacterMovementScripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\CharacterMovementScripts\CharacterMovement.cs" />
      <Compile Include="Assets\Scripts\CharacterStat.cs" />
+     <Compile Include="Assets\Scripts\GameMenuScripts\NewPlayModeTest.cs" />
+     <Compile Include="Assets\Scripts\GameMenuScripts\PauseGame.cs" />
+     <Compile Include="Assets\Scripts\GameMenuScripts\SaveGame.cs" />
      <Compile Include="Assets\Scripts\InventoryScripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\InventoryScripts\InventorySlot.cs" />
      <Compile Include="Assets\Scripts\InventoryScripts\InventoryUI.cs" />
      <Compile Include="Assets\Scripts\ItemScripts\Interactables.cs" />
      <Compile Include="Assets\Scripts\ItemScripts\Item.cs" />
      <Compile Include="Assets\Scripts\ItemScripts\ItemPickup.cs" />
-     <Compile Include="Assets\Scripts\PauseGame.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
