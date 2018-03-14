@@ -1,18 +1,30 @@
 ###
 # Unity folders and files
 ###
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+Assets/AssetStoreTools*
 [Aa]ssets/AssetStoreTools*
 [Bb]uild/
+[Bb]uilds/
+Library/
 [Ll]ibrary/
 [Ll]ocal[Cc]ache/
 [Oo]bj/
 [Tt]emp/
 [Uu]nityGenerated/
+
 # file on crash reports
 sysinfo.txt
+
 # Unity3D generated meta files
 *.pidb.meta
+*.pdb.meta
 
+dir_to_ignore/metadata
 ###
 # VS/MD solution and project files
 ###
