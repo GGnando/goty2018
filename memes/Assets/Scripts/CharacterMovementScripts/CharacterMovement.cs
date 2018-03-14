@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class CharacterMovement : MonoBehaviour
 {
+    
 
     //Needs a reference to the camera since movement is camera-relative
     [SerializeField] private Transform cam;
@@ -20,7 +21,7 @@ public class CharacterMovement : MonoBehaviour
 
     //Reference to character controller
     private CharacterController charController;
-
+    private Animator animator;
     //Variables relative to jumping
     public float jumpSpeed = 15.0f;
     public float gravity = -9.8f;
@@ -43,6 +44,8 @@ public class CharacterMovement : MonoBehaviour
 
         //Initialized vertical speed
         vertSpeed = minFall;
+
+        animator = GetComponent<Animator>();
     }
 
     void Update() {
@@ -89,10 +92,12 @@ public class CharacterMovement : MonoBehaviour
         //Get input from keyboard using horizontal and vertical buttons (by default, wasd and arrows)
         float horInput = Input.GetAxis("Horizontal");
         float vertInput = Input.GetAxis("Vertical");
-
+        //fernando!!!!!!!!!!!
+        
         //If statement so movement only done if wasd input
         if (horInput != 0 || vertInput != 0)
         {
+            animator.SetBool("isRunning", true);
             //Change the vector components to inputted, with additional multiplyer from movement speed
             movement.x = horInput * moveSpeed;
             movement.z = vertInput * moveSpeed;
@@ -112,6 +117,9 @@ public class CharacterMovement : MonoBehaviour
             //The lerp function here uses interpolation to allow a more smooth camera movement, while transform would cause choppy movement
             Quaternion direction = Quaternion.LookRotation(movement);
             transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime);
+        }
+        else {
+            animator.SetBool("isRunning", false);
         }
 
         //Bool to store if ground is contacted by capsule collision (character hitbox)
