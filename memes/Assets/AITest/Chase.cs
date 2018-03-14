@@ -9,8 +9,8 @@ public class Chase : MonoBehaviour {
     static Animator patrolCycle;
 
     private float rotationSpeed = .1f;
-    private int agressionDistance = 3;
-    private float enemyMovementSpeed = .00005f;
+    private int agressionDistance = 5;
+    private float enemyMovementSpeed = .00004f;
 
 	void Start () {
         patrolCycle = GetComponent<Animator>();
@@ -25,7 +25,7 @@ public class Chase : MonoBehaviour {
             lookAtTarget(direction);
 
             patrolCycle.SetBool("Idle", false);
-            if (direction.magnitude > 1) {
+            if (direction.magnitude > 2) {
                 enemyRigidBody.AddForce(transform.forward * enemyMovementSpeed);
                 patrolCycle.SetBool("Attacking", false);
                 patrolCycle.SetBool("Chasing", true);

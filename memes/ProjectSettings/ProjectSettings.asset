@@ -66,6 +66,10 @@ PlayerSettings:
   disableDepthAndStencilBuffers: 0
   defaultIsFullScreen: 1
   defaultIsNativeResolution: 1
+<<<<<<< HEAD
+=======
+  macRetinaSupport: 1
+>>>>>>> raj2
   runInBackground: 1
   captureSingleScreen: 0
   muteOtherAudioSources: 0

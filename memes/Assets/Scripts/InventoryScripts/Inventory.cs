@@ -22,53 +22,13 @@ public class Inventory : MonoBehaviour {
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
 
-    //Creates list to hold items of each type
+    //Creates list to hold items
     public List<Item> items = new List<Item>();
-
-    //List of all the types of items
-    public List<Item> weapons = new List<Item>();
-    public List<Item> shields = new List<Item>();
-    public List<Item> armor = new List<Item>();
-    public List<Item> consumables = new List<Item>();
-    public List<Item> resources = new List<Item>();
-    public List<Item> quests = new List<Item>();
-
-    //Getters for List of items for testing
-    public List<Item> getItems()
-    {
-        return items;
-    }
 
     //Adds item to list
     public void Add(Item item)
     {
         items.Add(item);
-
-        //Add specific item to item type list:
-        if(item.itemType == Item.ItemType.Quest)
-        {
-            quests.Add(item);
-        }
-        if(item.itemType == Item.ItemType.Resource)
-        {
-            resources.Add(item);
-        }
-        if(item.itemType == Item.ItemType.Consumable)
-        {
-            consumables.Add(item);
-        }
-        if (item.itemType == Item.ItemType.Armor)
-        {
-            armor.Add(item);
-        }
-        if (item.itemType == Item.ItemType.Shield)
-        {
-            shields.Add(item);
-        }
-        if (item.itemType == Item.ItemType.Weapon)
-        {
-            weapons.Add(item);
-        }
 
         if (onItemChangedCallback != null)
         {
@@ -82,32 +42,6 @@ public class Inventory : MonoBehaviour {
     public void Remove(Item item)
     {
         items.Remove(item);
-
-        //Remove item from its list:
-        if (item.itemType == Item.ItemType.Quest)
-        {
-            quests.Remove(item);
-        }
-        if (item.itemType == Item.ItemType.Resource)
-        {
-            resources.Remove(item);
-        }
-        if (item.itemType == Item.ItemType.Consumable)
-        {
-            consumables.Remove(item);
-        }
-        if (item.itemType == Item.ItemType.Armor)
-        {
-            armor.Remove(item);
-        }
-        if (item.itemType == Item.ItemType.Shield)
-        {
-            shields.Remove(item);
-        }
-        if (item.itemType == Item.ItemType.Weapon)
-        {
-            weapons.Remove(item);
-        }
 
         if (onItemChangedCallback != null)
         {
