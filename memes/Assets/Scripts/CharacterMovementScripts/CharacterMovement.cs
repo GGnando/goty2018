@@ -48,10 +48,10 @@ public class CharacterMovement : MonoBehaviour
     void Update() {
 
         //This is to make sure that player is not in inventory or state where movement should not be done
-        if (EventSystem.current.IsPointerOverGameObject())
+        /*if (EventSystem.current.IsPointerOverGameObject())
         {
             return;
-        }
+        }*/
 
         //Right click interaction
         if (Input.GetMouseButtonDown(1))
