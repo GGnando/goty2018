@@ -52,6 +52,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 return;
             }
 
+
+
             // convert the world relative moveInput vector into a local-relative
             // turn amount and forward amount required to head in the desired
             // direction.

@@ -12,15 +12,31 @@ public class Item : ScriptableObject {
     public bool sellable;
     public bool stackable;
     public int itemCost;
-    public int weight;
+    public double weight;
     public int durability;
     public int quantity;
-    public bool consumable;
+    public string interactName; //Interact name on button for inventory
     public bool craftable;
 
     public enum ItemType
     {
         Quest, Consumable, Resource, Shield, Weapon, Armor
+    }
+
+    public Item(string n, Sprite i, string d, ItemType t, bool s, bool st, int c, double w, int du, int q, string iname, bool cra)
+    {
+        name = n;
+        icon = i;
+        itemDescription = d;
+        itemType = t;
+        sellable = s;
+        stackable = st;
+        itemCost = c;
+        weight = w;
+        durability = du;
+        quantity = q;
+        interactName = iname;
+        craftable = cra;
     }
 
     public virtual void use()
