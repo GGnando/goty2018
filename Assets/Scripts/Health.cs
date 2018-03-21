@@ -55,4 +55,8 @@ public class Health : MonoBehaviour {
 	void OnMouseExit() {
 		healthText.GetComponent<Text> ().enabled = false;
 	}
+
+    public int GetHealth() { return currentHealth; }
+
+    public void SetHealth(int newHealth) { currentHealth = newHealth; }
 }
