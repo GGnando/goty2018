@@ -1,21 +1,20 @@
-﻿/*
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-
-public class BaseStat {
+public class BaseStat : MonoBehaviour {
 
     public List<BonusStat> bonusStats;
     private float baseValue;
     private string name;
-    private string discription;
+    private string description;
     private float totalValue;
 
-    public BaseStat(float baseValue, string name, string discription) {
+    public BaseStat(float baseValue, string name, string description) {
         bonusStats = new List<BonusStat>();
         this.baseValue = baseValue;
         this.name = name;
-        this.name = discription;
+        this.name = description;
         totalValue = baseValue;
     }
 
@@ -53,14 +52,17 @@ public class BaseStat {
         this.name = name;
     }
     public string getDiscription() {
-        return discription;
+        return description;
     }
-    public void setDiscription(string discription) {
-        this.discription = discription;
+    public void setDescription(string description) {
+        this.description = description;
     }
     public float getTotalValue() {
         return totalValue;
     }
+    public void setTotalValue(float totalValue)
+    {
+        this.totalValue = totalValue;
+    }
 
 }
-*/
