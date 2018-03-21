@@ -18,9 +18,17 @@ public class InventoryUI : MonoBehaviour {
 
     //[SerializeField] GameObject itemSlotPrefab;
 
-    //Reference to inventoryUI panel, scrollArea
-    public RectTransform inventoryPanel;
-    public RectTransform scrollViewContent;
+    //Reference to inventoryUI panel, scrollArea for each tab's inventory
+    public RectTransform weaponsInventoryPanel;
+    public RectTransform weaponsScrollViewContent;
+    public RectTransform shieldsInventoryPanel;
+    public RectTransform shieldsScrollViewContent;
+    public RectTransform armorInventoryPanel;
+    public RectTransform armorScrollViewContent;
+    public RectTransform consumablesInventoryPanel;
+    public RectTransform consumablesScrollViewContent;
+    public RectTransform resourcesInventoryPanel;
+    public RectTransform resourcesScrollViewContent;
 
     //Reference to itemContainer prefab for item slots
     InventoryUIItem itemContainer;
@@ -49,6 +57,7 @@ public class InventoryUI : MonoBehaviour {
         //inventoryPanel.gameObject.SetActive(false);
 
         //Helps UI know which item added to inventory. Event is known
+        
         UIEventHandler.OnItemAddedToInventory += itemAdded;
 	}
 
@@ -57,9 +66,64 @@ public class InventoryUI : MonoBehaviour {
     {
         //Updates Inventory UI to add more items
         //Because of event system, adds these
-        InventoryUIItem emptyItem = Instantiate(itemContainer);
-        emptyItem.setItem(item);
-        emptyItem.transform.SetParent(scrollViewContent);
+
+        //If statement deals with 1st of a kind item and unstackable items
+        /*
+        if(item.quantity < 2)
+        {
+        */
+            InventoryUIItem emptyItem = Instantiate(itemContainer);
+            emptyItem.setItem(item);
+
+            if (item.itemType == Item.ItemType.Resource)
+            {
+                emptyItem.transform.SetParent(resourcesScrollViewContent);
+            }
+            if (item.itemType == Item.ItemType.Consumable)
+            {
+                emptyItem.transform.SetParent(consumablesScrollViewContent);
+            }
+            if (item.itemType == Item.ItemType.Armor)
+            {
+                emptyItem.transform.SetParent(armorScrollViewContent);
+            }
+            if (item.itemType == Item.ItemType.Shield)
+            {
+                emptyItem.transform.SetParent(shieldsScrollViewContent);
+            }
+            if (item.itemType == Item.ItemType.Weapon)
+            {
+                emptyItem.transform.SetParent(weaponsScrollViewContent);
+            }
+        //}
+        /*
+        else //Deals with stacking item
+        {
+            if (item.itemType == Item.ItemType.Resource)
+            {
+                Debug.Log("Here again. Hi");
+                resourcesScrollViewContent.Find("Quantity").GetComponent<Text>().text = "x" + item.quantity.ToString();
+            }
+            if (item.itemType == Item.ItemType.Consumable)
+            {
+                consumablesScrollViewContent.Find("Quantity").GetComponent<Text>().text = "x" + item.quantity.ToString();
+            }
+            if (item.itemType == Item.ItemType.Armor)
+            {
+                armorScrollViewContent.Find("Quantity").GetComponent<Text>().text = "x" + item.quantity.ToString();
+            }
+            if (item.itemType == Item.ItemType.Shield)
+            {
+                shieldsScrollViewContent.Find("Quantity").GetComponent<Text>().text = "x" + item.quantity.ToString();
+            }
+            if (item.itemType == Item.ItemType.Weapon)
+            {
+                weaponsScrollViewContent.Find("Quantity").GetComponent<Text>().text = "x" + item.quantity.ToString();
+            }
+        }
+        */
+
+        //emptyItem.transform.SetParent(scrollViewContent);
     }
 	
 	void Update () {

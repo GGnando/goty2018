@@ -11,8 +11,12 @@ public class Inventory : MonoBehaviour {
     //Allows access to consuming items
     public ConsumablesController consumableController;
 
-    //Reference to panel that displays item info
-    public InventoryUIDetails inventoryDetailsPanel;
+    //Reference to panel that displays item info for each tab inventory
+    public InventoryUIDetails ConsumablesDetailsPanel;
+    public InventoryUIDetails WeaponsDetailsPanel;
+    public InventoryUIDetails ArmorDetailsPanel;
+    public InventoryUIDetails ShieldsDetailsPanel;
+    public InventoryUIDetails ResourcesDetailsPanel;
 
     private void Awake()
     {
@@ -25,17 +29,18 @@ public class Inventory : MonoBehaviour {
         instance = this;
     }
 
-    //Testing inventory system here:
-    private void Start()
+    void Start()
     {
-        Item debugPotion = new Item("DebugPotion", Resources.Load<Sprite>("InventoryUI/icons/png/64px/Inventory_Potion"), "Testing potion", Item.ItemType.Consumable, true, true, 5, 0.5, 1, 1, "Drink", true);
-        Item healthPotion = new Item("Health Potion", Resources.Load<Sprite>("InventoryUI/icons/png/64px/Weapons_Sword"), "This is a health potion. What do you think it does.", Item.ItemType.Consumable, true, true, 10, 0.3, 1, 1, "Drink", true);
-        Add(debugPotion);
-        Add(healthPotion);
-        Debug.Log("Added some potions (Delete this later)");
-
+        //Add("Wood");
+        //Add("Wood");
+        Add("DebugPotion");
+        Add("Iron Sword");
+        Add("Iron Helmet");
+        //Add("Wood");
+        Add("Iron Shield");
+        Add("Wood");
+        consumableController = GetComponent<ConsumablesController>();
     }
-
 
     //Used for event handeling and helping with UI of inventory
     public delegate void OnItemChanged();
@@ -59,38 +64,63 @@ public class Inventory : MonoBehaviour {
     }
 
     //Adds item to list
-    public void Add(Item item)
+    public void Add(string itemName)
     {
-        items.Add(item);
+        //Grab instance of item here and add to items list
+        Item itemAdded = ItemDatabase.instance.getItem(itemName);
+
+        if(!quantityCheck(items, itemAdded))
+        {
+            items.Add(itemAdded);
+        }
+        else
+        {
+            items[items.IndexOf(itemAdded)].quantity++;
+        }
 
         //Add specific item to item type list:
-        if(item.itemType == Item.ItemType.Quest)
+        if(itemAdded.itemType == Item.ItemType.Quest)
         {
-            quests.Add(item);
+            quests.Add(itemAdded);
         }
-        if(item.itemType == Item.ItemType.Resource)
+        if(itemAdded.itemType == Item.ItemType.Resource)
         {
-            resources.Add(item);
+            if (!quantityCheck(resources, itemAdded))
+            {
+                resources.Add(itemAdded);
+            }
         }
-        if(item.itemType == Item.ItemType.Consumable)
+        if(itemAdded.itemType == Item.ItemType.Consumable)
         {
-            consumables.Add(item);
+            if (!quantityCheck(consumables, itemAdded))
+            {
+                consumables.Add(itemAdded);
+            }
         }
-        if (item.itemType == Item.ItemType.Armor)
+        if (itemAdded.itemType == Item.ItemType.Armor)
         {
-            armor.Add(item);
+            if (!quantityCheck(armor, itemAdded))
+            {
+                armor.Add(itemAdded);
+            }
         }
-        if (item.itemType == Item.ItemType.Shield)
+        if (itemAdded.itemType == Item.ItemType.Shield)
         {
-            shields.Add(item);
+            if (!quantityCheck(shields, itemAdded))
+            {
+                shields.Add(itemAdded);
+            }
         }
-        if (item.itemType == Item.ItemType.Weapon)
+        if (itemAdded.itemType == Item.ItemType.Weapon)
         {
-            weapons.Add(item);
+            if (!quantityCheck(weapons, itemAdded))
+            {
+                weapons.Add(itemAdded);
+            }
         }
 
         //Adds to event and calls everything subscribed to event, so all inventory gets updated and displayed
-        UIEventHandler.ItemAddedToInventory(item);
+        UIEventHandler.ItemAddedToInventory(itemAdded);
 
         if (onItemChangedCallback != null)
         {
@@ -138,10 +168,30 @@ public class Inventory : MonoBehaviour {
         }
     }
 
-    //Method for displaying item info
-    public void setItemDetails(Item item, Button button)
+    //Methods for displaying item info, one for each tab inventory
+    public void setConsumablesItemDetails(Item item, Button button)
     {
-        inventoryDetailsPanel.setItem(item, button);
+        ConsumablesDetailsPanel.setItem(item, button);
+    }
+
+    public void setWeaponsItemDetails(Item item, Button button)
+    {
+        WeaponsDetailsPanel.setItem(item, button);
+    }
+
+    public void setArmorItemDetails(Item item, Button button)
+    {
+        ArmorDetailsPanel.setItem(item, button);
+    }
+
+    public void setShieldsDetails(Item item, Button button)
+    {
+        ShieldsDetailsPanel.setItem(item, button);
+    }
+
+    public void setResourcesDetails(Item item, Button button)
+    {
+        ResourcesDetailsPanel.setItem(item, button);
     }
 
     //Equiping item from inventory code:
@@ -151,5 +201,15 @@ public class Inventory : MonoBehaviour {
     public void ConsumeItem(Item consumedItem)
     {
         consumableController.consumeItem(consumedItem);
+    }
+
+    //Check if list already has item, if so just increase quantity. Returns true if item already in list, false otherwise:
+    public bool quantityCheck(List<Item> items, Item itemAdded)
+    {
+        if (items.Contains(itemAdded))
+        {
+            return true;
+        }
+        return false;
     }
 }

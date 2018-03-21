@@ -5,7 +5,7 @@ using NUnit.Framework;
 using System.Collections;
 
 public class InventoryTest {
-
+    /*
     // A UnityTest behaves like a coroutine in PlayMode
     // and allows you to yield null to skip a frame in EditMode
 
@@ -14,6 +14,8 @@ public class InventoryTest {
 	public IEnumerator InventoryUpdatesAddingItem() {
         // Use the Assert class to test conditions.
         // yield to skip a frame
+
+
 
         var inv = new GameObject().AddComponent<Inventory>(); //Creates inventory object
 
@@ -91,4 +93,5 @@ public class InventoryTest {
             Object.Destroy(GameObject);
         }
     }
+    */
 }

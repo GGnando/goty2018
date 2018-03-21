@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
-//Allows you to create new item in unity easily 
-[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
-public class Item : ScriptableObject {
+public class Item {
 
-    //Blueprint for all items. Shared by them all. Add more later
-    new public string name = "New Item";
-    public Sprite icon = null;
-    public string itemDescription = "Description";
+    //Blueprint for all items. Shared by them all
+    public string name;
+    public string itemDescription;
+    [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))] //Used to convert string to enum for json itemdase files
     public ItemType itemType;
     public bool sellable;
     public bool stackable;
@@ -17,16 +17,19 @@ public class Item : ScriptableObject {
     public int quantity;
     public string interactName; //Interact name on button for inventory
     public bool craftable;
+    public List<BaseStat> stats;
+    public bool effectsStats; //True if item effects the player's stats (ex. health), false otherwise
 
     public enum ItemType
     {
         Quest, Consumable, Resource, Shield, Weapon, Armor
     }
 
-    public Item(string n, Sprite i, string d, ItemType t, bool s, bool st, int c, double w, int du, int q, string iname, bool cra)
+    //json constructor for items
+    [Newtonsoft.Json.JsonConstructor]
+    public Item(string n, string d, ItemType t, bool s, bool st, int c, double w, int du, int q, string iname, bool cra, List<BaseStat> sta, bool eff)
     {
         name = n;
-        icon = i;
         itemDescription = d;
         itemType = t;
         sellable = s;
@@ -37,6 +40,8 @@ public class Item : ScriptableObject {
         quantity = q;
         interactName = iname;
         craftable = cra;
+        stats = sta;
+        effectsStats = eff;
     }
 
     public virtual void use()

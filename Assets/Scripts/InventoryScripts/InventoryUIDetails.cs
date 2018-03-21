@@ -12,7 +12,7 @@ public class InventoryUIDetails : MonoBehaviour {
     Text itemDescriptionText; //Description of item to appear
     Text itemButtonText; //Button text when interacting with it
 
-    Text statText; //Text of stats of item
+    public Text statText; //Text of stats of item
 
     void Start()
     {
@@ -31,18 +31,17 @@ public class InventoryUIDetails : MonoBehaviour {
         //Show details when object selected
         gameObject.SetActive(true);
 
-        //statText.text = "";
+        //Setting stat text here now: 
+        statText.text = "";
 
         //If item does not have stats, don't display. If so, loop through and display all
-        /*
         if(item.stats != null)
         {
-            foreach(Stat stat in item.stats)
+            foreach(BaseStat stat in item.stats)
             {
-                statText.text += stat.StatName + ": " + stat.Value + "\n";
+                statText.text += stat.name + ": " + stat.baseValue + "\n";
             }
         }
-        */
 
         //Remove previous listeners for events or everything used will be done multiple times:
         itemInteractButton.onClick.RemoveAllListeners();

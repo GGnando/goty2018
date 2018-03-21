@@ -10,5 +10,8 @@ public class DebugPotion : MonoBehaviour, IConsumables {
         Debug.Log("This is a test to make sure consume works.");
     }
 
-    //Eventually implement one to effect stats
+    public void consume(CharacterStat stats)
+    {
+        Debug.Log("This is a test to make sure consume works with a stat change");
+    }
 }

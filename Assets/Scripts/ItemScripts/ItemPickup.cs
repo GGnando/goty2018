@@ -19,7 +19,7 @@ public class ItemPickup : Interactables {
         //Add to inventory
         //If we didnt create instance in inventory class, would have to write long code
         //Now can just use
-        Inventory.instance.Add(item);
+        Inventory.instance.Add(item.name);
 
         //Remove object from world
         Destroy(gameObject);
