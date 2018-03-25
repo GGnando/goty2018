@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: c1a5702593545f34ab5ff56dfc3be2bc
+=======
+guid: 51b93b0b14087a74899f4f8aef9b1340
+>>>>>>> 02Dennys
 timeCreated: 1451314993
 licenseType: Store
 TextureImporter:
@@ -12,6 +16,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -27,10 +33,13 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: -1
     mipBias: -1
-    wrapMode: -1
+    wrapU: -1
+    wrapV: -1
+    wrapW: -1
   nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
@@ -62,6 +71,10 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
     outline: []
+<<<<<<< HEAD
+=======
+    physicsShape: []
+>>>>>>> 02Dennys
   spritePackingTag: 
   userData: 
   assetBundleName: 
