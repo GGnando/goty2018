@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Chase : MonoBehaviour {
-
+    public AudioSource swingSource;
+    public AudioClip swingClip;
     public Transform player;
     public Rigidbody enemyRigidBody;
     static Animator patrolCycle;
@@ -11,17 +12,19 @@ public class Chase : MonoBehaviour {
     private float rotationSpeed = .1f;
     private int agressionDistance = 3;
     private float enemyMovementSpeed = .00005f;
+    private Vector3 direction;
 
 	void Start () {
         patrolCycle = GetComponent<Animator>();
         enemyRigidBody = GetComponent<Rigidbody>();
+ //       swingSource.clip = swingClip;
 	}
 	
 	void FixedUpdate () {
         Vector3 distance = player.position - this.transform.position;
 		if(distance.magnitude < agressionDistance) {
 
-            Vector3 direction = player.position - this.transform.position;
+            direction = player.position - this.transform.position;
             lookAtTarget(direction);
 
             patrolCycle.SetBool("Idle", false);
@@ -33,6 +36,8 @@ public class Chase : MonoBehaviour {
             else {
                 patrolCycle.SetBool("Attacking", true);
                 patrolCycle.SetBool("Chasing", false);
+                //soundLoop();
+                swingSource.Play();
             }
         }
         else {
@@ -42,6 +47,15 @@ public class Chase : MonoBehaviour {
             enemyRigidBody.angularVelocity = new Vector3(0f, 0f, 0f);
         }
 	}
+//    void soundLoop()
+//    {
+//        while(direction.magnitude <= 1)
+//        {
+//            swingSource.pitch = 3;
+//            swingSource.Play();
+//        }
+//    }
+
     /// <summary>
     /// private functions
     /// </summary>
