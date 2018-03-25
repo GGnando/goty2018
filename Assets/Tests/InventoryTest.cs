@@ -5,7 +5,6 @@ using NUnit.Framework;
 using System.Collections;
 
 public class InventoryTest {
-
     // A UnityTest behaves like a coroutine in PlayMode
     // and allows you to yield null to skip a frame in EditMode
 
@@ -14,33 +13,35 @@ public class InventoryTest {
 	public IEnumerator InventoryUpdatesAddingItem() {
         // Use the Assert class to test conditions.
         // yield to skip a frame
+        var itemDatabase = new GameObject().AddComponent<ItemDatabase>(); //Creates item database and builds it to allow access to items
+        itemDatabase.buildDatabase();
 
         var inv = new GameObject().AddComponent<Inventory>(); //Creates inventory object
 
-        Item itemPickedUp = (Item)Resources.Load("Items/ExampleItem"); //The item that is simulated being picked up is ExampleItem in the directory
-
-        inv.Add(itemPickedUp); //Calls inventory method to add item
+        inv.addTest("TESTITEM", itemDatabase); //Calls inventory method to add item
 
         var items = inv.getItems(); //Gets the list of items in inventory class
 
         var itemInSlot1 = items[0]; //Gets the first slot of inventory
 
-        yield return null; //Waits a second
+        yield return null;  //Waits a second
 
-        Assert.AreEqual(itemInSlot1, itemPickedUp); //Asserts item picked up and item in 1st inv slot are same
-	}
-
+        Assert.AreEqual(itemInSlot1.name, "TESTITEM"); //Asserts item picked up and item in 1st inv slot are same
+    }
+    
     //Checks to see if 1st slot in inv is empty after adding item, then removing it
     [UnityTest]
     public IEnumerator InventoryUpdatesRemovingItem()
     {
+        var itemDatabase = new GameObject().AddComponent<ItemDatabase>(); //Creates item database and builds it to allow access to items
+        itemDatabase.buildDatabase();
+
         var inv = new GameObject().AddComponent<Inventory>();
 
-        Item itemPickedUp = (Item)Resources.Load("Items/ExampleItem");
+        inv.addTest("TESTITEM", itemDatabase); //Calls inventory method to add item
 
-        inv.Add(itemPickedUp);
-
-        inv.Remove(itemPickedUp);
+        Item item = itemDatabase.getItem("TESTITEM");
+        inv.Remove(item);
 
         var items = inv.getItems(); //Same as above
 
@@ -60,21 +61,71 @@ public class InventoryTest {
         Assert.IsTrue(exceptionCaught); //Asserts error was thrown
     }
 
-    //Checks to see if 1st slot in inv is empty after adding item, then removing it
+    //Checks to see if number of items in inventory is 1 after adding an item
     [UnityTest]
     public IEnumerator InventoryCount()
     {
-        var inv = new GameObject().AddComponent<Inventory>();
+        var itemDatabase = new GameObject().AddComponent<ItemDatabase>(); //Creates item database and builds it to allow access to items
+        itemDatabase.buildDatabase();
 
-        Item itemPickedUp = (Item)Resources.Load("Items/ExampleItem");
+        var inv = new GameObject().AddComponent<Inventory>(); //Creates inventory object
 
-        inv.Add(itemPickedUp);  //Same as above
+        inv.addTest("TESTITEM", itemDatabase); //Calls inventory method to add item
 
         int itemCount = inv.items.Count; //Item count for inventory should be 1
 
         yield return null;
 
         Assert.AreEqual(itemCount, 1); //Asserts item count of inv == 1
+    }
+
+    //Checks to see if item is added twice to list after adding same item, and item quantity is updated to 2
+    [UnityTest]
+    public IEnumerator InventoryStacking()
+    {
+        var itemDatabase = new GameObject().AddComponent<ItemDatabase>(); //Creates item database and builds it to allow access to items
+        itemDatabase.buildDatabase();
+
+        var inv = new GameObject().AddComponent<Inventory>(); //Creates inventory object
+
+        inv.addTest("TESTITEM", itemDatabase); //Calls inventory method to add item
+        inv.addTest("TESTITEM", itemDatabase);
+
+        bool quantityAndCountUpdated = false; //Will be true if item quantity is 2 after adding 2 of same item and list of items only has 1 item
+
+        int itemCount = inv.items.Count; //Item count for inventory should be 1
+
+        if(itemCount == 1 && inv.items[0].quantity == 2)
+        {
+            quantityAndCountUpdated = true;
+        }
+
+        yield return null;
+
+        Assert.IsTrue(quantityAndCountUpdated); //Asserts item count of inv == 1, as only one type of item was added
+    }
+
+    //Checks to see if item stack limit is 99, and item cannot be added again after limit reached
+    [UnityTest]
+    public IEnumerator itemStackLimitReached()
+    {
+        var itemDatabase = new GameObject().AddComponent<ItemDatabase>(); //Creates item database and builds it to allow access to items
+        itemDatabase.buildDatabase();
+
+        var inv = new GameObject().AddComponent<Inventory>(); //Creates inventory object
+
+        int stackSize = 0; //Value to hold item quantity
+
+        for(int i = 0; i < 102; i++)
+        {
+            inv.addTest("TESTITEM", itemDatabase); //Calls inventory method to add item
+        }
+
+        stackSize = inv.items[0].quantity;
+
+        yield return null;
+
+        Assert.AreEqual(stackSize, 99); //Asserts item count of item added is 99, not over
     }
 
     //Deletes everything created
@@ -86,7 +137,7 @@ public class InventoryTest {
             Object.Destroy(GameObject);
         }
 
-        foreach (var GameObject in GameObject.FindObjectsOfType<Item>())
+        foreach (var GameObject in GameObject.FindObjectsOfType<ItemDatabase>())
         {
             Object.Destroy(GameObject);
         }

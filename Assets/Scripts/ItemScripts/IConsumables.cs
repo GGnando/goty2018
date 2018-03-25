@@ -6,6 +6,6 @@ public interface IConsumables {
 
     void consume(); //consume item
 
-    //Future method. This will take character stats and allow consumed item to effect character's stats
-    //void consume(CharacterStats stats);
+    //This will take character stats and allow consumed item to effect character's stats
+    void consume(CharacterStat stats);
 }
