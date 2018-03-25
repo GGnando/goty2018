@@ -1,5 +1,18 @@
 [
 	{
+		"name": "TESTITEM", 
+		"itemDescription": "THIS ITEM IS USED IN UNIT TEST TO ENSURE INVENTORY WORKS",
+		"itemType": "Consumable", 
+		"sellable": true, 
+		"stackable": true, 
+		"itemCost": "3", 
+		"weight": "3", 
+		"interactName": "TEST", 
+		"craftable": false, 
+		"quantity": "1", 
+		"effectsStats": false
+	}, 
+	{
 		"name": "DebugPotion", 
 		"itemDescription": "This is a simple testing potion.",
 		"itemType": "Consumable", 

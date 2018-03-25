@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Inventory : MonoBehaviour {
 
@@ -18,6 +19,12 @@ public class Inventory : MonoBehaviour {
     public InventoryUIDetails ShieldsDetailsPanel;
     public InventoryUIDetails ResourcesDetailsPanel;
 
+    //Max size of item stacl
+    const int MAXSTACKSIZE = 99;
+
+    //Reference to panel for max stack
+    public Transform MaxStackPanel;
+
     private void Awake()
     {
         if(instance != null)
@@ -31,14 +38,23 @@ public class Inventory : MonoBehaviour {
 
     void Start()
     {
-        //Add("Wood");
-        //Add("Wood");
-        Add("DebugPotion");
-        Add("Iron Sword");
-        Add("Iron Helmet");
-        //Add("Wood");
-        Add("Iron Shield");
-        Add("Wood");
+        //Testing inventory by adding items if not running unit tests
+        if (SceneManager.GetActiveScene().name == "Tyler-Inventory")
+        {
+            Add("Wood");
+            Add("Wood");
+            Add("DebugPotion");
+            Add("Iron Sword");
+            Add("Iron Helmet");
+            Add("Wood");
+            Add("Iron Shield");
+            Add("Wood");
+            for(int i = 0; i < 100; i++)
+            {
+                Add("Wood");
+            }
+        }
+
         consumableController = GetComponent<ConsumablesController>();
     }
 
@@ -69,7 +85,16 @@ public class Inventory : MonoBehaviour {
         //Grab instance of item here and add to items list
         Item itemAdded = ItemDatabase.instance.getItem(itemName);
 
-        if(!quantityCheck(items, itemAdded))
+        //Check if limit of 99 of 1 item is reached
+        if (checkLimit(itemAdded))
+        {
+            Debug.Log("Cannot add more of " + itemName + ". Max stack size reached.");
+            MaxStackPanel.gameObject.SetActive(true);
+            return;
+        }
+
+        //QuantityCheck checks if item already in inventory for stacking, if already in, just increase quantity instead of adding to list
+        if (!quantityCheck(items, itemAdded))
         {
             items.Add(itemAdded);
         }
@@ -119,9 +144,9 @@ public class Inventory : MonoBehaviour {
             }
         }
 
-        //Adds to event and calls everything subscribed to event, so all inventory gets updated and displayed
         UIEventHandler.ItemAddedToInventory(itemAdded);
 
+        //Adds to event and calls everything subscribed to event, so all inventory gets updated and displayed
         if (onItemChangedCallback != null)
         {
             //Triggering event to update UI
@@ -130,9 +155,94 @@ public class Inventory : MonoBehaviour {
 
     }
 
-    //Removes item from list
+    //Testing inventory add function:
+    public void addTest(string itemName, ItemDatabase data)
+    {
+        //Grab instance of item here and add to items list
+        Item itemAdded = data.getItem(itemName);
+
+        //Check if limit of 1 item is reached
+        if (checkLimit(itemAdded))
+        {
+            Debug.Log("Cannot add more of " + itemName + ". Max stack size reached.");
+            return;
+        }
+
+        //QuantityCheck checks if item already in inventory for stacking, if already in, just increase quantity instead of adding to list
+        if (!quantityCheck(items, itemAdded))
+        {
+            items.Add(itemAdded);
+        }
+        else
+        {
+            items[items.IndexOf(itemAdded)].quantity++;
+        }
+
+        //Add specific item to item type list:
+        if (itemAdded.itemType == Item.ItemType.Quest)
+        {
+            quests.Add(itemAdded);
+        }
+        if (itemAdded.itemType == Item.ItemType.Resource)
+        {
+            if (!quantityCheck(resources, itemAdded))
+            {
+                resources.Add(itemAdded);
+            }
+        }
+        if (itemAdded.itemType == Item.ItemType.Consumable)
+        {
+            if (!quantityCheck(consumables, itemAdded))
+            {
+                consumables.Add(itemAdded);
+            }
+        }
+        if (itemAdded.itemType == Item.ItemType.Armor)
+        {
+            if (!quantityCheck(armor, itemAdded))
+            {
+                armor.Add(itemAdded);
+            }
+        }
+        if (itemAdded.itemType == Item.ItemType.Shield)
+        {
+            if (!quantityCheck(shields, itemAdded))
+            {
+                shields.Add(itemAdded);
+            }
+        }
+        if (itemAdded.itemType == Item.ItemType.Weapon)
+        {
+            if (!quantityCheck(weapons, itemAdded))
+            {
+                weapons.Add(itemAdded);
+            }
+        }
+
+        if (onItemChangedCallback != null)
+        {
+            UIEventHandler.ItemAddedToInventory(itemAdded);
+            //Triggering event to update UI
+            onItemChangedCallback.Invoke();
+        }
+    }
+
+    //Removes item from list, after it is consumed or anything happens to it
     public void Remove(Item item)
     {
+        if(item.quantity > 1)
+        {
+            item.quantity--;
+
+            if (onItemChangedCallback != null)
+            {
+                //Triggering event to update UI
+                onItemChangedCallback.Invoke();
+            }
+
+            return;
+        }
+
         items.Remove(item);
 
         //Remove item from its list:
@@ -166,6 +276,17 @@ public class Inventory : MonoBehaviour {
             //Triggering event to update UI
             onItemChangedCallback.Invoke();
         }
+    }
+
+    //Returns true if item reaches max stack value of 99
+    private bool checkLimit(Item item)
+    {
+        if(item.quantity == MAXSTACKSIZE)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     //Methods for displaying item info, one for each tab inventory

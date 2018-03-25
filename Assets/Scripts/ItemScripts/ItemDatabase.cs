@@ -12,6 +12,7 @@ public class ItemDatabase : MonoBehaviour {
     private List<Item> items;
 
 	void Start () {
+        //Make sure not 2 item databases
 		if(instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -27,7 +28,6 @@ public class ItemDatabase : MonoBehaviour {
     {
         //Deserialize json file into a collection of items
         items = JsonConvert.DeserializeObject<List<Item>>(Resources.Load<TextAsset>("ItemDatabase/Items").ToString());
-        Debug.Log(getItem("Iron Sword").stats[0].name);
     }
 
     //Get item by name
@@ -41,6 +41,7 @@ public class ItemDatabase : MonoBehaviour {
             }
         }
 
+        Debug.Log("Item not found...");
         return null; //No item found
     }
 }

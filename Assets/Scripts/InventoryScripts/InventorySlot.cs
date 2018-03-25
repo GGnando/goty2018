@@ -1,4 +1,9 @@
-﻿using UnityEngine;
+﻿//This script is not used anymore as the way to deal with items was changed
+//Leaving here for reference to more information how to use unity and may use for future use
+
+
+/*
+using UnityEngine;
 using UnityEngine.UI; //Used to update UI sprites and item sprites
 
 //This class is used to keep track of everything for a specific item slot
@@ -51,3 +56,4 @@ public class InventorySlot : MonoBehaviour {
         }
     }
 }
+*/

@@ -26,7 +26,11 @@ public class ConsumablesController : MonoBehaviour {
         {
             itemSpawn.GetComponent<IConsumables>().consume();
         }
-        
+
+        //Remove from inventory:
+        Inventory.instance.Remove(item);
+
+        //Destroy item after interacting with it
         Destroy(itemSpawn);
     }
 	
