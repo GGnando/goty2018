@@ -20,8 +20,6 @@ public class BonusStat : MonoBehaviour {
         this.description = description;
         this.modType = modType;
     }
-<<<<<<< HEAD:Assets/Scripts/Stats Scripts/BonusStat.cs
 }
-=======
-}
->>>>>>> Ryan2:Assets/Scripts/BonusStat.cs
+
+

@@ -5,17 +5,11 @@ using UnityEngine;
 public class BaseStat : MonoBehaviour {
 
     public List<BonusStat> bonusStats;
-<<<<<<< HEAD:Assets/Scripts/Stats Scripts/BaseStat.cs
+
     public float baseValue;
     public string name; //Changed to public for test
-    public string discription;
+    public string description;
     public float totalValue;
-=======
-    private float baseValue;
-    private string name;
-    private string description;
-    private float totalValue;
->>>>>>> Ryan2:Assets/Scripts/BaseStat.cs
 
     public BaseStat(float baseValue, string name, string description) {
         bonusStats = new List<BonusStat>();
@@ -68,7 +62,7 @@ public class BaseStat : MonoBehaviour {
     public void setName(string name) {
         this.name = name;
     }
-    public string getDiscription() {
+    public string getDescription() {
         return description;
     }
     public void setDescription(string description) {
@@ -82,8 +76,8 @@ public class BaseStat : MonoBehaviour {
         this.totalValue = totalValue;
     }
 
-<<<<<<< HEAD:Assets/Scripts/Stats Scripts/BaseStat.cs
+
 }
-=======
-}
->>>>>>> Ryan2:Assets/Scripts/BaseStat.cs
+
+
+
