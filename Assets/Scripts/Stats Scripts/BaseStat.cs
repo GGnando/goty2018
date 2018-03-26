@@ -1,20 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-
-public class BaseStat {
+public class BaseStat : MonoBehaviour {
 
     public List<BonusStat> bonusStats;
+<<<<<<< HEAD:Assets/Scripts/Stats Scripts/BaseStat.cs
     public float baseValue;
     public string name; //Changed to public for test
     public string discription;
     public float totalValue;
+=======
+    private float baseValue;
+    private string name;
+    private string description;
+    private float totalValue;
+>>>>>>> Ryan2:Assets/Scripts/BaseStat.cs
 
-    public BaseStat(float baseValue, string name, string discription) {
+    public BaseStat(float baseValue, string name, string description) {
         bonusStats = new List<BonusStat>();
         this.baseValue = baseValue;
         this.name = name;
-        this.name = discription;
+        this.name = description;
         totalValue = baseValue;
     }
 
@@ -62,13 +69,21 @@ public class BaseStat {
         this.name = name;
     }
     public string getDiscription() {
-        return discription;
+        return description;
     }
-    public void setDiscription(string discription) {
-        this.discription = discription;
+    public void setDescription(string description) {
+        this.description = description;
     }
     public float getTotalValue() {
         return totalValue;
     }
+    public void setTotalValue(float totalValue)
+    {
+        this.totalValue = totalValue;
+    }
 
+<<<<<<< HEAD:Assets/Scripts/Stats Scripts/BaseStat.cs
 }
+=======
+}
+>>>>>>> Ryan2:Assets/Scripts/BaseStat.cs

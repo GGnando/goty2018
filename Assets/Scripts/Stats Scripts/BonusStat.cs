@@ -7,17 +7,21 @@ public enum Modifier {
     Additive
 }
 
-public class BonusStat {
+public class BonusStat : MonoBehaviour {
 
     public float bonus;
     public string name;
-    public string discription;
+    public string description;
     public Modifier modType;
     
-    public BonusStat(float bonus, string name, string discription, Modifier modType) {
+    public BonusStat(float bonus, string name, string description, Modifier modType) {
         this.bonus = bonus;
         this.name = name;
-        this.discription = discription;
+        this.description = description;
         this.modType = modType;
     }
+<<<<<<< HEAD:Assets/Scripts/Stats Scripts/BonusStat.cs
 }
+=======
+}
+>>>>>>> Ryan2:Assets/Scripts/BonusStat.cs
