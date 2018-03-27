@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.Characters;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class PauseGame : MonoBehaviour {
     public Transform Canvas;
@@ -20,13 +20,21 @@ public class PauseGame : MonoBehaviour {
         {
             Canvas.gameObject.SetActive(true);
             Time.timeScale = 0;
-            //player.GetComponent<UnityEditor.Experimental.Build.Player>().enabled = false;
+            //player.GetComponent<ThirdPersonUserControl>().enabled = false;
         }
         else
         {
             Canvas.gameObject.SetActive(false);
             Time.timeScale = 1;
-            //player.GetComponent<UnityEditor.Experimental.Build.Player>().enabled = true;
+            //player.GetComponent<ThirdPersonUserControl>().enabled = true;
         }
+    }
+    public void pauseGame()
+    {
+        Time.timeScale = 0;
+    }
+    public void unpauseGame()
+    {
+        Time.timeScale = 1;
     }
 }

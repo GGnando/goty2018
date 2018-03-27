@@ -6,11 +6,7 @@ using UnityEngine.SceneManagement;
 public class SaveGame : MonoBehaviour {
     public Transform Player;
     
-    void Awake()
-    {
-        Player.position = new Vector3 (PlayerPrefs.GetFloat("x"), PlayerPrefs.GetFloat("y"), PlayerPrefs.GetFloat("z")); //Upon restart load game
-        Player.eulerAngles = new Vector3(0, PlayerPrefs.GetFloat("Cam_y"));
-    }
+
 
     public void SaveGameSettings(bool Quit)
     {
@@ -21,8 +17,9 @@ public class SaveGame : MonoBehaviour {
         if (Quit)
         {
             Time.timeScale = 1;
-            SceneManager.LoadScene("simple_test");
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
         }
     }
+    
 	
 }
