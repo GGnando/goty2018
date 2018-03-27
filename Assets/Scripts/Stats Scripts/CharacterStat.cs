@@ -14,7 +14,9 @@ public class CharacterStat : MonoBehaviour {
     }
 
     public List<BaseStat> stats = new List<BaseStat>();
+	public GameObject player;
     private int skillPoints = 0;
+	private int usedSkillPoints = 0;
 
     // Use this for initialization
     void Start()
@@ -35,4 +37,21 @@ public class CharacterStat : MonoBehaviour {
 
     public int GetSkillPoints() { return skillPoints; }
     public void SetSkillPoints(int skillPoints) { this.skillPoints = skillPoints; }
+	public void UseSkillPoint() {
+		if (skillPoints > 0)
+			skillPoints--; 
+	}
+	public void GainSkillPoint() {  
+			skillPoints++; 
+	}
+
+	public List<BaseStat> GetStats() {
+		return stats;
+	}
+
+	public int GetStat(int statNumber) {
+		return (int)stats [statNumber].getBaseValue();
+	}
+
+
 }

@@ -15,7 +15,7 @@ public class BaseStat : MonoBehaviour {
         bonusStats = new List<BonusStat>();
         this.baseValue = baseValue;
         this.name = name;
-        this.name = description;
+		this.description = description;
         totalValue = baseValue;
     }
 
