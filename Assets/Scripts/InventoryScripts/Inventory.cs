@@ -43,17 +43,13 @@ public class Inventory : MonoBehaviour {
         {
             Add("Wood");
             Add("Wood");
+            Add("Wood");
+            Add("DebugPotion");
             Add("DebugPotion");
             Add("Iron Sword");
             Add("Iron Sword");
             Add("Iron Helmet");
-            Add("Wood");
             Add("Iron Shield");
-            Add("Wood");
-            for(int i = 0; i < 100; i++)
-            {
-                Add("Wood");
-            }
         }
 
         consumableController = GetComponent<ConsumablesController>();

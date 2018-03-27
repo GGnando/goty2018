@@ -4,6 +4,7 @@ using UnityEngine;
 
 //Base class for quest goals/objectives. What the player has to do
 public class Objective  {
+    public Quest quest; //From quest class
     public string description; //Description of what the objective is
     public bool completed; //False if quest objective is not done yet
     public int currProgress; //int of current progress. Ex. kill 5 enemies curr would be 0 at start
