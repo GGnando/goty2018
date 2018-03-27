@@ -38,6 +38,8 @@ public class Experience : MonoBehaviour {
         xpToLevelUp += 100;
         print("Player has leveled up and is now level: ");
         print(playerLevel);
+        if (currentXP >= xpToLevelUp)
+            LevelUp();
     }
 
     public void AddXP(int amount)
@@ -59,6 +61,11 @@ public class Experience : MonoBehaviour {
 	public int GetCurrentXP() {
 		return currentXP;
 	}
+
+    public int GetXPToLevelUp()
+    {
+        return xpToLevelUp;
+    }
 
 	void OnMouseEnter() {
 		experienceText.GetComponent<Text> ().enabled = true;
