@@ -20,8 +20,8 @@ public class SkillPointsMenuEffectStat : MonoBehaviour {
 
 	public void IncreasePlayerStat(int statNumber) {
 		if (player.GetComponent<CharacterStat> ().GetSkillPoints () > 0) {
-			int originalValue = (int)player.GetComponent<CharacterStat> ().GetStats () [statNumber].getBaseValue ();
-			player.GetComponent<CharacterStat> ().GetStats () [statNumber].setBaseValue (originalValue + 1);
+			float originalValue = player.GetComponent<CharacterStat> ().GetStats () [statNumber].getBaseValue ();
+			player.GetComponent<CharacterStat> ().GetStats () [statNumber].setBaseValue ((int)originalValue + 1);
 
 			string skillName = player.GetComponent<CharacterStat> ().GetStats () [statNumber].getName ();
 			skillText.text = skillName + ": " + player.GetComponent<CharacterStat> ().GetStat (statNumber).ToString ();
@@ -32,9 +32,9 @@ public class SkillPointsMenuEffectStat : MonoBehaviour {
 	}
 
 	public void DecreasePlayerStat(int statNumber) {
-		int originalValue = (int)player.GetComponent<CharacterStat> ().GetStats () [statNumber].getBaseValue ();
-		if (originalValue > 1) {
-			player.GetComponent<CharacterStat> ().GetStats () [statNumber].setBaseValue (originalValue - 1);
+		float originalValue = (int)player.GetComponent<CharacterStat> ().GetStats () [statNumber].getBaseValue ();
+		if ((int)originalValue > 1) {
+			player.GetComponent<CharacterStat> ().GetStats () [statNumber].setBaseValue ((int)originalValue - 1);
 			string skillName = player.GetComponent<CharacterStat> ().GetStats () [statNumber].getName ();
 			skillText.text = skillName + ": " + player.GetComponent<CharacterStat> ().GetStat (statNumber).ToString ();
 
