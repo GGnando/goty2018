@@ -20,7 +20,7 @@ public class InventorySlot : MonoBehaviour {
         item = newItem;
 
         //Changes the icon to item's icon and enables it so its visible (same with remove button)
-        icon.sprite = item.icon;
+        //icon.sprite = item.icon;
         icon.enabled = true;
         removeButton.interactable = true;
     }

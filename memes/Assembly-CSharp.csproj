@@ -68,14 +68,13 @@
      <Compile Include="Assets\AllStarCharacterLibrary\Scripts\RadialAngler.cs" />
      <Compile Include="Assets\AllStarCharacterLibrary\Scripts\RootMotionOff.cs" />
      <Compile Include="Assets\Mixamo\Melee Axe Pack\Demo\CameraScroll.cs" />
-     <Compile Include="Assets\Resources\Monsters\DragonTerrorBringer\Scripts\CameraControl.cs" />
-     <Compile Include="Assets\Resources\Monsters\DragonTerrorBringer\Scripts\MaterialChange.cs" />
-     <Compile Include="Assets\Resources\Monsters\DragonTerrorBringer\Scripts\playerControl.cs" />
      <Compile Include="Assets\Resources\Monsters\Fantasy Monster(wizard) Demo\Environment\Scripts\CamCTRLDemo.cs" />
      <Compile Include="Assets\Resources\Monsters\Fantasy Monster(wizard) Demo\Environment\Scripts\MoveCTRLDemo.cs" />
-     <Compile Include="Assets\Resources\Weapons\Sword.cs" />
+     <Compile Include="Assets\Resources\Weapons\ScriptedWeapons\Axe.cs" />
+     <Compile Include="Assets\Resources\Weapons\ScriptedWeapons\ItemPickup.cs" />
+     <Compile Include="Assets\Resources\Weapons\ScriptedWeapons\Sword.cs" />
+     <Compile Include="Assets\Resources\Weapons\ScriptedWeapons\Sword_2H.cs" />
      <Compile Include="Assets\Scripts\AITest\Chase.cs" />
-     <Compile Include="Assets\Scripts\AITest\Goblin.cs" />
      <Compile Include="Assets\Scripts\AITest\IEnemy.cs" />
      <Compile Include="Assets\Scripts\CharacterMovementScripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\CharacterMovementScripts\CharacterMovement.cs" />
@@ -83,16 +82,20 @@
      <Compile Include="Assets\Scripts\CombatScripts\BonusStat.cs" />
      <Compile Include="Assets\Scripts\CombatScripts\CharacterStat.cs" />
      <Compile Include="Assets\Scripts\CombatScripts\IWeapon.cs" />
+     <Compile Include="Assets\Scripts\CombatScripts\PlayerWeaponController.cs" />
      <Compile Include="Assets\Scripts\GameMenuScripts\NewPlayModeTest.cs" />
      <Compile Include="Assets\Scripts\GameMenuScripts\PauseGame.cs" />
      <Compile Include="Assets\Scripts\GameMenuScripts\SaveGame.cs" />
+     <Compile Include="Assets\Scripts\Goblin.cs" />
      <Compile Include="Assets\Scripts\InventoryScripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\InventoryScripts\InventorySlot.cs" />
-     <Compile Include="Assets\Scripts\InventoryScripts\InventoryUI.cs" />
+     <Compile Include="Assets\Scripts\InventoryScripts\ItemDatabase.cs" />
+     <Compile Include="Assets\Scripts\InventoryScripts\WeaponsList.cs" />
+     <Compile Include="Assets\Scripts\ItemScripts\DropTable.cs" />
      <Compile Include="Assets\Scripts\ItemScripts\Interactables.cs" />
      <Compile Include="Assets\Scripts\ItemScripts\Item.cs" />
-     <Compile Include="Assets\Scripts\ItemScripts\ItemPickup.cs" />
-     <Compile Include="Assets\Scripts\PlayerWeaponController.cs" />
+     <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Tests\CharacterStatsTest.cs" />
      <None Include="Assets\Resources\Monsters\Earthborn Troll\Shader\Alpha_Texture.shader" />
      <None Include="Assets\Resources\Monsters\Earthborn Troll\Shader\DoubleSided-Light-Spec.shader" />
      <None Include="Assets\Resources\Monsters\Fantasy Monster(wizard) Demo\READ ME(wizard)\character setup guide link.txt" />
@@ -162,6 +165,9 @@
  </Reference>
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>C:/Users/GGnando/Documents/GitHub/goty2018/memes/Assets/UnityPackages/JsonNet-Lite/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Users/GGnando/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>

@@ -45,7 +45,7 @@ public class CharacterMovement : MonoBehaviour
         //Initialized vertical speed
         vertSpeed = minFall;
 
-        animator = GetComponent<Animator>();
+        animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
     void Update() {
@@ -98,6 +98,7 @@ public class CharacterMovement : MonoBehaviour
         if (horInput != 0 || vertInput != 0)
         {
             animator.SetBool("isRunning", true);
+            animator.SetBool("isIdle", false);
             //Change the vector components to inputted, with additional multiplyer from movement speed
             movement.x = horInput * moveSpeed;
             movement.z = vertInput * moveSpeed;
@@ -120,6 +121,9 @@ public class CharacterMovement : MonoBehaviour
         }
         else {
             animator.SetBool("isRunning", false);
+            if(animator.GetBool("isJumping") == false) {
+                animator.SetBool("isIdle", true);
+            }
         }
 
         //Bool to store if ground is contacted by capsule collision (character hitbox)
@@ -144,6 +148,10 @@ public class CharacterMovement : MonoBehaviour
         //So if we are on the ground
         if (hitGround)
         {
+            animator.SetBool("isJumping", false);
+            if(animator.GetBool("isRunning") == false) {
+                animator.SetBool("isIdle", true);
+            }
             //If input is jump... set vertical speed to desired jump speed to move upwards later
             if (Input.GetButtonDown("Jump"))
             {
@@ -158,6 +166,8 @@ public class CharacterMovement : MonoBehaviour
         //Else we are not on the ground 
         else
         {
+            animator.SetBool("isJumping", true);
+            animator.SetBool("isIdle", false);
             //Nice, smooth falling speed as we allow acceleration here
             vertSpeed += gravity * 5 * Time.deltaTime;
 
