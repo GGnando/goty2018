@@ -48,8 +48,13 @@ public class Inventory : MonoBehaviour {
             Add("Wood");
             Add("Wood");
             Add("Wood");
+<<<<<<< HEAD
+=======
+            Add("DebugPotion");
+>>>>>>> 888d8030b92e22083a5db6531b8c75e0e7770ce5
             Add("DebugPotion");
             Add("DebugPotion");
+            Add("Iron Sword");
             Add("Iron Sword");
             Add("Iron Sword");
             Add("Iron Helmet");

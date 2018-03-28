@@ -1,6 +1,7 @@
 ﻿
 using System.Collections;
 using System.Collections.Generic;
+<<<<<<< HEAD:Assets/Scripts/CombatScripts/BaseStat.cs
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -15,6 +16,28 @@ public class BaseStat {
     public string discription;
     public float totalValue;
 
+=======
+using UnityEngine;
+
+public class BaseStat : MonoBehaviour {
+
+    public List<BonusStat> bonusStats;
+
+    public float baseValue;
+    public string name; //Changed to public for test
+    public string description;
+    public float totalValue;
+
+    public BaseStat(float baseValue, string name, string description) {
+        bonusStats = new List<BonusStat>();
+        this.baseValue = baseValue;
+        this.name = name;
+		this.description = description;
+        totalValue = baseValue;
+    }
+
+    //Constructor for json file for items
+>>>>>>> 888d8030b92e22083a5db6531b8c75e0e7770ce5:Assets/Scripts/Stats Scripts/BaseStat.cs
     [Newtonsoft.Json.JsonConstructor]
     public BaseStat(StatType type, float baseValue, string name, string discription) {
         this.type = type;
@@ -58,14 +81,22 @@ public class BaseStat {
     public void setName(string name) {
         this.name = name;
     }
-    public string getDiscription() {
-        return discription;
+    public string getDescription() {
+        return description;
     }
-    public void setDiscription(string discription) {
-        this.discription = discription;
+    public void setDescription(string description) {
+        this.description = description;
     }
     public float getTotalValue() {
         return totalValue;
     }
+    public void setTotalValue(float totalValue)
+    {
+        this.totalValue = totalValue;
+    }
+
 
 }
+
+
+
