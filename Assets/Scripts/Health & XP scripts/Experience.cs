@@ -7,11 +7,12 @@ public class Experience : MonoBehaviour {
 
 	public GameObject experienceBar;
 	public GameObject experienceText;
+    public GameObject player;
 	float barLength;
 
-    int playerLevel;
-    int currentXP;
-    int xpToLevelUp;
+    int playerLevel = 1;
+    int currentXP = 0;
+    int xpToLevelUp = 100;
 
 	// Use this for initialization
 	void Start () {
@@ -31,11 +32,14 @@ public class Experience : MonoBehaviour {
     {
         playerLevel++;
         // TODO Upgrade player Stats
-        // TODO Give skill points
+		if (player)
+        	AddSkillPoints(5);
         currentXP = currentXP - xpToLevelUp;
         xpToLevelUp += 100;
         print("Player has leveled up and is now level: ");
         print(playerLevel);
+        if (currentXP >= xpToLevelUp)
+            LevelUp();
     }
 
     public void AddXP(int amount)
@@ -43,6 +47,24 @@ public class Experience : MonoBehaviour {
         currentXP += amount;
         if (currentXP >= xpToLevelUp)
             LevelUp();
+    }
+
+    public void AddSkillPoints(int numberOfSkillPoints)
+    {
+        player.GetComponent<CharacterStat>().SetSkillPoints(5 + player.GetComponent<CharacterStat>().GetSkillPoints());
+    }
+
+	public int GetLevel() {
+		return playerLevel;
+	}
+
+	public int GetCurrentXP() {
+		return currentXP;
+	}
+
+    public int GetXPToLevelUp()
+    {
+        return xpToLevelUp;
     }
 
 	void OnMouseEnter() {

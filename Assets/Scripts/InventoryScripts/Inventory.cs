@@ -11,6 +11,9 @@ public class Inventory : MonoBehaviour {
 
     //Allows access to consuming items
     public ConsumablesController consumableController;
+    public PlayerWeaponController playerWeaponController;
+
+    Item currentWeapon;
 
     //Reference to panel that displays item info for each tab inventory
     public InventoryUIDetails ConsumablesDetailsPanel;
@@ -38,24 +41,31 @@ public class Inventory : MonoBehaviour {
 
     void Start()
     {
+        currentWeapon = ItemDatabase.instance.getItem("Axe");
         //Testing inventory by adding items if not running unit tests
         if (SceneManager.GetActiveScene().name == "Tyler-Inventory")
         {
             Add("Wood");
             Add("Wood");
+            Add("Wood");
+            Add("DebugPotion");
             Add("DebugPotion");
             Add("Iron Sword");
+            Add("Iron Sword");
             Add("Iron Helmet");
-            Add("Wood");
             Add("Iron Shield");
-            Add("Wood");
-            for(int i = 0; i < 100; i++)
-            {
-                Add("Wood");
-            }
         }
 
         consumableController = GetComponent<ConsumablesController>();
+        playerWeaponController = GetComponent<PlayerWeaponController>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            playerWeaponController.EquipWeapon(currentWeapon);
+        }
     }
 
     //Used for event handeling and helping with UI of inventory

@@ -4,13 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
+    public Transform Player;
 
 	public void PlayGame ()
 	{
-		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex + 1);
+        SceneManager.LoadScene ("StartArea");
 	}
 
-	public void QuitGame ()
+    public void LoadGame ()
+    {     
+        SceneManager.LoadScene("StartArea");
+    }
+
+
+    public void QuitGame ()
 	{
 		Debug.Log ("Quit has been pressed");
 		Application.Quit ();

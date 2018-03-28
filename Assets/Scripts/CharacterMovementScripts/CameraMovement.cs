@@ -6,7 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
 
     //Reference to the thing the camera should move around (the player)
-    [SerializeField] private Transform person;
+    public Transform person;
 
     //Rotation variables
     public float rotSpeed = 1.5f;

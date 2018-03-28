@@ -42,5 +42,9 @@ public class InventoryUIItem : MonoBehaviour {
         {
             Inventory.instance.setWeaponsItemDetails(item, GetComponent<Button>());
         }
+        if (item.itemType == Item.ItemType.Resource)
+        {
+            Inventory.instance.setResourcesDetails(item, GetComponent<Button>());
+        }
     }
 }
