@@ -11,7 +11,6 @@ public class InventoryUIDetails : MonoBehaviour {
     Text itemName; //Name of item to appear in details panel
     Text itemDescriptionText; //Description of item to appear
     Text itemButtonText; //Button text when interacting with it
-
     public Text statText; //Text of stats of item
 
     void Start()
@@ -21,7 +20,6 @@ public class InventoryUIDetails : MonoBehaviour {
         itemDescriptionText = transform.Find("ItemDescription").GetComponent<Text>();
         itemInteractButton = transform.Find("Button").GetComponent<Button>();
         itemButtonText = itemInteractButton.transform.Find("Text").GetComponent<Text>();
-
         //When no item selected, just deactivated
         gameObject.SetActive(false);
     }
@@ -61,13 +59,24 @@ public class InventoryUIDetails : MonoBehaviour {
     public void onItemInteract()
     {
         //Depending on type of item, interact in other ways
-        if(item.itemType == Item.ItemType.Consumable)
-        {
+        if(item.itemType == Item.ItemType.Consumable){
             Inventory.instance.ConsumeItem(item);
             Destroy(selectedItemButton.gameObject);
         }
-        //else if for weapon here
 
+        if(item.itemType == Item.ItemType.Craftable){
+            if (Inventory.instance.ResourcesCheck(item.Item1, item.quantity1) && Inventory.instance.ResourcesCheck(item.Item2, item.quantity2)){
+                Inventory.instance.ResourcesRemove(item.Item2, item.quantity2);
+                Inventory.instance.ResourcesRemove(item.Item1, item.quantity1);
+                Inventory.instance.Add(item.Item3);
+            }
+            else {
+                Debug.Log("can not craft");             
+            }
+        }
+
+
+        //else if for weapon here
         //Null item after using and hide item details when not on something
         item = null;
         gameObject.SetActive(false);

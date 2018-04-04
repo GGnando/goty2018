@@ -13,8 +13,8 @@
 		"effectsStats": false
 	},
 	{
-		"name": "Craft - Test", 
-		"itemDescription": "THIS ITEM IS USED IN UNIT TEST TO ENSURE CRAFTING WORKS",
+		"name": "Iron Sword Recipe", 
+		"itemDescription": "Make an item sword using 20 Wood.",
 		"itemType": "Craftable", 
 		"sellable": true, 
 		"stackable": true, 
@@ -23,7 +23,12 @@
 		"interactName": "TEST", 
 		"craftable": true, 
 		"quantity": "1", 
-		"effectsStats": false
+		"effectsStats": false,
+		"Item1" : "Wood",
+		"Item2": "Wood",
+		"quantity1": "20",
+		"quantity2": "0",
+		"Item3" : "Iron Sword"
 	}, 
 	{
 		"name": "DebugPotion", 

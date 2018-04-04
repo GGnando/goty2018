@@ -19,6 +19,12 @@ public class Item {
     public bool craftable;
     public List<BaseStat> stats;
     public bool effectsStats; //True if item effects the player's stats (ex. health), false otherwise
+    //Crafting Stuff
+    public string Item1;
+    public string Item2;
+    public int quantity1;
+    public int quantity2;
+    public string Item3;
 
     public enum ItemType
     {
@@ -27,7 +33,7 @@ public class Item {
 
     //json constructor for items
     [Newtonsoft.Json.JsonConstructor]
-    public Item(string n, string d, ItemType t, bool s, bool st, int c, double w, int du, int q, string iname, bool cra, List<BaseStat> sta, bool eff)
+    public Item(string n, string d, ItemType t, bool s, bool st, int c, double w, int du, int q, string iname, bool cra, List<BaseStat> sta, bool eff, string it1, string it2, int q1, int q2, string it3)
     {
         name = n;
         itemDescription = d;
@@ -42,6 +48,11 @@ public class Item {
         craftable = cra;
         stats = sta;
         effectsStats = eff;
+        Item1 = it1;
+        Item2 = it2;
+        quantity1 = q1;
+        quantity2 = q2;
+        Item3 = it3;
     }
 
     public virtual void use()

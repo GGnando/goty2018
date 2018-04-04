@@ -42,13 +42,13 @@ public class Inventory : MonoBehaviour {
         //Testing inventory by adding items if not running unit tests
         if (SceneManager.GetActiveScene().name == "Tyler-Inventory")
         {
-            Add("Wood");
-            Add("Wood");
+            //Add("Wood");
+            //Add("Wood");
             Add("DebugPotion");
-            Add("Iron Sword");
-            Add("Iron Sword");
+            //Add("Iron Sword");
+            //Add("Iron Sword");
             Add("Iron Helmet");
-            Add("Wood");
+            //Add("Wood");
             Add("Iron Shield");
             Add("Wood");
             for(int i = 0; i < 100; i++)
@@ -56,7 +56,7 @@ public class Inventory : MonoBehaviour {
                 Add("Wood");
             }
             //Add("Should");
-            Add("Craft - Test");
+            Add("Iron Sword Recipe");
         }
 
         consumableController = GetComponent<ConsumablesController>();
@@ -107,7 +107,6 @@ public class Inventory : MonoBehaviour {
         {
             items[items.IndexOf(itemAdded)].quantity++;
         }
-
         //Add specific item to item type list:
         if(itemAdded.itemType == Item.ItemType.Quest)
         {
@@ -142,7 +141,8 @@ public class Inventory : MonoBehaviour {
             }
         }
         if (itemAdded.itemType == Item.ItemType.Weapon)
-        {
+        {                
+            Debug.Log("Test");
             if (!quantityCheck(weapons, itemAdded))
             {
                 weapons.Add(itemAdded);
@@ -351,6 +351,27 @@ public class Inventory : MonoBehaviour {
     public void ConsumeItem(Item consumedItem)
     {
         consumableController.consumeItem(consumedItem);
+    }
+
+    public bool ResourcesCheck(string item1, int quant){
+        foreach (Item child in resources){
+            if((child.name == item1) && (child.quantity >= quant))
+            {
+                return true;
+            }   
+        }
+        return false;
+    }
+
+    public void ResourcesRemove(string item1, int quant){
+        foreach (Item child in resources){
+            if((child.name == item1))
+            {
+                for (int i = 0; i < quant; i ++){
+                    Remove(child);
+                }
+            }   
+        }
     }
 
     //Check if list already has item, if so just increase quantity. Returns true if item already in list, false otherwise:
