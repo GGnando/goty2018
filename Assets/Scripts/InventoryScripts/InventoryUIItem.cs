@@ -46,5 +46,9 @@ public class InventoryUIItem : MonoBehaviour {
         {
             Inventory.instance.setResourcesDetails(item, GetComponent<Button>());
         }
+        if (item.itemType == Item.ItemType.Craftable)
+        {
+            Inventory.instance.setCraftablesDetails(item, GetComponent<Button>());
+        }
     }
 }

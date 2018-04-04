@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour {
     public InventoryUIDetails ArmorDetailsPanel;
     public InventoryUIDetails ShieldsDetailsPanel;
     public InventoryUIDetails ResourcesDetailsPanel;
+    public InventoryUIDetails CraftablesDetailsPanel;
 
     //Max size of item stacl
     const int MAXSTACKSIZE = 99;
@@ -44,19 +45,26 @@ public class Inventory : MonoBehaviour {
         currentWeapon = ItemDatabase.instance.getItem("Sword");
             
         //Testing inventory by adding items if not running unit tests
-        if (SceneManager.GetActiveScene().name == "Tyler-Inventory")
+        if (SceneManager.GetActiveScene().name == "StartArea")
         {
             Add("Wood");
             Add("Wood");
             Add("Wood");
+            
+            for(int i = 0; i < 58; i++)
+            {
+                Add("Wood");
+            }
+            
             Add("DebugPotion");
             Add("DebugPotion");
             Add("DebugPotion");
-            Add("Iron Sword");
-            Add("Iron Sword");
-            Add("Iron Sword");
+            Add("Sword");
+            Add("Axe");
+            Add("Sword");
             Add("Iron Helmet");
             Add("Iron Shield");
+            Add("Iron Sword Recipe");
         }
 
         consumableController = GetComponent<ConsumablesController>();
@@ -85,6 +93,7 @@ public class Inventory : MonoBehaviour {
     public List<Item> consumables = new List<Item>();
     public List<Item> resources = new List<Item>();
     public List<Item> quests = new List<Item>();
+    public List<Item> craftables = new List<Item>();
 
     //Getters for List of items for testing
     public List<Item> getItems()
@@ -97,7 +106,6 @@ public class Inventory : MonoBehaviour {
     {
         //Grab instance of item here and add to items list
         Item itemAdded = ItemDatabase.instance.getItem(itemName);
-
         //Check if limit of 99 of 1 item is reached
         if (checkLimit(itemAdded))
         {
@@ -156,8 +164,15 @@ public class Inventory : MonoBehaviour {
                 weapons.Add(itemAdded);
             }
         }
+        if (itemAdded.itemType == Item.ItemType.Craftable)
+        {
+            if (!quantityCheck(craftables, itemAdded))
+            {
+                craftables.Add(itemAdded);
+            }
+        }
 
-        //UIEventHandler.ItemAddedToInventory(itemAdded);
+        UIEventHandler.ItemAddedToInventory(itemAdded);
 
         //Adds to event and calls everything subscribed to event, so all inventory gets updated and displayed
         if (onItemChangedCallback != null)
@@ -174,6 +189,7 @@ public class Inventory : MonoBehaviour {
         if(item.quantity > 1)
         {
             item.quantity--;
+            UIEventHandler.ItemAddedToInventory(item);
 
             if (onItemChangedCallback != null)
             {
@@ -211,12 +227,17 @@ public class Inventory : MonoBehaviour {
         {
             weapons.Remove(item);
         }
+        if (item.itemType == Item.ItemType.Craftable)
+        {
+            craftables.Remove(item);
+        }
 
         if (onItemChangedCallback != null)
         {
             //Triggering event to update UI
             onItemChangedCallback.Invoke();
         }
+
     }
 
     //Returns true if item reaches max stack value of 99
@@ -255,6 +276,10 @@ public class Inventory : MonoBehaviour {
     {
         ResourcesDetailsPanel.setItem(item, button);
     }
+    public void setCraftablesDetails(Item item, Button button)
+    {
+        CraftablesDetailsPanel.setItem(item, button);
+    }
 
     //Equiping item from inventory code:
     //Add equip weapons later
@@ -263,6 +288,32 @@ public class Inventory : MonoBehaviour {
     public void ConsumeItem(Item consumedItem)
     {
         consumableController.consumeItem(consumedItem);
+    }
+
+    public bool ResourcesCheck(string item1, int quant)
+    {
+        foreach (Item child in resources)
+        {
+            if ((child.name == item1) && (child.quantity >= quant))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void ResourcesRemove(string item1, int quant)
+    {
+        foreach (Item child in resources)
+        {
+            if ((child.name == item1))
+            {
+                for (int i = 0; i < quant; i++)
+                {
+                    Remove(child);
+                }
+            }
+        }
     }
 
     //Check if list already has item, if so just increase quantity. Returns true if item already in list, false otherwise:

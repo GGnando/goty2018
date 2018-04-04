@@ -66,6 +66,21 @@ public class InventoryUIDetails : MonoBehaviour {
             Inventory.instance.ConsumeItem(item);
             Destroy(selectedItemButton.gameObject);
         }
+
+        if (item.itemType == Item.ItemType.Craftable)
+        {
+            if (Inventory.instance.ResourcesCheck(item.Item1, item.quantity1) && Inventory.instance.ResourcesCheck(item.Item2, item.quantity2))
+            {
+                Inventory.instance.ResourcesRemove(item.Item2, item.quantity2);
+                Inventory.instance.ResourcesRemove(item.Item1, item.quantity1);
+                Inventory.instance.Add(item.Item3);
+            }
+            else
+            {
+                Debug.Log("can not craft");
+            }
+        }
+
         //else if for weapon here
 
         //Null item after using and hide item details when not on something

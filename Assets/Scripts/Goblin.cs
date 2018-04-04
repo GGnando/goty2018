@@ -9,7 +9,6 @@ public class Goblin : MonoBehaviour, IEnemy {
     private CharacterStat goblinStats;
     public DropTable dropTable;
     public ItemPickup goblinDrop;
-	public GameObject player;
     public int goblinID;
     static int IDCounter = 0;
 
@@ -32,9 +31,8 @@ public class Goblin : MonoBehaviour, IEnemy {
 		
 	}
     public void PerformAttack() {
-		player.GetComponent<Health> ().TakeDamage (5);
-    }
 
+    }
     public void TakeDamage(float damage) {
         currentHealth -= damage;
         if (currentHealth <= 0) {
@@ -50,8 +48,8 @@ public class Goblin : MonoBehaviour, IEnemy {
         Item potentialDrop = dropTable.getDrop();
         if(potentialDrop != null) {
             GameObject weapon = (GameObject)Instantiate(Resources.Load<GameObject>("Weapons/ScriptedWeapons/" + potentialDrop.name), transform.position, Quaternion.identity);
-            ItemPickup temp = weapon.GetComponent<ItemPickup>();
-            temp.item = potentialDrop;
+            //ItemPickup temp = weapon.GetComponent<ItemPickup>();
+            //temp.item = potentialDrop;
         }
     }
 }

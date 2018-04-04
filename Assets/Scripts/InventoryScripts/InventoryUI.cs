@@ -21,6 +21,8 @@ public class InventoryUI : MonoBehaviour {
     public RectTransform consumablesScrollViewContent;
     public RectTransform resourcesInventoryPanel;
     public RectTransform resourcesScrollViewContent;
+    public RectTransform craftablesInventoryPanel;
+    public RectTransform craftablesScrollViewContent;
 
     //Reference to itemContainer prefab for item slots
     InventoryUIItem itemContainer;
@@ -49,12 +51,55 @@ public class InventoryUI : MonoBehaviour {
         InventoryUIItem emptyItem = Instantiate(itemContainer);
 
         //This deals with item stacking, if resources already has UI element with given item, delete current item UI and create a new one with updated quantity
-        foreach (Transform child in resourcesScrollViewContent)
+        if (item.itemType == Item.ItemType.Resource)
         {
-            if(child.transform.Find("ItemName").GetComponent<Text>().text == item.name)
+            foreach (Transform child in resourcesScrollViewContent)
             {
-                Destroy(child.gameObject);
-            }   
+                if (child.transform.Find("ItemName").GetComponent<Text>().text == item.name)
+                {
+                    Destroy(child.gameObject);
+                }
+            }
+        }
+        else if (item.itemType == Item.ItemType.Consumable)
+        {
+            foreach (Transform child in consumablesScrollViewContent)
+            {
+                if (child.transform.Find("ItemName").GetComponent<Text>().text == item.name)
+                {
+                    Destroy(child.gameObject);
+                }
+            }
+        }
+        else if (item.itemType == Item.ItemType.Armor)
+        {
+            foreach (Transform child in armorScrollViewContent)
+            {
+                if (child.transform.Find("ItemName").GetComponent<Text>().text == item.name)
+                {
+                    Destroy(child.gameObject);
+                }
+            }
+        }
+        else if (item.itemType == Item.ItemType.Shield)
+        {
+            foreach (Transform child in shieldsScrollViewContent)
+            {
+                if (child.transform.Find("ItemName").GetComponent<Text>().text == item.name)
+                {
+                    Destroy(child.gameObject);
+                }
+            }
+        }
+        else if (item.itemType == Item.ItemType.Weapon)
+        {
+            foreach (Transform child in weaponsScrollViewContent)
+            {
+                if (child.transform.Find("ItemName").GetComponent<Text>().text == item.name)
+                {
+                    Destroy(child.gameObject);
+                }
+            }
         }
 
         //Set item information for UI
@@ -63,34 +108,39 @@ public class InventoryUI : MonoBehaviour {
         //Assign item container to correct tab
         if (item.itemType == Item.ItemType.Resource)
         {
-            emptyItem.transform.SetParent(resourcesScrollViewContent);
+            emptyItem.transform.SetParent(resourcesScrollViewContent, false);
         }
         if (item.itemType == Item.ItemType.Consumable)
         {
-            emptyItem.transform.SetParent(consumablesScrollViewContent);
+            emptyItem.transform.SetParent(consumablesScrollViewContent, false);
         }
         if (item.itemType == Item.ItemType.Armor)
         {
-            emptyItem.transform.SetParent(armorScrollViewContent);
+            emptyItem.transform.SetParent(armorScrollViewContent, false);
         }
         if (item.itemType == Item.ItemType.Shield)
         {
-            emptyItem.transform.SetParent(shieldsScrollViewContent);
+            emptyItem.transform.SetParent(shieldsScrollViewContent, false);
         }
         if (item.itemType == Item.ItemType.Weapon)
         {
-            emptyItem.transform.SetParent(weaponsScrollViewContent);
+            emptyItem.transform.SetParent(weaponsScrollViewContent, false);
+        }
+        if (item.itemType == Item.ItemType.Craftable)
+        {
+            emptyItem.transform.SetParent(craftablesScrollViewContent, false);
         }
     }
 
-    void Update () {
+    void Update()
+    {
         //To pull up and get off of inventory, look for inventory key press
         if (Input.GetButtonDown("Inventory"))
         {
-           //Does opposite of whatever is up, so if inventory is pulled up, pressing again closes it
-           inventoryUI.SetActive(!inventoryUI.activeSelf);
+            //Does opposite of whatever is up, so if inventory is pulled up, pressing again closes it
+            inventoryUI.SetActive(!inventoryUI.activeSelf);
         }
-	}
+    }
 
     /*
      * Out dated code that worked with inventoryslots script. Leaving for reference for future if curious of another method of implementation

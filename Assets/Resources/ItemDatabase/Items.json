@@ -13,6 +13,24 @@
     "effectsStats": false
   },
   {
+		"name": "Iron Sword Recipe", 
+		"itemDescription": "Make an item sword using 20 Wood.",
+		"itemType": "Craftable", 
+		"sellable": true, 
+		"stackable": true, 
+		"itemCost": "3", 
+		"weight": "3", 
+		"interactName": "TEST", 
+		"craftable": true, 
+		"quantity": "1", 
+		"effectsStats": false,
+		"Item1" : "Wood",
+		"Item2": "Wood",
+		"quantity1": "20",
+		"quantity2": "0",
+		"Item3" : "Sword"
+  }, 
+  {
     "name": "Sword",
     "itemDescription": "This is a sword.",
     "itemType": "Weapon",

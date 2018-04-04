@@ -9,7 +9,9 @@ public class DisplaySkillPoints : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.GetComponent<Text>().text = "Stat Points: " + player.GetComponent<CharacterStat>().GetSkillPoints().ToString();
 
+        this.GetComponent<Text>().text = "Skill Points: " + player.GetComponent<CharacterStat>().GetSkillPoints().ToString();
+
+        this.GetComponent<Text>().text = "Stat Points: " + player.GetComponent<CharacterStat>().GetSkillPoints().ToString();
 	}
 }
