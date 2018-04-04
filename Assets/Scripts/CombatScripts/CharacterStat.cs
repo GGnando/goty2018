@@ -11,7 +11,7 @@ public enum StatType {
     Vitality
 }
 
-public class CharacterStat {
+public class CharacterStat : MonoBehaviour {
 
     public List<BaseStat> stats;
     // Use this for initialization
