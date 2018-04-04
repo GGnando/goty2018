@@ -31,10 +31,10 @@ public class CharacterStat : MonoBehaviour {
     //default values given to the chracter stats
     public void ConstructBaseStats() {
         stats = new List<BaseStat>();
-        stats.Add(new BaseStat(StatType.Attack, 69, "Attack", "Attack"));
-        stats.Add(new BaseStat(StatType.Defense, 69, "Defense", "Defense"));
-        stats.Add(new BaseStat(StatType.Constitution, 69, "Constitution", "Constitution"));
-        stats.Add(new BaseStat(StatType.Vitality, 69, "Vitality", "Vitality"));
+        stats.Add(new BaseStat(StatType.Attack, 1, "Attack", "Attack"));
+        stats.Add(new BaseStat(StatType.Defense, 1, "Defense", "Defense"));
+        stats.Add(new BaseStat(StatType.Constitution, 1, "Constitution", "Constitution"));
+        stats.Add(new BaseStat(StatType.Vitality, 1, "Vitality", "Vitality"));
     }
     public BaseStat GetStat(StatType stat) {
         return this.stats.Find(x => x.type == stat);

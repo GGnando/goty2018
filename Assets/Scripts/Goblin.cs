@@ -12,6 +12,8 @@ public class Goblin : MonoBehaviour, IEnemy {
     public int goblinID;
     static int IDCounter = 0;
 
+    public GameObject player;
+
 	void Start () {
         goblinID = IDCounter++;
         //attack, defense, consitution, vitality
@@ -30,9 +32,11 @@ public class Goblin : MonoBehaviour, IEnemy {
 	void Update () {
 		
 	}
-    public void PerformAttack() {
 
+    public void PerformAttack() {
+        player.GetComponent<Health>().TakeDamage(5);
     }
+
     public void TakeDamage(float damage) {
         currentHealth -= damage;
         if (currentHealth <= 0) {
@@ -43,6 +47,7 @@ public class Goblin : MonoBehaviour, IEnemy {
     private void Die() {
         DropLoot();
         Destroy(gameObject);
+        player.GetComponent<Experience>().AddXP(50);
     }
     private void DropLoot() {
         Item potentialDrop = dropTable.getDrop();

@@ -37,7 +37,7 @@ public class HarvestResources : MonoBehaviour {
 
                         tree.GetComponent<HarvestableTree>().ChopWood(choppingPower);
                         print("Tree has been hit. " + "Its current health is: " + tree.GetComponent<HarvestableTree>().GetTreeHealth());
-                        //Inventory.instance.Add("Wood");
+                        Inventory.instance.Add("Wood");
                         StartCoroutine(ShowMessage("+1 Wood", 0.5f));
 
                         if (tree.GetComponent<HarvestableTree>().GetTreeHealth() <= 0)
