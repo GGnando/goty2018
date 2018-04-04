@@ -9,6 +9,7 @@ public class Goblin : MonoBehaviour, IEnemy {
     private CharacterStat goblinStats;
     public DropTable dropTable;
     public ItemPickup goblinDrop;
+	public GameObject player;
     public int goblinID;
     static int IDCounter = 0;
 
@@ -31,8 +32,9 @@ public class Goblin : MonoBehaviour, IEnemy {
 		
 	}
     public void PerformAttack() {
-
+		player.GetComponent<Health> ().TakeDamage (5);
     }
+
     public void TakeDamage(float damage) {
         currentHealth -= damage;
         if (currentHealth <= 0) {
