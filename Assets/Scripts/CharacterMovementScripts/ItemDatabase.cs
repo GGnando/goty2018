@@ -44,4 +44,5 @@ public class ItemDatabase : MonoBehaviour {
         Debug.Log("Item not found...");
         return null; //No item found
     }
+
 }

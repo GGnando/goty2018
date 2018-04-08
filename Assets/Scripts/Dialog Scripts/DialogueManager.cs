@@ -20,15 +20,23 @@ public class DialogueManager : MonoBehaviour {
    // public Animator animator; //this is how we control the animations for the panel
     private Queue<string> sentences; //variable taht will keep track of all our sentences in our dialogue
 
-	// Use this for initialization
-	void Start ()
+    //Tyler stuff
+    public GameObject TylerKnightConversation; //the button that starts a conversation with the Tyler's Knight
+    public GameObject TylerknightHead; //so we know where the head of the knight is
+
+    // Use this for initialization
+    void Start ()
     {
         sentences = new Queue<string>(); //initialize the Queue
         startConversatoin.SetActive(false); //make the start button invisible
         knightConversation.SetActive(false); //make the start button invisible
         dialoguePanel.SetActive(false); //make the dialogue panel invisible
         adder[1] = 1; //set the Y component of teh adder verctor to 10 so that the dialogue box will go up by 10
-	}
+
+        //Tyler stuff
+        TylerKnightConversation.SetActive(false);
+
+    }
 
     void Update()
     {
@@ -46,6 +54,7 @@ public class DialogueManager : MonoBehaviour {
         if (number == 1) //if the number is one
         {
             knightConversation.SetActive(true); //turn the button on
+            knightConversation.transform.position = knightHead.transform.position + adder;
         }
         else if (number == 0) //else if the number is zero
         {
@@ -104,5 +113,21 @@ public class DialogueManager : MonoBehaviour {
     {
         dialoguePanel.SetActive(false);
    //     animator.SetBool("IsOpen", false); //set the "IsOPen" parameter to false because we are closing a dialogue
+    }
+
+
+    //Tyler stuff:
+    //function used to turn the start conversation for the knight on or off
+    public void TylerKnightButtonOnOrOff(int number)
+    {
+        if (number == 1) //if the number is one
+        {
+            TylerKnightConversation.SetActive(true); //turn the button on
+            TylerKnightConversation.transform.position = TylerknightHead.transform.position + adder;
+        }
+        else if (number == 0) //else if the number is zero
+        {
+            TylerKnightConversation.SetActive(false); //turn the button off
+        }
     }
 }

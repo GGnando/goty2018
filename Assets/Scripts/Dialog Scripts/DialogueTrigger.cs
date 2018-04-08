@@ -34,4 +34,13 @@ public class DialogueTrigger : MonoBehaviour {
             FindObjectOfType<DialogueManager>().KnightButtonOnOrOff(0); //make the start conversation button go aawy
         }
     }
+
+    //Tyler stuff:
+    public void TylerTriggerDialogue()
+    {
+        //we want to find an object of type DialogueManager. And now that we found this object we want to call the function StartDialogue and give it a function
+        //argument to tell it what conversation to start (we pass in our dialogue variable. 
+        FindObjectOfType<DialogueManager>().TylerKnightButtonOnOrOff(0); //turn the button off because they want to start conversatoin
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);  //locate our dialogue manager. 
+    }
 }

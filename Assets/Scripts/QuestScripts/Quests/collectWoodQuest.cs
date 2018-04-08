@@ -12,12 +12,30 @@ public class collectWoodQuest : Quest {
         questName = "Collect 3 wood";
         questDescription = "Help the village with cutting wood";
 
-        itemReward = "Iron Shield";
+        itemReward = "DebugPotion";
 
         experienceAward = 10;
 
-        objectives.Add(new CollectObjective(this, "Wood", questDescription, false, 0, 3));
+        int currentAmount = 0;
+
+        objectives.Add(new CollectObjective(this, "Wood", questDescription, false, currentAmount, 2));
 
         objectives.ForEach(g => g.initialization()); //Loop through all objectives for quest and initialize them
+
+        addToUI();
     }
+
+    private void addToUI()
+    {
+        Inventory.instance.addQuest(this);
+    }
+
+    private void Update()
+    {
+        if (this.isComplete)
+        {
+            Destroy(this);
+        }
+    }
+
 }

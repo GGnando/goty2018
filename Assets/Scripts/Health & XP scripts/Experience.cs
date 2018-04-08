@@ -51,7 +51,7 @@ public class Experience : MonoBehaviour {
 
     public void AddSkillPoints(int numberOfSkillPoints)
     {
-        player.GetComponent<CharacterStat>().SetSkillPoints(5 + player.GetComponent<CharacterStat>().GetSkillPoints());
+        player.GetComponent<Player>().playerStats.SetSkillPoints(5 + player.GetComponent<Player>().playerStats.GetSkillPoints());
     }
 
 	public int GetLevel() {

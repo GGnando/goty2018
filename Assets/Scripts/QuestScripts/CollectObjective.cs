@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 //This will be an objective for collecting a certain amount of items
 public class CollectObjective : Objective {
 
@@ -21,6 +22,7 @@ public class CollectObjective : Objective {
     public override void initialization()
     {
         base.initialization();
+        checkStartProgress();
         UIEventHandler.OnItemAddedToInventory += itemPickedUp; //Event caller that adds below method to check for items picked up
     }
 

@@ -6,12 +6,16 @@ using UnityEngine.UI;
 public class DisplaySkillPoints : MonoBehaviour {
 
     public GameObject player;
-	
-	// Update is called once per frame
-	void Update () {
+    public CharacterStat characterStats;
 
-        this.GetComponent<Text>().text = "Skill Points: " + player.GetComponent<CharacterStat>().GetSkillPoints().ToString();
+    void Start()
+    {
+        characterStats = player.GetComponent<Player>().playerStats;
+    }
 
-        this.GetComponent<Text>().text = "Stat Points: " + player.GetComponent<CharacterStat>().GetSkillPoints().ToString();
+    // Update is called once per frame
+    void Update () {
+    //GetComponent<Player>().playerStats
+        this.GetComponent<Text>().text = "Stat Points: " + characterStats.GetSkillPoints().ToString();
 	}
 }

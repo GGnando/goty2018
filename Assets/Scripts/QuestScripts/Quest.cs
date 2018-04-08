@@ -15,6 +15,21 @@ public class Quest : MonoBehaviour {
 
     public GameObject player; //Reference to player to give xp
 
+    public Quest()
+    {
+
+    }
+
+    public Quest(List<Objective> objs, string name, string desc, int xpAward, string itemR, bool isDone)
+    {
+        objectives = objs;
+        questName = name;
+        questDescription = desc;
+        experienceAward = xpAward;
+        itemReward = itemR;
+        isComplete = isDone;
+    }
+
     public void checkObjectives()
     {
         isComplete = objectives.All(g => g.completed); //Goes through objectives to see if one objective is not completed
@@ -23,6 +38,7 @@ public class Quest : MonoBehaviour {
         if (isComplete)
         {
             giveReward();
+            //Let quest giver give reward and remove required items
         }
     }
 
@@ -40,5 +56,8 @@ public class Quest : MonoBehaviour {
             //If experience award exsits, give xp to player
             player.GetComponent<Experience>().AddXP(experienceAward);
         }
+
+        itemReward = null;
+        experienceAward = 0;
     }
 }

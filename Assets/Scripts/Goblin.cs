@@ -1,22 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Goblin : MonoBehaviour, IEnemy {
 
 	private float currentHealth;
-    public float MaxHealth;
+    public float MaxHealth = 50;
     private CharacterStat goblinStats;
     public DropTable dropTable;
     public ItemPickup goblinDrop;
     public int goblinID;
     static int IDCounter = 0;
+    public Image healthBar;
+    public GameObject player;
 
 	void Start () {
         goblinID = IDCounter++;
         //attack, defense, consitution, vitality
         goblinStats = new CharacterStat(10,10,50,50);
-        currentHealth = MaxHealth = 50;
+        currentHealth = MaxHealth;
         dropTable = new DropTable();
         dropTable.listOfDrop = new List<LootDrop>() {
             new LootDrop("Sword",100),
@@ -30,11 +33,14 @@ public class Goblin : MonoBehaviour, IEnemy {
 	void Update () {
 		
 	}
-    public void PerformAttack() {
 
+    public void PerformAttack() {
+        player.GetComponent<Health>().TakeDamage(5);
     }
+
     public void TakeDamage(float damage) {
         currentHealth -= damage;
+        healthBar.fillAmount = currentHealth/MaxHealth;
         if (currentHealth <= 0) {
             Die();
         }
@@ -43,6 +49,7 @@ public class Goblin : MonoBehaviour, IEnemy {
     private void Die() {
         DropLoot();
         Destroy(gameObject);
+        player.GetComponent<Experience>().AddXP(50);
     }
     private void DropLoot() {
         Item potentialDrop = dropTable.getDrop();

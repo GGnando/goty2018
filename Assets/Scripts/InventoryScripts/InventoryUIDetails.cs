@@ -12,6 +12,8 @@ public class InventoryUIDetails : MonoBehaviour {
     Text itemDescriptionText; //Description of item to appear
     Text itemButtonText; //Button text when interacting with it
 
+    Quest quest; //quest selected
+
     public Text statText; //Text of stats of item
 
     void Start()
@@ -81,11 +83,38 @@ public class InventoryUIDetails : MonoBehaviour {
             }
         }
 
-        //else if for weapon here
+        if (item.itemType == Item.ItemType.Weapon)
+        {
+            Inventory.instance.EquipItem(item);
+            Destroy(selectedItemButton.gameObject);
+        }
 
         //Null item after using and hide item details when not on something
         item = null;
         gameObject.SetActive(false);
         
+    }
+
+    //Similar for quests now:
+    public void setQuest(Quest quest, Button button)
+    {
+        //Show details when object selected
+        gameObject.SetActive(true);
+
+        //Setting quest progress text here now: 
+        statText.text = "";
+
+        //Remove previous listeners for events or everything used will be done multiple times:
+        itemInteractButton.onClick.RemoveAllListeners();
+
+        //Setting information for details pannel to show
+        this.quest = quest;
+        selectedItemButton = button;
+        itemName.text = quest.name;
+        itemDescriptionText.text = quest.questDescription;
+        itemButtonText.text = "";
+
+        //When button clicked to interact with item, call below method
+        itemInteractButton.onClick.AddListener(onItemInteract);
     }
 }
