@@ -3,32 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Chase : MonoBehaviour {
+    /*
     public AudioSource audioSource;
     public AudioClip swingClip;
     public AudioClip goblinLaughClip;
+    */
     public Transform player;
     public Rigidbody enemyRigidBody;
     static Animator patrolCycle;
 
     private float rotationSpeed = .1f;
-    private int agressionDistance = 3;
+    public int agressionDistance = 3;
     private float enemyMovementSpeed = .00005f;
     private Vector3 direction;
 
-	void Start () {
+    void Start() {
         patrolCycle = GetComponent<Animator>();
         enemyRigidBody = GetComponent<Rigidbody>();
-	}
-	
-	void FixedUpdate () {
+    }
+
+    void FixedUpdate() {
         Vector3 distance = player.position - this.transform.position;
-		if(distance.magnitude < agressionDistance) {
+        if (distance.magnitude < agressionDistance) {
 
             direction = player.position - this.transform.position;
             lookAtTarget(direction);
 
             patrolCycle.SetBool("Idle", false);
-            if (direction.magnitude > 1) {
+            if (direction.magnitude > 1.8) {
                 enemyRigidBody.AddForce(transform.forward * enemyMovementSpeed);
                 patrolCycle.SetBool("Attacking", false);
                 patrolCycle.SetBool("Chasing", true);
@@ -44,40 +46,15 @@ public class Chase : MonoBehaviour {
             patrolCycle.SetBool("Chasing", false);
             enemyRigidBody.angularVelocity = new Vector3(0f, 0f, 0f);
         }
-	}
-
-    public void playAudio()
-    {
-        audioSource.clip = swingClip;
-        audioSource.PlayOneShot(swingClip);
     }
 
-    public void goblinSound()
-    {
-        StartCoroutine(playGoblinSound());
-    }
-
-    IEnumerator playGoblinSound()
-    {
-        float laughOrNot = Random.Range(1f, 100f);
-        if (laughOrNot <= 25)
-        {
-            audioSource.clip = goblinLaughClip;
-            audioSource.Play();
-            while (audioSource.isPlaying)
-            {
-                yield return null;
-            }
-         //   audioSource.PlayOneShot(goblinLaughClip);
-        }
-    }
 
     /// <summary>
     /// private functions
     /// </summary>
     private void lookAtTarget(Vector3 direction) {
         direction.y = 0;
-        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction),rotationSpeed);
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), rotationSpeed);
     }
     /// <summary>
     /// public functions
@@ -89,3 +66,4 @@ public class Chase : MonoBehaviour {
         this.rotationSpeed = rotationSpeed;
     }
 }
+

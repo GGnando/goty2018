@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 4d33a1fb9344e9440a4bbe41c8e5d989
+=======
 guid: f78b52e12a18a8542bb230a2afa9858f
+>>>>>>> 02Dennys
 timeCreated: 1448021181
 licenseType: Store
 TextureImporter:
@@ -67,7 +71,10 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
     outline: []
+<<<<<<< HEAD
+=======
     physicsShape: []
+>>>>>>> 02Dennys
   spritePackingTag: 
   userData: 
   assetBundleName: 

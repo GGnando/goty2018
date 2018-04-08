@@ -9,11 +9,18 @@ public class UIEventHandler : MonoBehaviour {
 
     //Actual event for when item added to inventory
     public static event ItemEventHandler OnItemAddedToInventory;
-
+    
     //This allows inventory UI to know information of item, can display item stats etc.
 	public static void ItemAddedToInventory(Item item)
     {
-        OnItemAddedToInventory(item);
+        if(item.name != "TESTITEM")
+        {
+            OnItemAddedToInventory(item);
+        }
+        else
+        {
+            Debug.Log("We are testing adding items to inventory");
+        }
     }
-	
+
 }
