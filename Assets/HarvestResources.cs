@@ -54,8 +54,7 @@ public class HarvestResources : MonoBehaviour {
 
                         rock.GetComponent<HarvestableRock>().MineRock(miningPower);
                         print("Rock has been hit. " + "Its current health is: " + rock.GetComponent<HarvestableRock>().GetRockHealth());
-                        Inventory.instance.Add("Stone");
-                        StartCoroutine(ShowMessage("+1 Stone", 0.5f));
+                        //Inventory.instance.Add("Stone");
 
                         if (rock.GetComponent<HarvestableRock>().GetRockHealth() <= 0)
                         {
@@ -89,7 +88,7 @@ public class HarvestResources : MonoBehaviour {
     IEnumerator ShowMessage(string message, float delay)
     {
         harvestText.text = message;
-        harvestText.gameObject.transform.localPosition = new Vector3(Random.Range(-50.0f,50.0f), Random.Range(-40.0f, 40.0f));
+        harvestText.gameObject.transform.localPosition = new Vector3(Random.Range(-40.0f,40.0f), Random.Range(-40.0f, 40.0f));
         harvestText.enabled = true;
         yield return new WaitForSeconds(delay);
         harvestText.enabled = false;

@@ -217,17 +217,5 @@
     "craftable": false,
     "quantity": "1",
     "effectStats": false
-  },
-  {
-    "name": "Stone",
-    "itemDescription": "Stone from a prehistoric rock.",
-    "itemType": "Resource",
-    "sellable": true,
-    "stackable": true,
-    "itemCost": "15",
-    "weight": "0.2",
-    "craftable": false,
-    "quantity": "1",
-    "effectStats": false
   }
 ]

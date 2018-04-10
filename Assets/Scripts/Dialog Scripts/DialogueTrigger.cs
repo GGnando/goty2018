@@ -14,24 +14,6 @@ public class DialogueTrigger : MonoBehaviour {
         //we want to find an object of type DialogueManager. And now that we found this object we want to call the function StartDialogue and give it a function
         //argument to tell it what conversation to start (we pass in our dialogue variable. 
         FindObjectOfType<DialogueManager>().KnightButtonOnOrOff(0); //turn the button off because they want to start conversatoin
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);  //locate our dialogue manager. 
-    }
-
-    //functoin that makes the start conversation button appear
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player")) //if the Player enters our collider
-        {
-            FindObjectOfType<DialogueManager>().KnightButtonOnOrOff(1); //turn the conversatoin button on
-        }
-    }
-
-    //function that makes the start conversation button dissapear
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player")) //if the Player leaves our collider
-        {
-            FindObjectOfType<DialogueManager>().KnightButtonOnOrOff(0); //make the start conversation button go aawy
-        }
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this.gameObject);  //locate our dialogue manager. 
     }
 }
