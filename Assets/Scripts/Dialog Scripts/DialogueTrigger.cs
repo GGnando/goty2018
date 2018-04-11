@@ -14,6 +14,76 @@ public class DialogueTrigger : MonoBehaviour {
         //we want to find an object of type DialogueManager. And now that we found this object we want to call the function StartDialogue and give it a function
         //argument to tell it what conversation to start (we pass in our dialogue variable. 
         FindObjectOfType<DialogueManager>().KnightButtonOnOrOff(0); //turn the button off because they want to start conversatoin
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this.gameObject);  //locate our dialogue manager. 
+
+        if(hasCompletedQuest)
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this.gameObject, true);  //locate our dialogue manager. 
+        }
+        else if(quest != null)
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this.gameObject, quest.isComplete);  //locate our dialogue manager. 
+        }
+        else
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this.gameObject, false);  //locate our dialogue manager. 
+        }
+        
     }
+
+    //Tyler addition:
+    public Quest quest; //Quest to give player, does not need to be set if no quest for this NPC
+
+    private bool hasRecievedQuest; //Bool to keep track if player has gotten quest yet
+
+    private bool hasCompletedQuest; //Bool to keep track if player completed quest yet
+
+    //Initialize values
+    private void Start()
+    {
+        hasRecievedQuest = false;
+        hasCompletedQuest = false; 
+        quest = GetComponent<Quest>();
+    }
+
+    public void TylerTriggerDialogue()
+    {
+
+        //If quest for this NPC exists, add to inventory when dialogue starts and when spoken to again, check if done
+        if (quest != null)
+        {
+            if (!hasRecievedQuest)
+            {
+                Inventory.instance.addQuest(quest);
+                hasRecievedQuest = true;
+            }
+            else
+            {
+                quest.checkObjectives();
+
+                if (quest.isComplete)
+                {
+                    hasCompletedQuest = true;
+                }
+            }
+        }
+
+        //we want to find an object of type DialogueManager. And now that we found this object we want to call the function StartDialogue and give it a function
+        //argument to tell it what conversation to start (we pass in our dialogue variable. 
+        FindObjectOfType<DialogueManager>().TylerKnightButtonOnOrOff(0); //turn the button off because they want to start conversatoin
+
+        if (hasCompletedQuest)
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this.gameObject, true);  //locate our dialogue manager. 
+        }
+        else if (quest != null)
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this.gameObject, quest.isComplete);  //locate our dialogue manager. 
+        }
+        else
+        {
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this.gameObject, false);  //locate our dialogue manager. 
+        }
+
+    }
+
 }

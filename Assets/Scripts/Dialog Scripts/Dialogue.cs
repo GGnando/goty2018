@@ -13,4 +13,9 @@ public class Dialogue {
     //10 is the maximum
     [TextArea(3, 10)]
     public string[] sentences; //the sentences taht we will load into our Queue
+
+    //Tyler's additions:
+    //This allows for dialogue optional to quest completion:
+    [TextArea(3, 10)]
+    public string[] questCompletedSentences; //the sentences taht we will load into our Queue
 }
