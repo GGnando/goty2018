@@ -2,26 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueAudio : MonoBehaviour {
+public class DialogueAudio : MonoBehaviour
+{
     public AudioClip pushButton;
     public AudioClip MusicClip;
     public AudioClip MusicClip2;
     public AudioClip GolbinLaugh;
     public AudioClip Swing;
+    public AudioClip goblinDies;
+    public AudioClip woodSound;
+    public AudioClip grassSound;
+    public AudioClip concreteSound;
+    public AudioClip levelUp;
+    public AudioClip goblinTakesDamage;
     public AudioSource MusicSource;
     public AudioSource MusicSource2;
     public AudioSource buttonSource;
-    public AudioSource GoblinLaughSource;
+    public AudioSource GoblinSource;
     public AudioSource SwingSource;
+    public AudioSource RandomSource;
+    public AudioSource GoblinDiesSource;
+    public AudioSource LevelUpSource;
+    public AudioSource PlayerSwingSource;
+    public AudioSource GoblinDamageNoiseSource;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         buttonSource.clip = pushButton;
         MusicSource.clip = MusicClip;
         MusicSource2.clip = MusicClip2;
-        GoblinLaughSource.clip = GolbinLaugh;
+        GoblinSource.clip = GolbinLaugh;
         SwingSource.clip = Swing;
-	}
+    }
 
     // Update is called once per frame
     public void buttonNoise()
@@ -48,7 +61,55 @@ public class DialogueAudio : MonoBehaviour {
         int randomNumber = Random.Range(1, 100);
         if (randomNumber < 10)
         {
-            GoblinLaughSource.Play();
+            GoblinSource.Play();
         }
+    }
+
+    public void GoblinDies()
+    {
+        GoblinDiesSource.clip = goblinDies;
+        GoblinDiesSource.Play();
+    }
+
+    public void PlayWoodNoise()
+    {
+        RandomSource.clip = woodSound;
+        RandomSource.Play();
+    }
+
+    public void PlayGrassNoise()
+    {
+        RandomSource.clip = grassSound;
+        RandomSource.Play();
+    }
+
+    public void PlayConcreteNoise()
+    {
+        RandomSource.clip = concreteSound;
+        RandomSource.Play();
+    }
+
+    public void StopWalkingRelatedNoises()
+    {
+        RandomSource.Stop();
+    }
+    public void LevelUpNoise()
+    {
+        LevelUpSource.clip = levelUp;
+        LevelUpSource.Play();
+    }
+
+    public void PlayerSwing()
+    {
+        PlayerSwingSource.clip = Swing;
+        PlayerSwingSource.pitch = .5f;
+        PlayerSwingSource.Play();
+        PlayerSwingSource.pitch = 1f;
+    }
+
+    public void GoblinDamageNoise()
+    {
+        GoblinDamageNoiseSource.clip = goblinTakesDamage;
+        GoblinDamageNoiseSource.Play();
     }
 }

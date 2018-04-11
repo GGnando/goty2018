@@ -13,4 +13,12 @@ public class GoblinSounds : MonoBehaviour {
     {
         FindObjectOfType<DialogueAudio>().GoblinSwing();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Weapon"))
+        {
+            FindObjectOfType<DialogueAudio>().GoblinDamageNoise();
+        }
+    }
 }

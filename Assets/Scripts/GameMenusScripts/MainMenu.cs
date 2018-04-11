@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void PlayGame ()
 	{
+        FindObjectOfType<MainMenuSounds>().ButtonClick();
         SceneManager.LoadScene ("StartArea");
 	}
 

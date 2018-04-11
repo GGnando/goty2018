@@ -10,6 +10,10 @@ TagManager:
   - Knight
   - Tree
   - Rock
+  - Wood
+  - Grass
+  - Concrete
+  - Weapon
   layers:
   - Default
   - TransparentFX

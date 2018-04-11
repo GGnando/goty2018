@@ -44,9 +44,14 @@ public class Goblin : MonoBehaviour, IEnemy {
         if (currentHealth <= 0) {
             Die();
         }
+ //       else
+ //       {
+ //           FindObjectOfType<DialogueAudio>().GoblinDamageNoise();
+ //       }
     }
     
     private void Die() {
+        FindObjectOfType<DialogueAudio>().GoblinDies();
         DropLoot();
         Destroy(gameObject);
         player.GetComponent<Experience>().AddXP(50);

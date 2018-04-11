@@ -48,6 +48,30 @@ public class CharacterMovement : MonoBehaviour
         animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
+    public void FloorSound()
+    {
+        RaycastHit hit = new RaycastHit();
+        string floortag;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit))
+        {
+            floortag = hit.collider.gameObject.tag;
+            Debug.Log(floortag);
+            if (floortag == "Wood")
+            {
+                FindObjectOfType<DialogueAudio>().PlayWoodNoise();
+            }
+            else if (floortag == "Grass")
+            {
+                FindObjectOfType<DialogueAudio>().PlayGrassNoise();
+            }
+            else if (floortag == "Concrete")
+            {
+                Debug.Log("I am in here");
+                FindObjectOfType<DialogueAudio>().PlayConcreteNoise();
+            }
+        }
+    }
+
     void Update() {
 
         //This is to make sure that player is not in inventory or state where movement should not be done
@@ -199,6 +223,12 @@ public class CharacterMovement : MonoBehaviour
 
         //Tell character controller to get a move on
         charController.Move(movement);
+
+
+        if ((horInput != 0 || vertInput != 0) && hitGround == false)
+        {
+            FindObjectOfType<DialogueAudio>().StopWalkingRelatedNoises();
+        }
     }
 
     //Used for raycasting, gets a hit value from player controller and stores in our variable contact

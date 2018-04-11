@@ -107,4 +107,9 @@ public class DialogueManager : MonoBehaviour {
         dialoguePanel.SetActive(false);
    //     animator.SetBool("IsOpen", false); //set the "IsOPen" parameter to false because we are closing a dialogue
     }
+
+    public void TurnOnButton()
+    {
+        knightConversation.SetActive(true);
+    }
 }
