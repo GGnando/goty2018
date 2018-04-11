@@ -12,33 +12,111 @@ public class Quest : MonoBehaviour {
     public int experienceAward;
     public string itemReward;
     public bool isComplete;
+    public bool rewardGiven;
 
     public GameObject player; //Reference to player to give xp
+
+    public Quest()
+    {
+
+    }
+
+    public Quest(List<Objective> objs, string name, string desc, int xpAward, string itemR, bool isDone)
+    {
+        objectives = objs;
+        questName = name;
+        questDescription = desc;
+        experienceAward = xpAward;
+        itemReward = itemR;
+        isComplete = isDone;
+        rewardGiven = false;
+    }
 
     public void checkObjectives()
     {
         isComplete = objectives.All(g => g.completed); //Goes through objectives to see if one objective is not completed
 
         //Give reward if quest is complete
-        if (isComplete)
+        if (isComplete && !rewardGiven)
         {
             giveReward();
         }
     }
 
-    void giveReward()
+    private void giveReward()
     {
-        Debug.Log("Quest was completed");
-        if (itemReward != null)
+        if (!rewardGiven)
         {
-            //If item reward exsits, add to inventory once completed
-            Inventory.instance.Add(itemReward);
-        }
+            Debug.Log("Quest was completed");
+            
+            foreach (Objective obj in objectives)
+            {
+                obj.removeQuestItems();
+            }
+            
+            if (itemReward != null)
+            {
+                //If item reward exsits, add to inventory once completed
+                Inventory.instance.Add(itemReward);
+            }
 
-        if (experienceAward != 0)
-        {
-            //If experience award exsits, give xp to player
-            player.GetComponent<Experience>().AddXP(experienceAward);
+            if (experienceAward != 0)
+            {
+                //If experience award exsits, give xp to player
+                player.GetComponent<Experience>().AddXP(experienceAward);
+            }
+            
+            itemReward = null;
+            experienceAward = 0;
+            rewardGiven = true;
         }
+    }
+
+    //Method used in testing
+    public void checkObjectivesTest()
+    {
+        isComplete = objectives.All(g => g.completed); //Goes through objectives to see if one objective is not completed
+
+        //Give reward if quest is complete
+        if (isComplete && !rewardGiven)
+        {
+            giveRewardTest();
+        }
+    }
+
+    //Method used in testing
+    private void giveRewardTest()
+    {
+        if (!rewardGiven)
+        {
+            Debug.Log("Quest was completed");
+
+            /*
+            foreach (Objective obj in objectives)
+            {
+                obj.removeQuestItems();
+            }
+            
+            if (itemReward != null)
+            {
+                //If item reward exsits, add to inventory once completed
+                Inventory.instance.Add(itemReward);
+            }
+            
+            if (experienceAward != 0)
+            {
+                //If experience award exsits, give xp to player
+                player.GetComponent<Experience>().AddXP(experienceAward);
+            }
+            */
+            itemReward = null;
+            experienceAward = 0;
+            rewardGiven = true;
+        }
+    }
+
+    public void removeQuest()
+    {
+        Destroy(this);
     }
 }

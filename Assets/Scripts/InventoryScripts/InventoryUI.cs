@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 
 //This class keeps track of inventory and updates it
-public class InventoryUI : MonoBehaviour {
+public class InventoryUI : MonoBehaviour
+{
 
     //Reference to entire inventory
     public GameObject inventoryUI;
@@ -13,16 +14,14 @@ public class InventoryUI : MonoBehaviour {
     //Reference to inventoryUI panel, scrollArea for each tab's inventory
     public RectTransform weaponsInventoryPanel;
     public RectTransform weaponsScrollViewContent;
-    public RectTransform shieldsInventoryPanel;
-    public RectTransform shieldsScrollViewContent;
-    public RectTransform armorInventoryPanel;
-    public RectTransform armorScrollViewContent;
     public RectTransform consumablesInventoryPanel;
     public RectTransform consumablesScrollViewContent;
     public RectTransform resourcesInventoryPanel;
     public RectTransform resourcesScrollViewContent;
     public RectTransform craftablesInventoryPanel;
     public RectTransform craftablesScrollViewContent;
+    public RectTransform questsInventoryPanel;
+    public RectTransform questScrollViewContent;
 
     //Reference to itemContainer prefab for item slots
     InventoryUIItem itemContainer;
@@ -33,19 +32,65 @@ public class InventoryUI : MonoBehaviour {
     //Know which item is currently selected to display info
     Item currentSelectedItem { get; set; }
 
-    void Start () {
+    void Start()
+    {
         //Loads item container prefab for inventory slots
         itemContainer = Resources.Load<InventoryUIItem>("InventoryUI/ItemContainer");
 
         //Helps UI know which item added to inventory. Event is known    
         UIEventHandler.OnItemAddedToInventory += itemAdded;
-	}
+
+        //Add quest to event system like above
+        UIEventHandler.OnQuestAddedToInventory += questAdded;
+    }
 
     //So UI knows is added
     public void itemAdded(Item item)
     {
         //Updates Inventory UI to add more items
         //Because of event system, adds these
+
+        if (item.quantity < 0)
+        {
+            return;
+        }
+
+        //This means an item was removed and no more are in inv
+        if (item.quantity == 0)
+        {
+            if (item.itemType == Item.ItemType.Resource)
+            {
+                foreach (Transform child in resourcesScrollViewContent)
+                {
+                    if (child.transform.Find("ItemName").GetComponent<Text>().text == item.name)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                }
+            }
+            else if (item.itemType == Item.ItemType.Consumable)
+            {
+                foreach (Transform child in consumablesScrollViewContent)
+                {
+                    if (child.transform.Find("ItemName").GetComponent<Text>().text == item.name)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                }
+            }
+            else if (item.itemType == Item.ItemType.Weapon)
+            {
+                foreach (Transform child in weaponsScrollViewContent)
+                {
+                    if (child.transform.Find("ItemName").GetComponent<Text>().text == item.name)
+                    {
+                        Destroy(child.gameObject);
+                    }
+                }
+            }
+
+            return;
+        }
 
         //Creates a new item container which holds item information as UI element 
         InventoryUIItem emptyItem = Instantiate(itemContainer);
@@ -64,26 +109,6 @@ public class InventoryUI : MonoBehaviour {
         else if (item.itemType == Item.ItemType.Consumable)
         {
             foreach (Transform child in consumablesScrollViewContent)
-            {
-                if (child.transform.Find("ItemName").GetComponent<Text>().text == item.name)
-                {
-                    Destroy(child.gameObject);
-                }
-            }
-        }
-        else if (item.itemType == Item.ItemType.Armor)
-        {
-            foreach (Transform child in armorScrollViewContent)
-            {
-                if (child.transform.Find("ItemName").GetComponent<Text>().text == item.name)
-                {
-                    Destroy(child.gameObject);
-                }
-            }
-        }
-        else if (item.itemType == Item.ItemType.Shield)
-        {
-            foreach (Transform child in shieldsScrollViewContent)
             {
                 if (child.transform.Find("ItemName").GetComponent<Text>().text == item.name)
                 {
@@ -114,14 +139,6 @@ public class InventoryUI : MonoBehaviour {
         {
             emptyItem.transform.SetParent(consumablesScrollViewContent, false);
         }
-        if (item.itemType == Item.ItemType.Armor)
-        {
-            emptyItem.transform.SetParent(armorScrollViewContent, false);
-        }
-        if (item.itemType == Item.ItemType.Shield)
-        {
-            emptyItem.transform.SetParent(shieldsScrollViewContent, false);
-        }
         if (item.itemType == Item.ItemType.Weapon)
         {
             emptyItem.transform.SetParent(weaponsScrollViewContent, false);
@@ -130,6 +147,19 @@ public class InventoryUI : MonoBehaviour {
         {
             emptyItem.transform.SetParent(craftablesScrollViewContent, false);
         }
+    }
+
+    //Seperate system for quests
+    public void questAdded(Quest quest)
+    {
+        //Creates a new item container which holds item information as UI element 
+        InventoryUIItem emptyItem = Instantiate(itemContainer);
+
+        //Set quest information for UI
+        emptyItem.setQuest(quest);
+
+        //Assign quest container to correct tab
+        emptyItem.transform.SetParent(questScrollViewContent, false);
     }
 
     void Update()
