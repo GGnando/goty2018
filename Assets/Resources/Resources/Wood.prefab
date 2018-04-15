@@ -102,11 +102,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1642096702025250}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41332d9d31ea0214682822b1c94841f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d77389129f8b03448a649607342c337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interactableRadius: 3
-  itemName: Wood
 --- !u!136 &136747241734947752
 CapsuleCollider:
   m_ObjectHideFlags: 1

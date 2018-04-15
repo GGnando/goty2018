@@ -66,7 +66,6 @@ public class CharacterMovement : MonoBehaviour
             }
             else if (floortag == "Concrete")
             {
-                Debug.Log("I am in here");
                 FindObjectOfType<DialogueAudio>().PlayConcreteNoise();
             }
         }
@@ -103,7 +102,21 @@ public class CharacterMovement : MonoBehaviour
             }
         }
 
-
+        bool nIsPressed = true;
+        if (Input.GetKeyDown("n") && nIsPressed == false)
+        {
+            Debug.Log("I am here");
+            animator.SetBool("nIsPressed", true);
+            nIsPressed = true;
+        }
+        if (Input.GetKeyDown("n") && nIsPressed == true)
+        {
+            Debug.Log("I am here 2");
+            animator.SetBool("nIsPressed", false);
+            nIsPressed = false;
+        }
+       // animator.SetBool("isJumping", true);
+        
 
 
         //Movement:

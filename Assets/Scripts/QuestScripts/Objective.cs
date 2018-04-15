@@ -17,20 +17,6 @@ public class Objective  {
         //Extended by other types of objectives for different initilization needs
     }
 
-    public virtual void removeQuestItems()
-    {
-        //Virtual method to remove quest items
-        //No base case for now
-    }
-
-    public void checkStartProgress()
-    {
-        if(currProgress >= endAmount)
-        {
-            completion();
-        }
-    }
-
     //Checks progress of objective. Calls completed when required amount is reached
     public void progress()
     {
@@ -40,10 +26,9 @@ public class Objective  {
         }
     }
 
-    //Objective is completed
+    //Quest is completed
     public void completion()
     {
         completed = true;
-        //quest.checkObjectives(); Quest giver will check objectives
     }
 }

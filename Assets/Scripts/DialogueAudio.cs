@@ -25,6 +25,8 @@ public class DialogueAudio : MonoBehaviour
     public AudioSource LevelUpSource;
     public AudioSource PlayerSwingSource;
     public AudioSource GoblinDamageNoiseSource;
+    public AudioSource playerDamageNoiseSource;
+    public AudioSource playerDiesSource;
 
     // Use this for initialization
     void Start()
@@ -111,5 +113,15 @@ public class DialogueAudio : MonoBehaviour
     {
         GoblinDamageNoiseSource.clip = goblinTakesDamage;
         GoblinDamageNoiseSource.Play();
+    }
+
+    public void PlayerDamageNoise()
+    {
+        playerDamageNoiseSource.Play();
+    }
+
+    public void PlayerDies()
+    {
+        playerDiesSource.Play();
     }
 }

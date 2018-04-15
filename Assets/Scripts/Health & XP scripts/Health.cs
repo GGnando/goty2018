@@ -32,10 +32,14 @@ public class Health : MonoBehaviour {
     {
         if (currentHealth - damageAmount < 0)
         {
+            FindObjectOfType<DialogueAudio>().PlayerDies();
             currentHealth = 0;
         }
         else
+        {
             currentHealth -= damageAmount;
+            FindObjectOfType<DialogueAudio>().PlayerDamageNoise();
+        }
     }
 
     public void Heal(int healAmount)

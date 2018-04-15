@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿/*
+using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEditor;
 using NUnit.Framework;
@@ -18,7 +19,7 @@ public class InventoryTest {
 
         var inv = new GameObject().AddComponent<Inventory>(); //Creates inventory object
 
-        inv.addTest("TESTITEM", itemDatabase); //Calls inventory method to add item
+        //inv.addTest("TESTITEM", itemDatabase); //Calls inventory method to add item
 
         var items = inv.getItems(); //Gets the list of items in inventory class
 
@@ -38,7 +39,7 @@ public class InventoryTest {
 
         var inv = new GameObject().AddComponent<Inventory>();
 
-        inv.addTest("TESTITEM", itemDatabase); //Calls inventory method to add item
+        //inv.addTest("TESTITEM", itemDatabase); //Calls inventory method to add item
 
         Item item = itemDatabase.getItem("TESTITEM");
         inv.Remove(item);
@@ -143,3 +144,4 @@ public class InventoryTest {
         }
     }
 }
+*/

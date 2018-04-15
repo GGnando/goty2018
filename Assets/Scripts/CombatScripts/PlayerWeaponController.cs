@@ -22,7 +22,6 @@ public class PlayerWeaponController : MonoBehaviour {
             //remove weapon stats from play
             characterStats.RemoveStatBonus(this.weapon.GetStats());
             Destroy(equippedWeapon);
-            equippedWeapon = null;
             //set appropriate animation
             animator.SetBool(weapon.animationKey, false);
         }
