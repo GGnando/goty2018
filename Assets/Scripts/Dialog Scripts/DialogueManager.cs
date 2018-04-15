@@ -63,9 +63,11 @@ public class DialogueManager : MonoBehaviour {
         string path = "";
         string npcName = NPC.name;
         path = path + "/" + npcName + "/PotatoCookie";
+        Debug.Log(npcName + " with path: " + path);
         GameObject top = GameObject.Find(path);
         dialoguePanel.SetActive(true);//now that we are strating a conversation we want to make teh dialogue panel appear
         dialoguePanel.transform.position = top.transform.position + adder; //make dialogue panel appear above the knight
+        //dialoguePanel.transform.position = TylerknightHead.transform.position + adder; This gets it over my knight's head
         //this long line below is used to rotate the dialogue panel
    //     dialoguePanel.transform.eulerAngles = new Vector3(dialoguePanel.transform.eulerAngles.x, dialoguePanel.transform.eulerAngles.y + -5,
    //                                                        dialoguePanel.transform.eulerAngles.z);
@@ -128,11 +130,10 @@ public class DialogueManager : MonoBehaviour {
    //     animator.SetBool("IsOpen", false); //set the "IsOPen" parameter to false because we are closing a dialogue
     }
 
-<<<<<<< HEAD
     public void TurnOnButton()
     {
         knightConversation.SetActive(true);
-=======
+    }
 
     //Tyler aditions:
     //function used to turn the start conversation for the knight on or off
@@ -147,6 +148,5 @@ public class DialogueManager : MonoBehaviour {
         {
             TylerKnightConversation.SetActive(false); //turn the button off
         }
->>>>>>> 9726f9a65bd30828e3b5f255058ff6da5a45059b
     }
 }
