@@ -27,8 +27,7 @@ public class ExperienceTest
         Assert.AreNotEqual(originalXP, newXP);
         Assert.AreEqual(newXP, 50);
     }
-}
- /*
+ 
 [UnityTest]
 public IEnumerator LevelUpTest()
 {
@@ -36,7 +35,7 @@ public IEnumerator LevelUpTest()
     // yield to skip a frame
     var player = new GameObject();
     player.gameObject.AddComponent<Experience>();
-    player.gameObject.AddComponent<CharacterStat>();
+    player.gameObject.AddComponent<Player>();
     int originalLevel = player.GetComponent<Experience>().GetLevel();
     int originalXP = player.GetComponent<Experience>().GetCurrentXP();
 
@@ -59,7 +58,7 @@ public IEnumerator ExperienceCarryOverTest()
     // yield to skip a frame
     var player = new GameObject();
     player.gameObject.AddComponent<Experience>();
-    player.gameObject.AddComponent<CharacterStat>();
+    player.gameObject.AddComponent<Player>();
     int originalLevel = player.GetComponent<Experience>().GetLevel();
 
     player.GetComponent<Experience>().AddXP(100);
@@ -78,7 +77,7 @@ public IEnumerator MultipleLevelsTest()
     // yield to skip a frame
     var player = new GameObject();
     player.gameObject.AddComponent<Experience>();
-    player.gameObject.AddComponent<CharacterStat>();
+    player.gameObject.AddComponent<Player>();
     int firstLevel = player.GetComponent<Experience>().GetLevel();
 
     player.GetComponent<Experience>().AddXP(100);
@@ -104,7 +103,7 @@ public IEnumerator DoubleLevelJumpTest()
     // yield to skip a frame
     var player = new GameObject();
     player.gameObject.AddComponent<Experience>();
-    player.gameObject.AddComponent<CharacterStat>();
+    player.gameObject.AddComponent<Player>();
     int originalLevel = player.GetComponent<Experience>().GetLevel();
 
     player.GetComponent<Experience>().AddXP(300);
@@ -126,7 +125,7 @@ public IEnumerator ExperienceToLevelUpTest()
     // yield to skip a frame
     var player = new GameObject();
     player.gameObject.AddComponent<Experience>();
-    player.gameObject.AddComponent<CharacterStat>();
+    player.gameObject.AddComponent<Player>();
     int firstXPToLevelUp = player.GetComponent<Experience>().GetXPToLevelUp();
 
     player.GetComponent<Experience>().AddXP(100);
@@ -142,4 +141,3 @@ public IEnumerator ExperienceToLevelUpTest()
     Assert.AreEqual(thirdXPToLevelUp, 300);
 }
 }
-*/
