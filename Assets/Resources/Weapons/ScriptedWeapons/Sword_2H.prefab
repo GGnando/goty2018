@@ -54,6 +54,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -69,6 +70,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -109,8 +111,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.13258655, y: 0.037610706, z: 0.69928825}
-  m_Center: {x: 0.00003236532, y: -0.000011725349, z: -0.23311861}
+  m_Size: {x: 0.02, y: 0.037610706, z: 0.52}
+  m_Center: {x: 0.00003236532, y: 0, z: -0.33}
 --- !u!114 &114425763981304430
 MonoBehaviour:
   m_ObjectHideFlags: 1

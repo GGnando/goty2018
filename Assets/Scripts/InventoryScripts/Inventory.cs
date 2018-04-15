@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour {
 
     void Start()
     {
-        currentWeapon = ItemDatabase.instance.getItem("Sword");
+        currentWeapon = ItemDatabase.instance.getItem("Sword_2H");
             
         //Testing inventory by adding items if not running unit tests
         if (SceneManager.GetActiveScene().name == "StartArea")

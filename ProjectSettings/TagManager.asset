@@ -10,6 +10,7 @@ TagManager:
   - Knight
   - Tree
   - Rock
+  - EnemyWeapon
   layers:
   - Default
   - TransparentFX
