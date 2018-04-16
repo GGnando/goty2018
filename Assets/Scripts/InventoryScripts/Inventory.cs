@@ -42,6 +42,11 @@ public class Inventory : MonoBehaviour
 
     void Start()
     {
+<<<<<<< HEAD
+=======
+        currentWeapon = ItemDatabase.instance.getItem("Sword_2H");
+            
+>>>>>>> bug_fixes
         //Testing inventory by adding items if not running unit tests
         if (SceneManager.GetActiveScene().name == "StartArea")
         {

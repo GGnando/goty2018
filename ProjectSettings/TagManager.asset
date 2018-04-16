@@ -10,10 +10,14 @@ TagManager:
   - Knight
   - Tree
   - Rock
+<<<<<<< HEAD
   - Wood
   - Grass
   - Concrete
   - Weapon
+=======
+  - EnemyWeapon
+>>>>>>> bug_fixes
   layers:
   - Default
   - TransparentFX

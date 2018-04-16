@@ -14,38 +14,45 @@ public class Chase : MonoBehaviour {
 
     private float rotationSpeed = .1f;
     public int agressionDistance = 3;
-    private float enemyMovementSpeed = .00005f;
+    private float enemyMovementSpeed = -10f;
     private Vector3 direction;
-
+    public Goblin goblin;
     void Start() {
         patrolCycle = GetComponent<Animator>();
         enemyRigidBody = GetComponent<Rigidbody>();
+        goblin = GetComponent<Goblin>();
     }
 
     void FixedUpdate() {
-        Vector3 distance = player.position - this.transform.position;
-        if (distance.magnitude < agressionDistance) {
+        if(player) {
 
-            direction = player.position - this.transform.position;
-            lookAtTarget(direction);
+            Vector3 distance = player.position - this.transform.position;
+            if (distance.magnitude < agressionDistance) {
 
-            patrolCycle.SetBool("Idle", false);
-            if (direction.magnitude > 1.8) {
-                enemyRigidBody.AddForce(transform.forward * enemyMovementSpeed);
-                patrolCycle.SetBool("Attacking", false);
-                patrolCycle.SetBool("Chasing", true);
+                direction = player.position - this.transform.position;
+                lookAtTarget(direction);
+
+                patrolCycle.SetBool("Idle", false);
+                if (direction.magnitude > 2.5) {
+                    enemyRigidBody.AddForce(transform.forward * enemyMovementSpeed);
+                    patrolCycle.SetBool("Attacking", false);
+                    patrolCycle.SetBool("Chasing", true);
+                }
+                else {
+                    patrolCycle.SetBool("Attacking", true);
+                    goblin.PerformAttack();
+                    patrolCycle.SetBool("Chasing", false);
+
+                }
             }
             else {
-                patrolCycle.SetBool("Attacking", true);
+                patrolCycle.SetBool("Idle", true);
+                patrolCycle.SetBool("Attacking", false);
                 patrolCycle.SetBool("Chasing", false);
+                enemyRigidBody.angularVelocity = new Vector3(0f, 0f, 0f);
             }
         }
-        else {
-            patrolCycle.SetBool("Idle", true);
-            patrolCycle.SetBool("Attacking", false);
-            patrolCycle.SetBool("Chasing", false);
-            enemyRigidBody.angularVelocity = new Vector3(0f, 0f, 0f);
-        }
+
     }
 
 

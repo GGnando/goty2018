@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sword : MonoBehaviour, IWeapon {
     List<BaseStat> swordStats;
     float maxHit = 0.0f;
-    private Animator playerAnimator;
+    public Animator playerAnimator;
     bool isAttacking;
 
     void Start() {
@@ -29,7 +29,7 @@ public class Sword : MonoBehaviour, IWeapon {
         return StatType.Attack;
     }
     void OnTriggerEnter(Collider hitObject) {
-        if(hitObject.tag == "Enemy" && isAttacking){
+        if(hitObject.tag == "Enemy" && isAttacking) {
             isAttacking = false;
             hitObject.GetComponent<IEnemy>().TakeDamage(maxHit);
             Debug.Log("did" + maxHit + " damage");
