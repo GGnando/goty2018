@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,3 +22,4 @@ public class collectWoodQuest : Quest {
         objectives.ForEach(g => g.initialization()); //Loop through all objectives for quest and initialize them
     }
 }
+*/
