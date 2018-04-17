@@ -104,10 +104,10 @@ public class HarvestResources : MonoBehaviour {
     public void SetIronPower(int newPower) { ironPower = newPower; }
 
     public void UpdatePowers(){
-      //  if (Inventory.instance.currentWeapon == NULL){
-      //      return;
-      //  }
-      //  Debug.Log(Inventory.instance.currentWeapon.name);
+        if (Inventory.instance.currentWeapon == null){
+            return;
+        }
+        Debug.Log(Inventory.instance.currentWeapon.name);
         SetChoppingPower(Inventory.instance.currentWeapon.woodPower);
         SetMiningPower(Inventory.instance.currentWeapon.stonePower);
         SetIronPower(Inventory.instance.currentWeapon.ironPower);
