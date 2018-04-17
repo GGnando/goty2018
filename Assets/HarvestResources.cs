@@ -55,6 +55,7 @@ public class HarvestResources : MonoBehaviour {
                         rock.GetComponent<HarvestableRock>().MineRock(miningPower);
                         print("Rock has been hit. " + "Its current health is: " + rock.GetComponent<HarvestableRock>().GetRockHealth());
                         //Inventory.instance.Add("Stone");
+                        StartCoroutine(ShowMessage("+1 Stone", 0.5f));
 
                         if (rock.GetComponent<HarvestableRock>().GetRockHealth() <= 0)
                         {
