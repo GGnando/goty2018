@@ -66,8 +66,8 @@ public class Goblin : MonoBehaviour, IEnemy {
         FindObjectOfType<DialogueAudio>().GoblinDies();
         DropLoot();
 
-        Destroy(gameObject);
         player.GetComponent<Experience>().AddXP(50);
+        Destroy(gameObject);
     }
 
     private void DropLoot() {
