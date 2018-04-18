@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54095474692531150}
   - component: {fileID: 65442789935458762}
   - component: {fileID: 114425763981304430}
+  - component: {fileID: 114158297820681094}
   m_Layer: 0
   m_Name: Iron 2 Handed Sword
   m_TagString: Untagged
@@ -113,6 +114,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.13258655, y: 0.037610706, z: 0.69928825}
   m_Center: {x: 0.00003236532, y: -0.000011725349, z: -0.23311861}
+--- !u!114 &114158297820681094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538688491277660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c812864e4eaef4fbcaa259ea975fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114425763981304430
 MonoBehaviour:
   m_ObjectHideFlags: 1

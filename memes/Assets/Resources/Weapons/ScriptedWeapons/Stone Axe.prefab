@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 54468166892424302}
   - component: {fileID: 65538108424237752}
   - component: {fileID: 114611184931689110}
+  - component: {fileID: 114211827447651816}
   m_Layer: 0
   m_Name: Stone Axe
   m_TagString: Untagged
@@ -122,6 +123,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d97a209edc1b3743a71f5db33ff2fad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114211827447651816
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1974574237043770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 272225f0fc42770408c14a72d9b8736a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114611184931689110

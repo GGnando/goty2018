@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 54095474692531150}
   - component: {fileID: 65442789935458762}
   - component: {fileID: 114425763981304430}
+  - component: {fileID: 114954463266759134}
+  - component: {fileID: 114924027754882114}
   m_Layer: 0
   m_Name: Wooden 2 Handed Sword
   m_TagString: Untagged
@@ -135,5 +137,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef8fdcecd25b0c44c98b6ed292e5f8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114924027754882114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538688491277660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7240776f82ec3499a48407ea443be8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114954463266759134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1538688491277660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ba21adeb58e5d4e942ffb930783fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
