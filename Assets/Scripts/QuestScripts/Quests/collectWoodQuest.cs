@@ -1,5 +1,4 @@
-﻿
-/*using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +7,7 @@ public class collectWoodQuest : Quest {
 
     private void Start()
     {
+        
         //Simple way to make a quest, just fill out all properties and add to objective list
         questName = "Collect 3 wood";
         questDescription = "Help the village with cutting wood";
@@ -25,8 +25,8 @@ public class collectWoodQuest : Quest {
 
     private void addToUI()
     {
+        Inventory.instance.addSword();
         Inventory.instance.addQuest(this);
     }
 
 }
-*/

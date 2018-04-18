@@ -10,7 +10,7 @@ public class Chase : MonoBehaviour {
     */
     public Transform player;
     public Rigidbody enemyRigidBody;
-    static Animator patrolCycle;
+    public Animator patrolCycle;
 
     private float rotationSpeed = .1f;
     public int agressionDistance = 3;

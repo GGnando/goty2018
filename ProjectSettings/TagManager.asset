@@ -7,14 +7,6 @@ TagManager:
   - Weapon
   - Enemy
   - EnemyWeapon
-  - Concrete
-  - Wood
-  - DialogueBox
-  - Button
-  - Grass
-  - Tree
-  - Knight
-  - Rock
   layers:
   - Default
   - TransparentFX

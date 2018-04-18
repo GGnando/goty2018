@@ -13,6 +13,25 @@ public class DialogueTrigger : MonoBehaviour
     //way to feed stuff to our dialogue manager
     public void TriggerDialogue()
     {
+        //If quest for this NPC exists, add to inventory when dialogue starts and when spoken to again, check if done
+        if (quest != null)
+        {
+            if (!hasRecievedQuest)
+            {
+                Inventory.instance.addQuest(quest);
+                hasRecievedQuest = true;
+            }
+            else
+            {
+                quest.checkObjectives();
+
+                if (quest.isComplete)
+                {
+                    hasCompletedQuest = true;
+                }
+            }
+        }
+
         //we want to find an object of type DialogueManager. And now that we found this object we want to call the function StartDialogue and give it a function
         //argument to tell it what conversation to start (we pass in our dialogue variable. 
         FindObjectOfType<DialogueManager>().KnightButtonOnOrOff(0); //turn the button off because they want to start conversatoin

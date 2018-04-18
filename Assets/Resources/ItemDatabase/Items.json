@@ -217,5 +217,17 @@
     "craftable": false,
     "quantity": "0",
     "effectStats": false
+  },
+  {
+    "name": "Stone",
+    "itemDescription": "A solid material used for various things",
+    "itemType": "Resource",
+    "sellable": true,
+    "stackable": true,
+    "itemCost": "8",
+    "weight": "0.1",
+    "craftable": false,
+    "quantity": "0",
+    "effectStats": false
   }
 ]

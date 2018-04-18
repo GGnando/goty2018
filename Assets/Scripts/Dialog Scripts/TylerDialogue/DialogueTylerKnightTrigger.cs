@@ -8,6 +8,7 @@ public class DialogueTylerKnightTrigger : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Inventory.instance.addSword();
             FindObjectOfType<DialogueManager>().TylerKnightButtonOnOrOff(1);
         }
     }

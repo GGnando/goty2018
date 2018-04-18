@@ -41,7 +41,8 @@ public class Inventory : MonoBehaviour
     }
 
     void Start()
-    {       
+    {
+        /*
         //Testing inventory by adding items if not running unit tests
             //Add("Wood");
             //Add("Wood");
@@ -58,9 +59,20 @@ public class Inventory : MonoBehaviour
             Add("Sword");
             Add("Axe");
             Add("Iron Sword Recipe");
-
+            */
+        Add("Iron Sword Recipe");
         consumableController = GetComponent<ConsumablesController>();
         playerWeaponController = GetComponent<PlayerWeaponController>();
+        hasSwordBeenAdded = false;
+    }
+    bool hasSwordBeenAdded;
+    public void addSword()
+    {
+        if (!hasSwordBeenAdded)
+        {
+            Inventory.instance.Add("Sword");
+            hasSwordBeenAdded = true;
+        }
     }
 
     void Update()

@@ -25,7 +25,7 @@ public class Objective  {
 
     public void checkStartProgress()
     {
-        if(currProgress >= endAmount)
+        if (currProgress >= endAmount)
         {
             completion();
         }
