@@ -48,7 +48,7 @@ public class PlayerWeaponController : MonoBehaviour {
     //Update is called once per frame
     void Update() {
         if (weapon != null) {
-            if (Input.GetKeyDown(KeyCode.O)) {
+            if (Input.GetKeyDown(KeyCode.O) || Input.GetKeyDown(GameManager.GM.attack)) {
                 PerformAttack();
             }
         }

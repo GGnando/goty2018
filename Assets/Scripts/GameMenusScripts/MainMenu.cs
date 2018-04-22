@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour {
 
     public void LoadGame ()
     {     
-        SceneManager.LoadScene("StartArea");
+        SceneManager.LoadScene(PlayerPrefs.GetString("Scene"));
     }
 
 

@@ -165,7 +165,7 @@ public class InventoryUI : MonoBehaviour
     void Update()
     {
         //To pull up and get off of inventory, look for inventory key press
-        if (Input.GetButtonDown("Inventory"))
+        if (Input.GetButtonDown("Inventory") || Input.GetKeyDown(GameManager.GM.right))
         {
             //Does opposite of whatever is up, so if inventory is pulled up, pressing again closes it
             inventoryUI.SetActive(!inventoryUI.activeSelf);

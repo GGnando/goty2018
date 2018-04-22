@@ -15,7 +15,7 @@ public class SkillPointsMenuHandler : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown("k"))
+        if (Input.GetKeyDown("k")||Input.GetKeyDown(GameManager.GM.backward))
         {
             skillPointsUI.SetActive(!isOpen);
             isOpen = !isOpen;
