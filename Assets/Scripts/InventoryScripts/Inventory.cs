@@ -4,20 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Inventory : MonoBehaviour {
+public class Inventory : MonoBehaviour
+{
 
     //This line and awake ensures 1 inventory at time and shares with all instances of class. Always able to access this inventory easy
     public static Inventory instance;
 
     //Allows access to consuming items
     public ConsumablesController consumableController;
+    public PlayerWeaponController playerWeaponController;
+
+    Item currentWeapon;
 
     //Reference to panel that displays item info for each tab inventory
     public InventoryUIDetails ConsumablesDetailsPanel;
     public InventoryUIDetails WeaponsDetailsPanel;
-    public InventoryUIDetails ArmorDetailsPanel;
-    public InventoryUIDetails ShieldsDetailsPanel;
     public InventoryUIDetails ResourcesDetailsPanel;
+    public InventoryUIDetails CraftablesDetailsPanel;
+    public InventoryUIDetails QuestsDetailsPanel;
 
     //Max size of item stacl
     const int MAXSTACKSIZE = 99;
@@ -27,7 +31,7 @@ public class Inventory : MonoBehaviour {
 
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Debug.LogWarning("More than one instance of inventory.");
             return;
@@ -38,42 +42,81 @@ public class Inventory : MonoBehaviour {
 
     void Start()
     {
+        /*
         //Testing inventory by adding items if not running unit tests
-        if (SceneManager.GetActiveScene().name == "Tyler-Inventory")
-        {
-            Add("Wood");
-            Add("Wood");
-            Add("Wood");
-            Add("DebugPotion");
-            Add("DebugPotion");
-            Add("Iron Sword");
-            Add("Iron Sword");
-            Add("Iron Helmet");
-            Add("Iron Shield");
-        }
+            //Add("Wood");
+            //Add("Wood");
+            //Add("Wood");
 
+            for (int i = 0; i < 2; i++)
+            {
+                //Add("Wood");
+            }
+
+            Add("DebugPotion");
+            Add("DebugPotion");
+            Add("DebugPotion");
+            Add("Sword");
+            Add("Axe");
+            Add("Iron Sword Recipe");
+            */
+        Add("Iron Sword Recipe");
         consumableController = GetComponent<ConsumablesController>();
+        playerWeaponController = GetComponent<PlayerWeaponController>();
+        hasSwordBeenAdded = false;
+    }
+    bool hasSwordBeenAdded;
+    public void addSword()
+    {
+        if (!hasSwordBeenAdded)
+        {
+            Inventory.instance.Add("Sword");
+            hasSwordBeenAdded = true;
+        }
+    }
+
+    void Update()
+    {
+        /*
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            playerWeaponController.EquipWeapon(currentWeapon);
+        }
+        */
+
+        //Uneqip Weapon button:
+        if (currentWeapon != null && Input.GetKeyDown(KeyCode.X))
+        {
+            UnequipItem();
+        }
     }
 
     //Used for event handeling and helping with UI of inventory
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
+    public delegate void OnQuestChanged();
+    public OnQuestChanged onQuestChangedCallback;
 
     //Creates list to hold items of each type
     public List<Item> items = new List<Item>();
 
     //List of all the types of items
     public List<Item> weapons = new List<Item>();
-    public List<Item> shields = new List<Item>();
-    public List<Item> armor = new List<Item>();
     public List<Item> consumables = new List<Item>();
     public List<Item> resources = new List<Item>();
-    public List<Item> quests = new List<Item>();
+    public List<Quest> quests = new List<Quest>();
+    public List<Item> craftables = new List<Item>();
 
     //Getters for List of items for testing
     public List<Item> getItems()
     {
         return items;
+    }
+
+    //Getters for List of quests for testing
+    public List<Quest> getQuests()
+    {
+        return quests;
     }
 
     //Adds item to list
@@ -91,95 +134,19 @@ public class Inventory : MonoBehaviour {
         }
 
         //QuantityCheck checks if item already in inventory for stacking, if already in, just increase quantity instead of adding to list
+
         if (!quantityCheck(items, itemAdded))
         {
             items.Add(itemAdded);
+            itemAdded.quantity++;
         }
         else
         {
-            items[items.IndexOf(itemAdded)].quantity++;
+            //items[items.IndexOf(itemAdded)].quantity++;
+            itemAdded.quantity++;
         }
 
         //Add specific item to item type list:
-        if(itemAdded.itemType == Item.ItemType.Quest)
-        {
-            quests.Add(itemAdded);
-        }
-        if(itemAdded.itemType == Item.ItemType.Resource)
-        {
-            if (!quantityCheck(resources, itemAdded))
-            {
-                resources.Add(itemAdded);
-            }
-        }
-        if(itemAdded.itemType == Item.ItemType.Consumable)
-        {
-            if (!quantityCheck(consumables, itemAdded))
-            {
-                consumables.Add(itemAdded);
-            }
-        }
-        if (itemAdded.itemType == Item.ItemType.Armor)
-        {
-            if (!quantityCheck(armor, itemAdded))
-            {
-                armor.Add(itemAdded);
-            }
-        }
-        if (itemAdded.itemType == Item.ItemType.Shield)
-        {
-            if (!quantityCheck(shields, itemAdded))
-            {
-                shields.Add(itemAdded);
-            }
-        }
-        if (itemAdded.itemType == Item.ItemType.Weapon)
-        {
-            if (!quantityCheck(weapons, itemAdded))
-            {
-                weapons.Add(itemAdded);
-            }
-        }
-
-        UIEventHandler.ItemAddedToInventory(itemAdded);
-
-        //Adds to event and calls everything subscribed to event, so all inventory gets updated and displayed
-        if (onItemChangedCallback != null)
-        {
-            //Triggering event to update UI
-            onItemChangedCallback.Invoke();
-        }
-
-    }
-
-    //Testing inventory add function:
-    public void addTest(string itemName, ItemDatabase data)
-    {
-        //Grab instance of item here and add to items list
-        Item itemAdded = data.getItem(itemName);
-
-        //Check if limit of 1 item is reached
-        if (checkLimit(itemAdded))
-        {
-            Debug.Log("Cannot add more of " + itemName + ". Max stack size reached.");
-            return;
-        }
-
-        //QuantityCheck checks if item already in inventory for stacking, if already in, just increase quantity instead of adding to list
-        if (!quantityCheck(items, itemAdded))
-        {
-            items.Add(itemAdded);
-        }
-        else
-        {
-            items[items.IndexOf(itemAdded)].quantity++;
-        }
-
-        //Add specific item to item type list:
-        if (itemAdded.itemType == Item.ItemType.Quest)
-        {
-            quests.Add(itemAdded);
-        }
         if (itemAdded.itemType == Item.ItemType.Resource)
         {
             if (!quantityCheck(resources, itemAdded))
@@ -194,20 +161,6 @@ public class Inventory : MonoBehaviour {
                 consumables.Add(itemAdded);
             }
         }
-        if (itemAdded.itemType == Item.ItemType.Armor)
-        {
-            if (!quantityCheck(armor, itemAdded))
-            {
-                armor.Add(itemAdded);
-            }
-        }
-        if (itemAdded.itemType == Item.ItemType.Shield)
-        {
-            if (!quantityCheck(shields, itemAdded))
-            {
-                shields.Add(itemAdded);
-            }
-        }
         if (itemAdded.itemType == Item.ItemType.Weapon)
         {
             if (!quantityCheck(weapons, itemAdded))
@@ -215,21 +168,62 @@ public class Inventory : MonoBehaviour {
                 weapons.Add(itemAdded);
             }
         }
+        if (itemAdded.itemType == Item.ItemType.Craftable)
+        {
+            if (!quantityCheck(craftables, itemAdded))
+            {
+                craftables.Add(itemAdded);
+            }
+        }
 
+        UIEventHandler.ItemAddedToInventory(itemAdded);
+
+        //Adds to event and calls everything subscribed to event, so all inventory gets updated and displayed
         if (onItemChangedCallback != null)
         {
-            UIEventHandler.ItemAddedToInventory(itemAdded);
             //Triggering event to update UI
             onItemChangedCallback.Invoke();
+        }
+
+    }
+
+    //Add quest to inventory:
+    public void addQuest(Quest quest)
+    {
+        quests.Add(quest);
+
+        //Trigger UI update
+        UIEventHandler.questAddedToInventory(quest);
+
+        //Adds to event and calls everything subscribed to event, so all inventory gets updated and displayed
+        if (onQuestChangedCallback != null)
+        {
+            //Triggering event to update UI
+            onQuestChangedCallback.Invoke();
+        }
+
+    }
+
+    //Remove quest from inventory:
+    public void removeQuest(Quest quest)
+    {
+        quests.Remove(quest);
+
+        //Trigger UI update
+        if (onQuestChangedCallback != null)
+        {
+            //Triggering event to update UI
+            onQuestChangedCallback.Invoke();
         }
     }
 
     //Removes item from list, after it is consumed or anything happens to it
     public void Remove(Item item)
     {
-        if(item.quantity > 1)
+        if (item.quantity > 1)
         {
             item.quantity--;
+            UIEventHandler.ItemAddedToInventory(item);
 
             if (onItemChangedCallback != null)
             {
@@ -243,10 +237,6 @@ public class Inventory : MonoBehaviour {
         items.Remove(item);
 
         //Remove item from its list:
-        if (item.itemType == Item.ItemType.Quest)
-        {
-            quests.Remove(item);
-        }
         if (item.itemType == Item.ItemType.Resource)
         {
             resources.Remove(item);
@@ -255,30 +245,31 @@ public class Inventory : MonoBehaviour {
         {
             consumables.Remove(item);
         }
-        if (item.itemType == Item.ItemType.Armor)
-        {
-            armor.Remove(item);
-        }
-        if (item.itemType == Item.ItemType.Shield)
-        {
-            shields.Remove(item);
-        }
         if (item.itemType == Item.ItemType.Weapon)
         {
             weapons.Remove(item);
         }
+        if (item.itemType == Item.ItemType.Craftable)
+        {
+            craftables.Remove(item);
+        }
+
+        item.quantity--;
+
+        UIEventHandler.ItemAddedToInventory(item);
 
         if (onItemChangedCallback != null)
         {
             //Triggering event to update UI
             onItemChangedCallback.Invoke();
         }
+
     }
 
     //Returns true if item reaches max stack value of 99
     private bool checkLimit(Item item)
     {
-        if(item.quantity == MAXSTACKSIZE)
+        if (item.quantity == MAXSTACKSIZE)
         {
             return true;
         }
@@ -297,28 +288,71 @@ public class Inventory : MonoBehaviour {
         WeaponsDetailsPanel.setItem(item, button);
     }
 
-    public void setArmorItemDetails(Item item, Button button)
-    {
-        ArmorDetailsPanel.setItem(item, button);
-    }
-
-    public void setShieldsDetails(Item item, Button button)
-    {
-        ShieldsDetailsPanel.setItem(item, button);
-    }
-
     public void setResourcesDetails(Item item, Button button)
     {
         ResourcesDetailsPanel.setItem(item, button);
     }
+    public void setCraftablesDetails(Item item, Button button)
+    {
+        CraftablesDetailsPanel.setItem(item, button);
+    }
+    public void setQuestDetails(Quest quest, Button button)
+    {
+        QuestsDetailsPanel.setQuest(quest, button);
+    }
 
     //Equiping item from inventory code:
-    //Add equip weapons later
+    public void EquipItem(Item equipItem)
+    {
+        if (currentWeapon != null)
+        {
+            UnequipItem();
+        }
+
+        currentWeapon = ItemDatabase.instance.getItem(equipItem.name);
+        playerWeaponController.EquipWeapon(currentWeapon);
+    }
+
+    //Function to unequip weapon and add back to inventory
+    public void UnequipItem()
+    {
+        currentWeapon.quantity--;
+        Inventory.instance.Add(currentWeapon.name);
+
+        playerWeaponController.EquipWeapon(currentWeapon);
+        currentWeapon = null;
+    }
 
     //Consumables:
     public void ConsumeItem(Item consumedItem)
     {
         consumableController.consumeItem(consumedItem);
+    }
+
+    public bool ResourcesCheck(string item1, int quant)
+    {
+        foreach (Item child in resources)
+        {
+            if ((child.name == item1) && (child.quantity >= quant))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void ResourcesRemove(string item1, int quant)
+    {
+        foreach (Item child in resources)
+        {
+            if ((child.name == item1))
+            {
+                for (int i = 0; i < quant; i++)
+                {
+                    Remove(child);
+                }
+            }
+        }
     }
 
     //Check if list already has item, if so just increase quantity. Returns true if item already in list, false otherwise:
@@ -329,5 +363,69 @@ public class Inventory : MonoBehaviour {
             return true;
         }
         return false;
+    }
+
+    //Adds item to list, used for unit tests
+    public void addTest(string itemName, ItemDatabase database)
+    {
+        //Grab instance of item here and add to items list
+        Item itemAdded = database.getItem(itemName);
+
+        //Check if limit of 99 of 1 item is reached
+        if (checkLimit(itemAdded))
+        {
+            Debug.Log("Cannot add more of " + itemName + ". Max stack size reached.");
+            return;
+        }
+
+        //QuantityCheck checks if item already in inventory for stacking, if already in, just increase quantity instead of adding to list
+
+        if (!quantityCheck(items, itemAdded))
+        {
+            items.Add(itemAdded);
+            itemAdded.quantity++;
+        }
+        else
+        {
+            //items[items.IndexOf(itemAdded)].quantity++;
+            itemAdded.quantity++;
+        }
+
+        //Add specific item to item type list:
+        if (itemAdded.itemType == Item.ItemType.Resource)
+        {
+            if (!quantityCheck(resources, itemAdded))
+            {
+                resources.Add(itemAdded);
+            }
+        }
+        if (itemAdded.itemType == Item.ItemType.Consumable)
+        {
+            if (!quantityCheck(consumables, itemAdded))
+            {
+                consumables.Add(itemAdded);
+            }
+        }
+        if (itemAdded.itemType == Item.ItemType.Weapon)
+        {
+            if (!quantityCheck(weapons, itemAdded))
+            {
+                weapons.Add(itemAdded);
+            }
+        }
+        if (itemAdded.itemType == Item.ItemType.Craftable)
+        {
+            if (!quantityCheck(craftables, itemAdded))
+            {
+                craftables.Add(itemAdded);
+            }
+        }
+
+    }
+
+    //Add quest to inventory, used for testing and avoids UI event stuff
+    public void addQuestTest(Quest quest)
+    {
+        quests.Add(quest);
     }
 }

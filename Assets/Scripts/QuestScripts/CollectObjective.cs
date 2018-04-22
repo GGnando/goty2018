@@ -22,15 +22,25 @@ public class CollectObjective : Objective {
     public override void initialization()
     {
         base.initialization();
+        checkStartProgress();
         UIEventHandler.OnItemAddedToInventory += itemPickedUp; //Event caller that adds below method to check for items picked up
     }
 
-    void itemPickedUp(Item item)
+    public void itemPickedUp(Item item)
     {
-        if(item.name == this.itemName)
+        if(item.name == this.itemName && !this.completed)
         {
             this.currProgress++;
             progress();
+        }
+    }
+
+    //When quest is complete, remove items from inventory
+    public override void removeQuestItems()
+    {
+        for(int i = 0; i < endAmount; i++)
+        {
+            Inventory.instance.Remove(ItemDatabase.instance.getItem(itemName));
         }
     }
 }

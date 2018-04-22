@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ConsumablesController : MonoBehaviour {
     //Reference to character stats later, ex. CharacterStats stats
-    CharacterStat stats;
+    public CharacterStat stats;
 
-	void Start () {
+    void Start () {
         //Set character stats to character's stats
-        stats = GetComponent<CharacterStat>();
-	}
+        stats = GetComponent<Player>().playerStats;
+    }
 
     //This would instantiate object if needed for effects and consume 
     public void consumeItem(Item item)

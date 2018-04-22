@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 136127809517220626}
   - component: {fileID: 23509652256933522}
   - component: {fileID: 114138506569589672}
+  - component: {fileID: 114140737591408652}
   m_Layer: 0
   m_Name: DebugPotion
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1320988039441284}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.53, y: 1.34, z: 2.2698405}
+  m_LocalPosition: {x: -5.540201, y: -2.63, z: 20.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,6 +94,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5dc883162c1ba145a8978abe554c4d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114140737591408652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1320988039441284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41332d9d31ea0214682822b1c94841f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableRadius: 3
+  itemName: DebugPotion
 --- !u!136 &136127809517220626
 CapsuleCollider:
   m_ObjectHideFlags: 1

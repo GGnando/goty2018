@@ -7,7 +7,7 @@ public class Health : MonoBehaviour {
 
     public GameObject healthBar;
 	public GameObject healthText;
-
+    public Animator playerAnimator;
     float barLength;
 
     int totalHealth;
@@ -19,7 +19,8 @@ public class Health : MonoBehaviour {
 		healthText.GetComponent<Text> ().enabled = false;
         totalHealth = 100;
         currentHealth = totalHealth;
-	}
+        playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,10 +33,14 @@ public class Health : MonoBehaviour {
     {
         if (currentHealth - damageAmount < 0)
         {
+            FindObjectOfType<DialogueAudio>().PlayerDies();
             currentHealth = 0;
         }
         else
+        {
             currentHealth -= damageAmount;
+            FindObjectOfType<DialogueAudio>().PlayerDamageNoise();
+        }
     }
 
     public void Heal(int healAmount)
@@ -59,4 +64,5 @@ public class Health : MonoBehaviour {
     public int GetHealth() { return currentHealth; }
 
     public void SetHealth(int newHealth) { currentHealth = newHealth; }
+    
 }

@@ -19,26 +19,26 @@ public class SkillPointsMenuEffectStat : MonoBehaviour {
 	}
 
 	public void IncreasePlayerStat(int statNumber) {
-		if (player.GetComponent<CharacterStat> ().GetSkillPoints () > 0) {
-			float originalValue = player.GetComponent<CharacterStat> ().GetStats () [statNumber].getBaseValue ();
-			player.GetComponent<CharacterStat> ().GetStats () [statNumber].setBaseValue ((int)originalValue + 1);
+		if (player.GetComponent<Player>().playerStats.GetSkillPoints () > 0) {
+			float originalValue = player.GetComponent<Player>().playerStats.GetStats () [statNumber].getBaseValue ();
+			player.GetComponent<Player>().playerStats.GetStats () [statNumber].setBaseValue ((int)originalValue + 1);
 
-			string skillName = player.GetComponent<CharacterStat> ().GetStats () [statNumber].getName ();
-			skillText.text = skillName + ": " + player.GetComponent<CharacterStat> ().GetStat (statNumber).ToString ();
+			string skillName = player.GetComponent<Player>().playerStats.GetStats () [statNumber].getName ();
+			skillText.text = skillName + ": " + player.GetComponent<Player>().playerStats.GetStat (statNumber).ToString ();
 
 
-			player.GetComponent<CharacterStat> ().SetSkillPoints( player.GetComponent<CharacterStat> ().GetSkillPoints()-1);
+			player.GetComponent<Player>().playerStats.SetSkillPoints( player.GetComponent<Player>().playerStats.GetSkillPoints()-1);
 		}
 	}
 
 	public void DecreasePlayerStat(int statNumber) {
-		float originalValue = (int)player.GetComponent<CharacterStat> ().GetStats () [statNumber].getBaseValue ();
+		float originalValue = (int)player.GetComponent<Player>().playerStats.GetStats () [statNumber].getBaseValue ();
 		if ((int)originalValue > 1) {
-			player.GetComponent<CharacterStat> ().GetStats () [statNumber].setBaseValue ((int)originalValue - 1);
-			string skillName = player.GetComponent<CharacterStat> ().GetStats () [statNumber].getName ();
-			skillText.text = skillName + ": " + player.GetComponent<CharacterStat> ().GetStat (statNumber).ToString ();
+			player.GetComponent<Player>().playerStats.GetStats () [statNumber].setBaseValue ((int)originalValue - 1);
+			string skillName = player.GetComponent<Player>().playerStats.GetStats () [statNumber].getName ();
+			skillText.text = skillName + ": " + player.GetComponent<Player>().playerStats.GetStat (statNumber).ToString ();
 
-			player.GetComponent<CharacterStat> ().SetSkillPoints( player.GetComponent<CharacterStat> ().GetSkillPoints()+1);
+			player.GetComponent<Player>().playerStats.SetSkillPoints( player.GetComponent<Player>().playerStats.GetSkillPoints()+1);
 
 		}
 	}

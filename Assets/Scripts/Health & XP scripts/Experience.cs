@@ -31,6 +31,7 @@ public class Experience : MonoBehaviour {
     private void LevelUp()
     {
         playerLevel++;
+        FindObjectOfType<DialogueAudio>().LevelUpNoise();
         // TODO Upgrade player Stats
 		if (player)
         	AddSkillPoints(5);
@@ -51,7 +52,7 @@ public class Experience : MonoBehaviour {
 
     public void AddSkillPoints(int numberOfSkillPoints)
     {
-        player.GetComponent<CharacterStat>().SetSkillPoints(5 + player.GetComponent<CharacterStat>().GetSkillPoints());
+        player.GetComponent<Player>().playerStats.SetSkillPoints(5 + player.GetComponent<Player>().playerStats.GetSkillPoints());
     }
 
 	public int GetLevel() {
