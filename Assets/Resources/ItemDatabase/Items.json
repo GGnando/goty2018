@@ -1,0 +1,759 @@
+[
+  {
+    "name": "DebugPotion",
+    "itemDescription": "This is a simple testing potion.",
+    "itemType": "Consumable",
+    "sellable": true,
+    "stackable": true,
+    "itemCost": "5",
+    "weight": "0.2",
+    "interactName": "Drink",
+    "craftable": true,
+    "quantity": "0",
+    "effectsStats": false
+  },
+  {
+    "name": "Wooden Sword Recipe", 
+    "itemDescription": "Make a wooden sword using 1 wood and another 2 wood. If you're not great at math, you're going to need 3 wood.",
+    "itemType": "Craftable", 
+    "sellable": true, 
+    "stackable": true, 
+    "itemCost": "3", 
+    "weight": "3", 
+    "interactName": "TEST", 
+    "craftable": true, 
+    "quantity": "0", 
+    "effectsStats": false,
+    "Item1" : "Wood",
+    "Item2": "Wood",
+    "quantity1": "3",
+    "quantity2": "0",
+    "Item3" : "Wooden Sword"
+  }, 
+  {
+    "name": "Wooden Sword",
+    "itemDescription": "This is a sword made of wood. Maybe you can kill a fly with it.",
+    "itemType": "Weapon",
+    "sellable": true,
+    "stackable": false,
+    "itemCost": "10",
+    "weight": "2",
+    "interactName": "Equip",
+    "craftable": true,
+    "quantity": "0",
+    "effectStats": false,
+    "woodPower": "1",
+    "stonePower": "1",
+    "ironPower": "0",   
+    "rotation_x": "90",
+    "rotation_y": "0",
+    "rotation_z": "0",
+    "position_x": "-.078",
+    "position_y": ".031",
+    "position_z": ".07",
+    "animationKey": "swordEquipped",
+    "stats": [
+      {
+        "type": "Attack",
+        "baseValue": 30,
+        "name": "Attack Damage",
+        "discription": "This does damage"
+      },
+      {
+        "type": "Defense",
+        "baseValue": 0,
+        "name": "Defense (armor op)",
+        "discription": "This prevents damage"
+      },
+      {
+        "type": "Constitution",
+        "baseValue": 0,
+        "name": "Constution (health)",
+        "discription": "How much raw damage you can take"
+      },
+      {
+        "type": "Vitality",
+        "baseValue": 0,
+        "name": "Vitality (energy)",
+        "discription": "Determines crit"
+      }
+    ]
+  },
+  {
+    "name": "Stone Sword Recipe", 
+    "itemDescription": "Make a stone sword using 1 wood and 2 stone.",
+    "itemType": "Craftable", 
+    "sellable": true, 
+    "stackable": true, 
+    "itemCost": "3", 
+    "weight": "3", 
+    "interactName": "TEST", 
+    "craftable": true, 
+    "quantity": "0", 
+    "effectsStats": false,
+    "Item1" : "Stone",
+    "Item2": "Wood",
+    "quantity1": "2",
+    "quantity2": "1",
+    "Item3" : "Stone Sword"
+  }, 
+  {
+    "name": "Stone Sword",
+    "itemDescription": "This is a sword made of stone. Maybe you can kill a really big fly with it.",
+    "itemType": "Weapon",
+    "sellable": true,
+    "stackable": false,
+    "itemCost": "10",
+    "weight": "2",
+    "interactName": "Equip",
+    "craftable": true,
+    "quantity": "0",
+    "woodPower": "1",
+    "stonePower": "1",
+    "ironPower": "0",
+    "effectStats": false,
+    "rotation_x": "90",
+    "rotation_y": "0",
+    "rotation_z": "0",
+    "position_x": "-.078",
+    "position_y": ".031",
+    "position_z": ".07",
+    "animationKey": "swordEquipped",
+    "stats": [
+      {
+        "type": "Attack",
+        "baseValue": 40,
+        "name": "Attack Damage",
+        "discription": "This does damage"
+      },
+      {
+        "type": "Defense",
+        "baseValue": 0,
+        "name": "Defense (armor op)",
+        "discription": "This prevents damage"
+      },
+      {
+        "type": "Constitution",
+        "baseValue": 0,
+        "name": "Constution (health)",
+        "discription": "How much raw damage you can take"
+      },
+      {
+        "type": "Vitality",
+        "baseValue": 0,
+        "name": "Vitality (energy)",
+        "discription": "Determines crit"
+      }
+    ]
+  },
+  {
+    "name": "Iron Sword Recipe", 
+    "itemDescription": "Make an iron sword using 1 wood and 2 iron. No forge required.",
+    "itemType": "Craftable", 
+    "sellable": true, 
+    "stackable": true, 
+    "itemCost": "3", 
+    "weight": "3", 
+    "interactName": "TEST", 
+    "craftable": true, 
+    "quantity": "0", 
+    "effectsStats": false,
+    "Item1" : "Iron",
+    "Item2": "Wood",
+    "quantity1": "2",
+    "quantity2": "1",
+    "Item3" : "Iron Sword"
+  }, 
+  {
+    "name": "Iron Sword",
+    "itemDescription": "This is a sword made of iron. You feel like you can do anything.",
+    "itemType": "Weapon",
+    "sellable": true,
+    "stackable": false,
+    "itemCost": "10",
+    "weight": "2",
+    "interactName": "Equip",
+    "craftable": true,
+    "quantity": "0",
+    "effectStats": false,
+    "woodPower": "1",
+    "stonePower": "1",
+    "ironPower": "0",    
+    "rotation_x": "90",
+    "rotation_y": "0",
+    "rotation_z": "0",
+    "position_x": "-.078",
+    "position_y": ".031",
+    "position_z": ".07",
+    "animationKey": "swordEquipped",
+    "stats": [
+      {
+        "type": "Attack",
+        "baseValue": 48,
+        "name": "Attack Damage",
+        "discription": "This does damage"
+      },
+      {
+        "type": "Defense",
+        "baseValue": 0,
+        "name": "Defense (armor op)",
+        "discription": "This prevents damage"
+      },
+      {
+        "type": "Constitution",
+        "baseValue": 0,
+        "name": "Constution (health)",
+        "discription": "How much raw damage you can take"
+      },
+      {
+        "type": "Vitality",
+        "baseValue": 0,
+        "name": "Vitality (energy)",
+        "discription": "Determines crit"
+      }
+    ]
+  },
+  {
+    "name": "Wooden Axe Recipe", 
+    "itemDescription": "Make a wooden axe using 1 wood and another 2 wood. If you're not great at math, you're going to need 3 wood.",
+    "itemType": "Craftable", 
+    "sellable": true, 
+    "stackable": true, 
+    "itemCost": "3", 
+    "weight": "3", 
+    "interactName": "TEST", 
+    "craftable": true, 
+    "quantity": "0", 
+    "effectsStats": false,
+    "Item1" : "Wood",
+    "Item2": "Wood",
+    "quantity1": "3",
+    "quantity2": "0",
+    "Item3" : "Wooden Axe"
+  }, 
+  {
+    "name": "Wooden Axe",
+    "itemDescription": "Trees cry in terror at the irony of chopping them with a wooden axe.",
+    "itemType": "Weapon",
+    "sellable": true,
+    "stackable": false,
+    "itemCost": "10",
+    "weight": "2",
+    "interactName": "Equip",
+    "craftable": true,
+    "quantity": "0",
+    "effectStats": false,
+    "woodPower": "2",
+    "stonePower": "1",
+    "ironPower": "0",
+    "rotation_x": "-166.201",
+    "rotation_y": "180",
+    "rotation_z": "-130",
+    "position_x": "-.096",
+    "position_y": ".145",
+    "position_z": ".39",
+    "animationKey": "axeEquipped",
+    "stats": [
+      {
+        "type": "Attack",
+        "baseValue": 45,
+        "name": "Attack Damage",
+        "discription": "This does damage"
+      },
+      {
+        "type": "Defense",
+        "baseValue": 0,
+        "name": "Defense (armor op)",
+        "discription": "This prevents damage"
+      },
+      {
+        "type": "Constitution",
+        "baseValue": 0,
+        "name": "Constution (health)",
+        "discription": "How much raw damage you can take"
+      },
+      {
+        "type": "Vitality",
+        "baseValue": 0,
+        "name": "Vitality (energy)",
+        "discription": "Determines crit"
+      }
+    ]
+  },
+  {
+    "name": "Stone Axe Recipe", 
+    "itemDescription": "Make a stone axe from 2 wood and 1 stone.",
+    "itemType": "Craftable", 
+    "sellable": true, 
+    "stackable": true, 
+    "itemCost": "3", 
+    "weight": "3", 
+    "interactName": "TEST", 
+    "craftable": true, 
+    "quantity": "0", 
+    "effectsStats": false,
+    "Item1" : "Stone",
+    "Item2": "Wood",
+    "quantity1": "1",
+    "quantity2": "2",
+    "Item3" : "Stone Axe"
+  }, 
+  {
+    "name": "Stone Axe",
+    "itemDescription": "A stone axe for felling trees and goblins.",
+    "itemType": "Weapon",
+    "sellable": true,
+    "stackable": false,
+    "itemCost": "10",
+    "weight": "2",
+    "interactName": "Equip",
+    "craftable": true,
+    "quantity": "0",
+    "effectStats": false,
+    "woodPower": "2",
+    "stonePower": "1",
+    "ironPower": "0",    
+    "rotation_x": "-166.201",
+    "rotation_y": "180",
+    "rotation_z": "-130",
+    "position_x": "-.096",
+    "position_y": ".145",
+    "position_z": ".39",
+    "animationKey": "axeEquipped",
+    "stats": [
+      {
+        "type": "Attack",
+        "baseValue": 55,
+        "name": "Attack Damage",
+        "discription": "This does damage"
+      },
+      {
+        "type": "Defense",
+        "baseValue": 0,
+        "name": "Defense (armor op)",
+        "discription": "This prevents damage"
+      },
+      {
+        "type": "Constitution",
+        "baseValue": 0,
+        "name": "Constution (health)",
+        "discription": "How much raw damage you can take"
+      },
+      {
+        "type": "Vitality",
+        "baseValue": 0,
+        "name": "Vitality (energy)",
+        "discription": "Determines crit"
+      }
+    ]
+  },
+  {
+    "name": "Iron Axe Recipe", 
+    "itemDescription": "Make a iron axe from 2 wood and 1 iron.",
+    "itemType": "Craftable", 
+    "sellable": true, 
+    "stackable": true, 
+    "itemCost": "3", 
+    "weight": "3", 
+    "interactName": "TEST", 
+    "craftable": true, 
+    "quantity": "0", 
+    "effectsStats": false,
+    "Item1" : "Iron",
+    "Item2": "Wood",
+    "quantity1": "1",
+    "quantity2": "2",
+    "Item3" : "Iron Axe"
+  }, 
+  {
+    "name": "Iron Axe",
+    "itemDescription": "A iron axe for felling trees and goblins.",
+    "itemType": "Weapon",
+    "sellable": true,
+    "stackable": false,
+    "itemCost": "10",
+    "weight": "2",
+    "interactName": "Equip",
+    "craftable": true,
+    "quantity": "0",
+    "effectStats": false,
+    "woodPower": "3",
+    "stonePower": "1",
+    "ironPower": "0",
+    "rotation_x": "-166.201",
+    "rotation_y": "180",
+    "rotation_z": "-130",
+    "position_x": "-.096",
+    "position_y": ".145",
+    "position_z": ".39",
+    "animationKey": "axeEquipped",
+    "stats": [
+      {
+        "type": "Attack",
+        "baseValue": 61,
+        "name": "Attack Damage",
+        "discription": "This does damage"
+      },
+      {
+        "type": "Defense",
+        "baseValue": 0,
+        "name": "Defense (armor op)",
+        "discription": "This prevents damage"
+      },
+      {
+        "type": "Constitution",
+        "baseValue": 0,
+        "name": "Constution (health)",
+        "discription": "How much raw damage you can take"
+      },
+      {
+        "type": "Vitality",
+        "baseValue": 0,
+        "name": "Vitality (energy)",
+        "discription": "Determines crit"
+      }
+    ]
+  },
+  {
+    "name": "Wooden 2 Handed Sword Recipe", 
+    "itemDescription": "Make a sword that is 2 handed from 4 wood.",
+    "itemType": "Craftable", 
+    "sellable": true, 
+    "stackable": true, 
+    "itemCost": "3", 
+    "weight": "3", 
+    "interactName": "TEST", 
+    "craftable": true, 
+    "quantity": "0", 
+    "effectsStats": false,
+    "Item1" : "Wood",
+    "Item2": "Wood",
+    "quantity1": "4",
+    "quantity2": "0",
+    "Item3" : "Wooden 2 Handed Sword"
+  }, 
+  {
+    "name": "Wooden 2 Handed Sword",
+    "itemDescription": "This is a 2 handed sword made of wood.",
+    "itemType": "Weapon",
+    "sellable": true,
+    "stackable": false,
+    "itemCost": "10",
+    "weight": "2",
+    "interactName": "Equip",
+    "craftable": true,
+    "quantity": "0",
+    "effectStats": false,
+    "woodPower": "1",
+    "stonePower": "2",
+    "ironPower": "0",
+    "rotation_x": "-190",
+    "rotation_y": ".891",
+    "rotation_z": "91.712",
+    "position_x": "-.046",
+    "position_y": ".034",
+    "position_z": ".015",
+    "animationKey": "2HEquipped",
+    "stats": [
+      {
+        "type": "Attack",
+        "baseValue": 75,
+        "name": "Attack Damage",
+        "discription": "This does damage"
+      },
+      {
+        "type": "Defense",
+        "baseValue": 0,
+        "name": "Defense (armor op)",
+        "discription": "This prevents damage"
+      },
+      {
+        "type": "Constitution",
+        "baseValue": 0,
+        "name": "Constution (health)",
+        "discription": "How much raw damage you can take"
+      },
+      {
+        "type": "Vitality",
+        "baseValue": 0,
+        "name": "Vitality (energy)",
+        "discription": "Determines crit"
+      }
+    ]
+  },
+  {
+    "name": "Stone 2 Handed Sword Recipe", 
+    "itemDescription": "Make a sword that is 2 handed from 2 wood and 2 stone.",
+    "itemType": "Craftable", 
+    "sellable": true, 
+    "stackable": true, 
+    "itemCost": "3", 
+    "weight": "3", 
+    "interactName": "TEST", 
+    "craftable": true, 
+    "quantity": "0", 
+    "effectsStats": false,
+    "Item1" : "Wood",
+    "Item2": "Stone",
+    "quantity1": "2",
+    "quantity2": "2",
+    "Item3" : "Stone 2 Handed Sword"
+  }, 
+  {
+    "name": "Stone 2 Handed Sword",
+    "itemDescription": "This is a 2 handed sword made of stone.",
+    "itemType": "Weapon",
+    "sellable": true,
+    "stackable": false,
+    "itemCost": "10",
+    "weight": "2",
+    "interactName": "Equip",
+    "craftable": true,
+    "quantity": "0",
+    "effectStats": false,
+    "woodPower": "1",
+    "stonePower": "2",
+    "ironPower": "2",    
+    "rotation_x": "-190",
+    "rotation_y": ".891",
+    "rotation_z": "91.712",
+    "position_x": "-.046",
+    "position_y": ".034",
+    "position_z": ".015",
+    "animationKey": "2HEquipped",
+    "stats": [
+      {
+        "type": "Attack",
+        "baseValue": 85,
+        "name": "Attack Damage",
+        "discription": "This does damage"
+      },
+      {
+        "type": "Defense",
+        "baseValue": 0,
+        "name": "Defense (armor op)",
+        "discription": "This prevents damage"
+      },
+      {
+        "type": "Constitution",
+        "baseValue": 0,
+        "name": "Constution (health)",
+        "discription": "How much raw damage you can take"
+      },
+      {
+        "type": "Vitality",
+        "baseValue": 0,
+        "name": "Vitality (energy)",
+        "discription": "Determines crit"
+      }
+    ]
+  },
+  {
+    "name": "Iron 2 Handed Sword Recipe", 
+    "itemDescription": "Make a sword that is 2 handed from 2 wood and 2 iron.",
+    "itemType": "Craftable", 
+    "sellable": true, 
+    "stackable": true, 
+    "itemCost": "3", 
+    "weight": "3", 
+    "interactName": "TEST", 
+    "craftable": true, 
+    "quantity": "0", 
+    "effectsStats": false,
+    "Item1" : "Wood",
+    "Item2": "Iron",
+    "quantity1": "2",
+    "quantity2": "2",
+    "Item3" : "Iron 2 Handed Sword"
+  }, 
+  {
+    "name": "Iron 2 Handed Sword",
+    "itemDescription": "This is a 2 handed sword made of iron.",
+    "itemType": "Weapon",
+    "sellable": true,
+    "stackable": false,
+    "itemCost": "10",
+    "weight": "2",
+    "interactName": "Equip",
+    "craftable": true,
+    "quantity": "0",
+    "effectStats": false,
+    "woodPower": "2",
+    "stonePower": "3",
+    "ironPower": "3",
+    "rotation_x": "-190",
+    "rotation_y": ".891",
+    "rotation_z": "91.712",
+    "position_x": "-.046",
+    "position_y": ".034",
+    "position_z": ".015",
+    "animationKey": "2HEquipped",
+    "stats": [
+      {
+        "type": "Attack",
+        "baseValue": 92,
+        "name": "Attack Damage",
+        "discription": "This does damage"
+      },
+      {
+        "type": "Defense",
+        "baseValue": 0,
+        "name": "Defense (armor op)",
+        "discription": "This prevents damage"
+      },
+      {
+        "type": "Constitution",
+        "baseValue": 0,
+        "name": "Constution (health)",
+        "discription": "How much raw damage you can take"
+      },
+      {
+        "type": "Vitality",
+        "baseValue": 0,
+        "name": "Vitality (energy)",
+        "discription": "Determines crit"
+      }
+    ]
+  },
+  {
+    "name": "Wood",
+    "itemDescription": "Wood from an old maple tree.",
+    "itemType": "Resource",
+    "sellable": true,
+    "stackable": true,
+    "itemCost": "8",
+    "weight": "0.1",
+    "craftable": false,
+    "quantity": "0",
+    "effectStats": false
+  },
+  {
+    "name": "Stone",
+    "itemDescription": "Stone from an old...rock?.",
+    "itemType": "Resource",
+    "sellable": true,
+    "stackable": true,
+    "itemCost": "8",
+    "weight": "0.1",
+    "craftable": false,
+    "quantity": "0",
+    "effectStats": false
+  },
+  {
+    "name": "Iron",
+    "itemDescription": "Iron that can be used for crafting powerful items.",
+    "itemType": "Resource",
+    "sellable": true,
+    "stackable": true,
+    "itemCost": "8",
+    "weight": "0.1",
+    "craftable": false,
+    "quantity": "0",
+    "effectStats": false
+  },
+  {
+    "name": "Goblin Hide",
+    "itemDescription": "The remains of a poor goblin.",
+    "itemType": "Resource",
+    "sellable": true,
+    "stackable": true,
+    "itemCost": "8",
+    "weight": "0.1",
+    "craftable": false,
+    "quantity": "0",
+    "effectStats": false
+  },
+  {
+    "name": "Vitality Potion Recipe", 
+    "itemDescription": "Make a vitality potion from 2 wood and 2 goblin hides.",
+    "itemType": "Craftable", 
+    "sellable": true, 
+    "stackable": true, 
+    "itemCost": "3", 
+    "weight": "3", 
+    "interactName": "TEST", 
+    "craftable": true, 
+    "quantity": "0", 
+    "effectsStats": false,
+    "Item1" : "Wood",
+    "Item2": "Goblin Hide",
+    "quantity1": "2",
+    "quantity2": "2",
+    "Item3" : "Vitality Potion"
+  }, 
+  {
+    "name": "Vitality Potion",
+    "itemDescription": "This is a simple vitality potion.",
+    "itemType": "Consumable",
+    "sellable": true,
+    "stackable": true,
+    "itemCost": "5",
+    "weight": "0.2",
+    "interactName": "Drink",
+    "craftable": true,
+    "quantity": "0",
+    "effectsStats": false
+  },
+  {
+    "name": "Health Potion Recipe", 
+    "itemDescription": "Make a health potion from 2 stone and 2 goblin hides.",
+    "itemType": "Craftable", 
+    "sellable": true, 
+    "stackable": true, 
+    "itemCost": "3", 
+    "weight": "3", 
+    "interactName": "TEST", 
+    "craftable": true, 
+    "quantity": "0", 
+    "effectsStats": false,
+    "Item1" : "Stone",
+    "Item2": "Goblin Hide",
+    "quantity1": "2",
+    "quantity2": "2",
+    "Item3" : "Health Potion"
+  }, 
+  {
+    "name": "Health Potion",
+    "itemDescription": "This is a simple health potion.",
+    "itemType": "Consumable",
+    "sellable": true,
+    "stackable": true,
+    "itemCost": "5",
+    "weight": "0.2",
+    "interactName": "Drink",
+    "craftable": true,
+    "quantity": "0",
+    "effectsStats": false
+  },
+  {
+    "name": "Attack Potion Recipe", 
+    "itemDescription": "Make an attack potion from 2 iron and 2 goblin hides.",
+    "itemType": "Craftable", 
+    "sellable": true, 
+    "stackable": true, 
+    "itemCost": "3", 
+    "weight": "3", 
+    "interactName": "TEST", 
+    "craftable": true, 
+    "quantity": "0", 
+    "effectsStats": false,
+    "Item1" : "Iron",
+    "Item2": "Goblin Hide",
+    "quantity1": "20",
+    "quantity2": "2",
+    "Item3" : "Attack Potion"
+  }, 
+  {
+    "name": "Attack Potion",
+    "itemDescription": "This is a simple attack potion.",
+    "itemType": "Consumable",
+    "sellable": true,
+    "stackable": true,
+    "itemCost": "5",
+    "weight": "0.2",
+    "interactName": "Drink",
+    "craftable": true,
+    "quantity": "0",
+    "effectsStats": false
+  }
+]
