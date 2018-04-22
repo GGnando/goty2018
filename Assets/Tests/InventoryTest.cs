@@ -19,7 +19,11 @@ public class InventoryTest {
 
         var inv = new GameObject().AddComponent<Inventory>(); //Creates inventory object
 
+<<<<<<< HEAD
         //inv.addTest("TESTITEM", itemDatabase); //Calls inventory method to add item
+=======
+        inv.addTest("Wood", itemDatabase); //Calls inventory method to add item
+>>>>>>> origin/ItemStuff
 
         var items = inv.getItems(); //Gets the list of items in inventory class
 
@@ -27,7 +31,7 @@ public class InventoryTest {
 
         yield return null;  //Waits a second
 
-        Assert.AreEqual(itemInSlot1.name, "TESTITEM"); //Asserts item picked up and item in 1st inv slot are same
+        Assert.AreEqual(itemInSlot1.name, "Wood"); //Asserts item picked up and item in 1st inv slot are same
     }
     
     //Checks to see if 1st slot in inv is empty after adding item, then removing it
@@ -39,9 +43,13 @@ public class InventoryTest {
 
         var inv = new GameObject().AddComponent<Inventory>();
 
+<<<<<<< HEAD
         //inv.addTest("TESTITEM", itemDatabase); //Calls inventory method to add item
+=======
+        inv.addTest("Wood", itemDatabase); //Calls inventory method to add item
+>>>>>>> origin/ItemStuff
 
-        Item item = itemDatabase.getItem("TESTITEM");
+        Item item = itemDatabase.getItem("Wood");
         inv.Remove(item);
 
         var items = inv.getItems(); //Same as above
@@ -71,7 +79,7 @@ public class InventoryTest {
 
         var inv = new GameObject().AddComponent<Inventory>(); //Creates inventory object
 
-        inv.addTest("TESTITEM", itemDatabase); //Calls inventory method to add item
+        inv.addTest("Wood", itemDatabase); //Calls inventory method to add item
 
         int itemCount = inv.items.Count; //Item count for inventory should be 1
 
@@ -89,8 +97,8 @@ public class InventoryTest {
 
         var inv = new GameObject().AddComponent<Inventory>(); //Creates inventory object
 
-        inv.addTest("TESTITEM", itemDatabase); //Calls inventory method to add item
-        inv.addTest("TESTITEM", itemDatabase);
+        inv.addTest("Wood", itemDatabase); //Calls inventory method to add item
+        inv.addTest("Wood", itemDatabase);
 
         bool quantityAndCountUpdated = false; //Will be true if item quantity is 2 after adding 2 of same item and list of items only has 1 item
 
@@ -119,7 +127,7 @@ public class InventoryTest {
 
         for(int i = 0; i < 102; i++)
         {
-            inv.addTest("TESTITEM", itemDatabase); //Calls inventory method to add item
+            inv.addTest("Wood", itemDatabase); //Calls inventory method to add item
         }
 
         stackSize = inv.items[0].quantity;
@@ -128,6 +136,26 @@ public class InventoryTest {
 
         Assert.AreEqual(stackSize, 99); //Asserts item count of item added is 99, not over
     }
+
+  /*  [UnityTest]
+    public IEnumerator CraftingWorks()
+    {
+        var itemDatabase = new GameObject().AddComponent<ItemDatabase>(); //Creates item database and builds it to allow access to items
+        itemDatabase.buildDatabase();
+
+        var inv = new GameObject().AddComponent<Inventory>(); //Creates inventory object
+
+        for(int i = 0; i < 20; i++)
+        {
+            inv.addTest("Wood", itemDatabase); //Calls inventory method to add item
+        }
+
+        stackSize = inv.items[0].quantity;
+
+        yield return null;
+
+        Assert.AreEqual(stackSize, 99); //Asserts item count of item added is 99, not over
+    }*/
 
     //Deletes everything created
     [TearDown]

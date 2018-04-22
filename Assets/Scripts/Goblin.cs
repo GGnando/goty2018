@@ -56,14 +56,9 @@ public class Goblin : MonoBehaviour, IEnemy {
             StartCoroutine(playAndWaitForAnim());
 
         }
- //       else
- //       {
- //           FindObjectOfType<DialogueAudio>().GoblinDamageNoise();
- //       }
     }
     
     private void Die() {
-        FindObjectOfType<DialogueAudio>().GoblinDies();
         DropLoot();
 
         player.GetComponent<Experience>().AddXP(50);

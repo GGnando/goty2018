@@ -131,10 +131,14 @@ public class DialogueManager : MonoBehaviour {
    //     animator.SetBool("IsOpen", false); //set the "IsOPen" parameter to false because we are closing a dialogue
     }
 
+<<<<<<< HEAD
     public void TurnOnButton()
     {
         knightConversation.SetActive(true);
     }
+=======
+
+>>>>>>> origin/ItemStuff
     //Tyler aditions:
     //function used to turn the start conversation for the knight on or off
     public void TylerKnightButtonOnOrOff(int number)

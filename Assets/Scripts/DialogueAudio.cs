@@ -2,24 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueAudio : MonoBehaviour
-{
+public class DialogueAudio : MonoBehaviour {
     public AudioClip pushButton;
     public AudioClip MusicClip;
     public AudioClip MusicClip2;
     public AudioClip GolbinLaugh;
     public AudioClip Swing;
-    public AudioClip goblinDies;
-    public AudioClip woodSound;
-    public AudioClip grassSound;
-    public AudioClip concreteSound;
-    public AudioClip levelUp;
-    public AudioClip goblinTakesDamage;
     public AudioSource MusicSource;
     public AudioSource MusicSource2;
     public AudioSource buttonSource;
-    public AudioSource GoblinSource;
+    public AudioSource GoblinLaughSource;
     public AudioSource SwingSource;
+<<<<<<< HEAD
     public AudioSource RandomSource;
     public AudioSource GoblinDiesSource;
     public AudioSource LevelUpSource;
@@ -27,16 +21,17 @@ public class DialogueAudio : MonoBehaviour
     public AudioSource GoblinDamageNoiseSource;
     public AudioSource playerDamageNoiseSource;
     public AudioSource playerDiesSource;
+=======
+>>>>>>> origin/ItemStuff
 
-    // Use this for initialization
-    void Start()
-    {
+	// Use this for initialization
+	void Start () {
         buttonSource.clip = pushButton;
         MusicSource.clip = MusicClip;
         MusicSource2.clip = MusicClip2;
-        GoblinSource.clip = GolbinLaugh;
+        GoblinLaughSource.clip = GolbinLaugh;
         SwingSource.clip = Swing;
-    }
+	}
 
     // Update is called once per frame
     public void buttonNoise()
@@ -63,9 +58,10 @@ public class DialogueAudio : MonoBehaviour
         int randomNumber = Random.Range(1, 100);
         if (randomNumber < 10)
         {
-            GoblinSource.Play();
+            GoblinLaughSource.Play();
         }
     }
+<<<<<<< HEAD
 
     public void GoblinDies()
     {
@@ -124,4 +120,6 @@ public class DialogueAudio : MonoBehaviour
     {
         playerDiesSource.Play();
     }
+=======
+>>>>>>> origin/ItemStuff
 }

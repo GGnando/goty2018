@@ -22,6 +22,7 @@ public class HarvestResources : MonoBehaviour
     {
         harvestText.enabled = false;
     }
+<<<<<<< HEAD
 
     // Update is called once per frame
     void Update()
@@ -30,6 +31,15 @@ public class HarvestResources : MonoBehaviour
         int mp;
         int ip;
         UpdatePowers();
+=======
+	
+	// Update is called once per frame
+	void Update () {
+        int cp;
+        int mp;
+        int ip;
+		UpdatePowers();
+>>>>>>> origin/ItemStuff
         cp = GetChoppingPower();
         mp = GetMiningPower();
         ip = GetIronPower();
@@ -49,11 +59,18 @@ public class HarvestResources : MonoBehaviour
                         tree.GetComponent<HarvestableTree>().ChopWood(choppingPower);
                         print("Tree has been hit. " + "Its current health is: " + tree.GetComponent<HarvestableTree>().GetTreeHealth());
                         Debug.Log("Power: " + cp);
+<<<<<<< HEAD
                         for (int i = 0; i < cp; i++)
                         {
                             Inventory.instance.Add("Wood");
                         }
                         StartCoroutine(ShowMessage("+" + cp + " Wood", 0.5f));
+=======
+                        for(int i = 0; i < cp; i++){    
+                            Inventory.instance.Add("Wood");
+                        }
+                        StartCoroutine(ShowMessage("+" + cp +" Wood", 0.5f));
+>>>>>>> origin/ItemStuff
                         if (tree.GetComponent<HarvestableTree>().GetTreeHealth() <= 0)
                         {
                             tree.SetActive(false);
@@ -68,6 +85,7 @@ public class HarvestResources : MonoBehaviour
 
                         rock.GetComponent<HarvestableRock>().MineRock(miningPower);
                         print("Rock has been hit. " + "Its current health is: " + rock.GetComponent<HarvestableRock>().GetRockHealth());
+<<<<<<< HEAD
                         for (int i = 0; i < mp; i++)
                         {
                             Inventory.instance.Add("Stone");
@@ -75,6 +93,13 @@ public class HarvestResources : MonoBehaviour
                         }
                         for (int i = 0; i < ip; i++)
                         {
+=======
+                        for(int i = 0; i < mp; i++){    
+                            Inventory.instance.Add("Stone");
+                            StartCoroutine(ShowMessage("+1 Stone", 0.5f));
+                        }
+                        for(int i = 0; i <  ip; i++){
+>>>>>>> origin/ItemStuff
                             Inventory.instance.Add("Iron");
                             StartCoroutine(ShowMessage("+1 Iron", 0.5f));
                         }
@@ -109,10 +134,15 @@ public class HarvestResources : MonoBehaviour
     public int GetIronPower() { return ironPower; }
     public void SetIronPower(int newPower) { ironPower = newPower; }
 
+<<<<<<< HEAD
     public void UpdatePowers()
     {
         if (Inventory.instance.currentWeapon == null)
         {
+=======
+    public void UpdatePowers(){
+        if (Inventory.instance.currentWeapon == null){
+>>>>>>> origin/ItemStuff
             return;
         }
         Debug.Log(Inventory.instance.currentWeapon.name);

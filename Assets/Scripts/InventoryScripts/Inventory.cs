@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     public ConsumablesController consumableController;
     public PlayerWeaponController playerWeaponController;
 
-    Item currentWeapon;
+    public Item currentWeapon;
 
     //Reference to panel that displays item info for each tab inventory
     public InventoryUIDetails ConsumablesDetailsPanel;
@@ -44,6 +44,7 @@ public class Inventory : MonoBehaviour
     {
         /*
         //Testing inventory by adding items if not running unit tests
+<<<<<<< HEAD
             //Add("Wood");
             //Add("Wood");
             //Add("Wood");
@@ -61,6 +62,29 @@ public class Inventory : MonoBehaviour
             Add("Iron Sword Recipe");
             */
         Add("Iron Sword Recipe");
+=======
+        if (SceneManager.GetActiveScene().name == "StartArea")
+        {
+            Add("Wooden Sword Recipe");
+            Add("Stone Sword Recipe");
+            Add("Iron Sword Recipe");
+            Add("Wooden Axe Recipe");
+            Add("Stone Axe Recipe");
+            Add("Iron Axe Recipe");
+            Add("Wooden 2 Handed Sword Recipe");
+            Add("Stone 2 Handed Sword Recipe");
+            Add("Iron 2 Handed Sword Recipe");
+            Add("Vitality Potion Recipe");
+            Add("Health Potion Recipe");
+            Add("Attack Potion Recipe");
+            for(int i = 0; i < 20; i++){
+                Add("Wood");
+                Add("Stone");
+                Add("Iron");
+            }
+        }
+
+>>>>>>> origin/ItemStuff
         consumableController = GetComponent<ConsumablesController>();
         playerWeaponController = GetComponent<PlayerWeaponController>();
         hasSwordBeenAdded = false;
